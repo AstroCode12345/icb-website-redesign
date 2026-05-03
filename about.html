@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — ICB Wayland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-item__icon { width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--green-50); display: flex; align-items: center; justify-content: center; color: var(--green-800); flex-shrink: 0; }
+    .contact-item__label { font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-500); margin-bottom: .2rem; }
+    .contact-item__value { font-size: .95rem; color: var(--gray-700); }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .pillars { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <span>ICB Wayland<span class="nav__logo-sub">Islamic Center of Boston</span></span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link active">About</a></li>
+        <li><a href="prayers.html" class="nav__link">Prayers</a></li>
+        <li><a href="programs.html" class="nav__link">Programs</a></li>
+        <li><a href="school.html" class="nav__link">School</a></li>
+        <li><a href="calendar.html" class="nav__link">Calendar</a></li>
+        <li><a href="youth.html" class="nav__link">Youth</a></li>
+        <li><a href="outreach.html" class="nav__link">Outreach</a></li>
+        <li><a href="resources.html" class="nav__link">Resources</a></li>
+        <li><a href="support.html" class="nav__cta nav__link">Donate</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="about.html" class="nav__link active">About</a>
+      <a href="prayers.html" class="nav__link">Prayers</a>
+      <a href="programs.html" class="nav__link">Programs</a>
+      <a href="school.html" class="nav__link">School</a>
+      <a href="calendar.html" class="nav__link">Calendar</a>
+      <a href="youth.html" class="nav__link">Youth</a>
+      <a href="outreach.html" class="nav__link">Outreach</a>
+      <a href="resources.html" class="nav__link">Resources</a>
+      <a href="support.html" class="nav__cta">Donate</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Our Story</div>
+      <h1 class="page-hero__title">About ICB Wayland</h1>
+      <p class="page-hero__sub">A community rooted in faith, service, and belonging since 1982.</p>
+    </div>
+  </div>
+
+  <!-- Mission -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width:760px;margin-inline:auto;text-align:center;">
+        <span class="section__label">Who We Are</span>
+        <h2 style="margin-bottom:1.25rem;">More Than a Mosque</h2>
+        <p style="font-size:1.05rem;line-height:1.9;color:var(--gray-700);margin-bottom:1rem;">
+          The Islamic Center of Boston in Wayland is a spiritual home for Muslims across eastern Massachusetts. We are dedicated to nurturing faith, building community, and fostering meaningful relationships with our neighbors of all backgrounds.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.9;color:var(--gray-700);">
+          Since our founding, ICB Wayland has grown into a vibrant community center offering daily congregational prayers, a K–10 Sunday school, youth programming, interfaith outreach, and charitable initiatives. We welcome visitors, students, researchers, and anyone seeking to learn about Islam.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Our Commitments</span>
+        <h2 class="section__title">What We Stand For</h2>
+      </div>
+      <div class="pillars">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="info-card__title">Faith & Worship</h3>
+          <p class="info-card__body">We provide a welcoming space for daily congregational prayers, Friday Jumu'ah, Ramadan programs, Eid celebrations, and other Islamic observances throughout the year.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="info-card__title">Community Building</h3>
+          <p class="info-card__body">From youth programs to community dinners, we create spaces where families connect, friendships deepen, and everyone feels they belong.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 class="info-card__title">Interfaith Outreach</h3>
+          <p class="info-card__body">We actively engage with neighbors, schools, and institutions across eastern Massachusetts through visits, speaker programs, and collaborative community initiatives.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="info-card__title">Islamic Education</h3>
+          <p class="info-card__body">Our Sunday school serves students in grades K–10 with a curriculum designed to develop knowledgeable, confident, and compassionate American Muslims.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="info-card__title">Service & Charity</h3>
+          <p class="info-card__body">We believe in giving back. Through fundraisers, humanitarian walks, and local partnerships, we work to make a positive difference beyond our walls.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3 class="info-card__title">Youth Development</h3>
+          <p class="info-card__body">We invest in the next generation through youth group activities, college scholarships, and mentorship programs that prepare young Muslims to lead with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media & Recognition -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">In the Community</span>
+        <h2 class="section__title">A Recognized Community Presence</h2>
+        <p class="section__subtitle">ICB Wayland has been featured in local and regional media for its commitment to interfaith dialogue and community service.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+          </div>
+          <h3 class="info-card__title">Media Coverage</h3>
+          <p class="info-card__body">Featured in numerous news articles from 2015–2026 highlighting ICB's positive relationships with local organizations, schools, and town leadership.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="info-card__title">Muhsen Partnership</h3>
+          <p class="info-card__body">ICB Wayland proudly partners with Muhsen, an organization dedicated to including individuals with disabilities in the Muslim community.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3 class="info-card__title">Interfaith Relations</h3>
+          <p class="info-card__body">Long-standing relationships with synagogues, churches, and civic organizations throughout eastern Massachusetts. We believe in neighborly dialogue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Reach Out</span>
+        <h2 class="section__title">Contact Us</h2>
+        <p class="section__subtitle">We'd love to hear from you. Whether you're a community member, a visitor, or a researcher, we're here to help.</p>
+      </div>
+      <div class="contact-grid">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-item__label">Address</div>
+              <div class="contact-item__value">126 Boston Post Road<br>Wayland, MA 01778</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-item__label">General Inquiries</div>
+              <div class="contact-item__value"><a href="mailto:webmaster@icbwayland.org" style="color:var(--green-700);">webmaster@icbwayland.org</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item__label">Facebook</div>
+              <div class="contact-item__value"><a href="https://www.facebook.com/icbwayland" target="_blank" rel="noopener" style="color:var(--green-700);">facebook.com/icbwayland</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-item__label">YouTube</div>
+              <div class="contact-item__value"><a href="https://www.youtube.com/@icbwayland" target="_blank" rel="noopener" style="color:var(--green-700);">youtube.com/@icbwayland</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="info-card" style="align-self:start;">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="info-card__title">Visit Hours</h3>
+          <p class="info-card__body">
+            <strong>Daily Prayers:</strong> Open to all for all five daily prayers.<br><br>
+            <strong>Sunday School:</strong> Sep – June, Sundays 12:30–1:30 PM<br><br>
+            <strong>Friday Prayer:</strong> Fridays 12:45 PM – 2:00 PM<br><br>
+            <strong>Weekday Visits:</strong> By appointment, 9 AM – 4 PM
+          </p>
+          <a href="outreach.html" class="btn btn--primary" style="margin-top:1rem;">Request a Visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">Islamic Center of Boston</div>
+          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors in Wayland, MA since 1982.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigate</div>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="prayers.html" class="footer__link">Prayer Times</a>
+            <a href="calendar.html" class="footer__link">Calendar</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Programs</div>
+          <div class="footer__links">
+            <a href="programs.html" class="footer__link">All Programs</a>
+            <a href="school.html" class="footer__link">Sunday School</a>
+            <a href="youth.html" class="footer__link">Youth Group</a>
+            <a href="outreach.html" class="footer__link">Outreach</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Get Involved</div>
+          <div class="footer__links">
+            <a href="support.html" class="footer__link">Donate</a>
+            <a href="support.html#membership" class="footer__link">Membership</a>
+            <a href="about.html#contact" class="footer__link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2001–2026 Islamic Center of Boston, Wayland, MA.</span>
+        <span>Last updated April 17, 2026</span>
+      </div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

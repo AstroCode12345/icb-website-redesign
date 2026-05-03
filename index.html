@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Islamic Center of Boston — Wayland, MA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ======= NAV ======= -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <span>
+          ICB Wayland
+          <span class="nav__logo-sub">Islamic Center of Boston</span>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link active">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="prayers.html" class="nav__link">Prayers</a></li>
+        <li><a href="programs.html" class="nav__link">Programs</a></li>
+        <li><a href="school.html" class="nav__link">School</a></li>
+        <li><a href="calendar.html" class="nav__link">Calendar</a></li>
+        <li><a href="youth.html" class="nav__link">Youth</a></li>
+        <li><a href="outreach.html" class="nav__link">Outreach</a></li>
+        <li><a href="resources.html" class="nav__link">Resources</a></li>
+        <li><a href="support.html" class="nav__cta nav__link">Donate</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link active">Home</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="prayers.html" class="nav__link">Prayers</a>
+      <a href="programs.html" class="nav__link">Programs</a>
+      <a href="school.html" class="nav__link">School</a>
+      <a href="calendar.html" class="nav__link">Calendar</a>
+      <a href="youth.html" class="nav__link">Youth</a>
+      <a href="outreach.html" class="nav__link">Outreach</a>
+      <a href="resources.html" class="nav__link">Resources</a>
+      <a href="support.html" class="nav__cta">Donate</a>
+    </div>
+  </nav>
+
+  <!-- ======= ANNOUNCEMENT BANNER (shown only when content.js has announcement.show = true) ======= -->
+  <div data-announcement style="display:none;background:var(--gold-500);color:var(--white);text-align:center;padding:.6rem 1rem;font-size:.9rem;font-weight:600;"></div>
+
+  <!-- ======= PRAYER BAR ======= -->
+  <div class="prayer-bar">
+    <div class="container">
+      <div class="prayer-bar__inner">
+        <span class="prayer-bar__label">Today's Iqamah</span>
+        <div class="prayer-bar__times">
+          <div class="prayer-time">
+            <span class="prayer-time__name">Fajr</span>
+            <span class="prayer-time__value" data-prayer="fajr">5:30 AM</span>
+          </div>
+          <div class="prayer-time">
+            <span class="prayer-time__name">Zuhr</span>
+            <span class="prayer-time__value" data-prayer="zuhr">1:30 PM</span>
+          </div>
+          <div class="prayer-time">
+            <span class="prayer-time__name">Asr</span>
+            <span class="prayer-time__value" data-prayer="asr">5:45 PM</span>
+          </div>
+          <div class="prayer-time">
+            <span class="prayer-time__name">Maghrib</span>
+            <span class="prayer-time__value" data-prayer="maghrib">7:40 PM</span>
+          </div>
+          <div class="prayer-time">
+            <span class="prayer-time__name">Isha</span>
+            <span class="prayer-time__value" data-prayer="isha">9:00 PM</span>
+          </div>
+          <div class="prayer-time">
+            <span class="prayer-time__name">Jumu'ah</span>
+            <span class="prayer-time__value" data-prayer="jumuah">1:30 PM</span>
+          </div>
+        </div>
+        <a href="prayers.html" class="prayer-bar__link">Full schedule →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero">
+    <div class="hero__pattern"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.09 8.26L2 9.27l5 4.87-1.18 6.88L12 17.77l6.18 3.25L17 14.14l5-4.87-7.09-1.01L12 2z"/></svg>
+          Wayland, Massachusetts
+        </span>
+        <h1 class="hero__title">Welcome to the Islamic Center of Boston</h1>
+        <p class="hero__subtitle">A welcoming community for worship, learning, and service in the heart of Wayland since 1982.</p>
+        <div class="hero__actions">
+          <a href="about.html" class="btn btn--gold">Learn About Us</a>
+          <a href="prayers.html" class="btn btn--outline">Prayer Times</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= STATS ======= -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat">
+          <div class="stat__value">1982</div>
+          <div class="stat__label">Founded</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">5×</div>
+          <div class="stat__label">Daily Prayers</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">K–10</div>
+          <div class="stat__label">Sunday School</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">25+</div>
+          <div class="stat__label">Years of Outreach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= UPCOMING EVENTS ======= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">What's Coming</span>
+        <h2 class="section__title">Upcoming Events</h2>
+        <p class="section__subtitle">Join us for community programs, learning, and service opportunities.</p>
+      </div>
+      <div class="events-grid" data-events-container>
+        <!-- Populated automatically from content.js -->
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="calendar.html" class="btn btn--outline">View Full Calendar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= QUICK LINKS ======= -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Quick Access</span>
+        <h2 class="section__title">How Can We Help?</h2>
+      </div>
+      <div class="quicklinks">
+        <a href="school.html" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <span class="quicklink__label">Sunday School</span>
+        </a>
+        <a href="support.html" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <span class="quicklink__label">Donate</span>
+        </a>
+        <a href="support.html#membership" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="quicklink__label">Membership</span>
+        </a>
+        <a href="services.html" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <span class="quicklink__label">Book Facility</span>
+        </a>
+        <a href="calendar.html" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="quicklink__label">Event Calendar</span>
+        </a>
+        <a href="support.html#scholarship" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="quicklink__label">Scholarship</span>
+        </a>
+        <a href="outreach.html" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <span class="quicklink__label">Visit / Speaker</span>
+        </a>
+        <a href="about.html#contact" class="quicklink">
+          <div class="quicklink__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.1 19.79 19.79 0 0 1 1.61 2.5 2 2 0 0 1 3.58.32h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.4 6.4l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <span class="quicklink__label">Contact ICB</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= ABOUT SNIPPET ======= -->
+  <section class="section">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-split__visual" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10 L90 50 L50 90 L10 50 Z" stroke="white" stroke-width="2"/>
+            <path d="M50 20 L80 50 L50 80 L20 50 Z" stroke="white" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="10" stroke="white" stroke-width="2"/>
+            <path d="M50 5 L50 15 M95 50 L85 50 M50 95 L50 85 M5 50 L15 50" stroke="white" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="about-split__label">Who We Are</div>
+          <h2 class="about-split__title">A Center for Faith, Community, and Connection</h2>
+          <p class="about-split__body">
+            The Islamic Center of Boston in Wayland has served as a spiritual home and community anchor for Muslims in eastern Massachusetts since 1982. We offer daily congregational prayers, Sunday Islamic school for children, community programs, interfaith outreach, and a welcoming space for all.
+          </p>
+          <p class="about-split__body">
+            We are committed to developing confident, compassionate American Muslims who are grounded in faith and engaged with the wider community.
+          </p>
+          <div class="about-split__actions">
+            <a href="about.html" class="btn btn--primary">Learn More</a>
+            <a href="outreach.html" class="btn btn--outline">Plan a Visit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= QURANIC VERSE ======= -->
+  <div class="verse-banner">
+    <div class="container">
+      <p class="verse-banner__quote">"O mankind! Lo! We have created you from male and female, and have made you nations and tribes that you may know one another. Verily the most honourable of you in the sight of Allah is the best in conduct."</p>
+      <div class="verse-banner__ref">— Quran 49:13</div>
+    </div>
+  </div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">Islamic Center of Boston</div>
+          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors in Wayland, MA since 1982.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/icbwayland" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@icbwayland" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--green-900)"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Visit Us</div>
+          <div class="footer__links">
+            <span class="footer__link">126 Boston Post Road</span>
+            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="prayers.html" class="footer__link">Prayer Times</a>
+            <a href="services.html" class="footer__link">Facilities</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Programs</div>
+          <div class="footer__links">
+            <a href="programs.html" class="footer__link">All Programs</a>
+            <a href="school.html" class="footer__link">Sunday School</a>
+            <a href="youth.html" class="footer__link">Youth Group</a>
+            <a href="outreach.html" class="footer__link">Outreach</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Get Involved</div>
+          <div class="footer__links">
+            <a href="support.html" class="footer__link">Donate</a>
+            <a href="support.html#membership" class="footer__link">Membership</a>
+            <a href="support.html#scholarship" class="footer__link">Scholarship</a>
+            <a href="about.html#contact" class="footer__link">Contact Us</a>
+            <a href="mailto:webmaster@icbwayland.org" class="footer__link">Webmaster</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2001–2026 Islamic Center of Boston, Wayland, MA. All rights reserved.</span>
+        <span>Last updated April 17, 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

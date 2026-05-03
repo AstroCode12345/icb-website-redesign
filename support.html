@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Us — ICB Wayland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .donate-hero { background: linear-gradient(135deg, var(--green-900), var(--green-700)); border-radius: var(--radius-lg); padding: 2rem 2.5rem; color: var(--white); text-align: center; margin-bottom: 2rem; }
+    .donate-hero h2 { color: var(--white); margin-bottom: .75rem; }
+    .donate-hero p { color: rgba(255,255,255,.8); max-width: 48ch; margin-inline: auto; margin-bottom: 1.75rem; }
+    .donate-amounts { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .amount-btn { padding: .6rem 1.4rem; border-radius: var(--radius-full); border: 2px solid rgba(255,255,255,.4); color: var(--white); font-weight: 600; font-size: .9rem; cursor: pointer; transition: all var(--transition); background: transparent; }
+    .amount-btn:hover, .amount-btn.selected { background: var(--white); color: var(--green-900); border-color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <span>ICB Wayland<span class="nav__logo-sub">Islamic Center of Boston</span></span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="prayers.html" class="nav__link">Prayers</a></li>
+        <li><a href="programs.html" class="nav__link">Programs</a></li>
+        <li><a href="school.html" class="nav__link">School</a></li>
+        <li><a href="calendar.html" class="nav__link">Calendar</a></li>
+        <li><a href="youth.html" class="nav__link">Youth</a></li>
+        <li><a href="outreach.html" class="nav__link">Outreach</a></li>
+        <li><a href="resources.html" class="nav__link">Resources</a></li>
+        <li><a href="support.html" class="nav__cta nav__link">Donate</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="prayers.html" class="nav__link">Prayers</a>
+      <a href="programs.html" class="nav__link">Programs</a>
+      <a href="school.html" class="nav__link">School</a>
+      <a href="calendar.html" class="nav__link">Calendar</a>
+      <a href="youth.html" class="nav__link">Youth</a>
+      <a href="outreach.html" class="nav__link">Outreach</a>
+      <a href="resources.html" class="nav__link">Resources</a>
+      <a href="support.html" class="nav__cta">Donate</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Give Back</div>
+      <h1 class="page-hero__title">Support ICB Wayland</h1>
+      <p class="page-hero__sub">Your generosity keeps our doors open, our programs running, and our community thriving.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="donate-hero">
+        <h2>Make a Donation</h2>
+        <p>Every contribution — large or small — sustains our prayer space, education programs, outreach initiatives, and community services.</p>
+        <div class="donate-amounts">
+          <button class="amount-btn">$18</button>
+          <button class="amount-btn selected">$36</button>
+          <button class="amount-btn">$72</button>
+          <button class="amount-btn">$108</button>
+          <button class="amount-btn">Other</button>
+        </div>
+        <a href="https://icbwayland.org/donate" target="_blank" rel="noopener" class="btn btn--gold" style="font-size:1rem;padding:.85rem 2.5rem;">Donate Now</a>
+      </div>
+
+      <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--gray-900);margin-bottom:1.5rem;">Ways to Give</h3>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h3 class="info-card__title">Online Donation</h3>
+          <p class="info-card__body">Donate securely online via credit card, debit card, or ACH bank transfer. One-time or recurring monthly giving options are available.</p>
+          <a href="https://icbwayland.org/donate" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:1rem;font-size:.85rem;">Give Online</a>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="info-card__title">Sadaqah & Zakat</h3>
+          <p class="info-card__body">ICB Wayland accepts Zakat and Sadaqah donations. Your Zakat helps support eligible community members and charitable causes in accordance with Islamic guidelines.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <h3 class="info-card__title">In-Kind & Waqf</h3>
+          <p class="info-card__body">Interested in donating goods, services, or establishing an endowment (waqf)? Contact us to discuss how your contribution can create a lasting legacy.</p>
+          <a href="mailto:webmaster@icbwayland.org" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Contact Us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section class="section section--alt" id="membership">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Join Our Community</span>
+        <h2 class="section__title">Become a Member</h2>
+        <p class="section__subtitle">Membership supports ICB's operations and programs while connecting you more deeply to the community.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="info-card__title">Individual Membership</h3>
+          <p class="info-card__body">For individual Muslims who want to be part of the ICB family, support the mosque, and participate in community decision-making.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="info-card__title">Family Membership</h3>
+          <p class="info-card__body">Covers your entire household and includes Sunday school enrollment benefits. The most popular option for families with children.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="info-card__title">Why Membership Matters</h3>
+          <p class="info-card__body">Membership funds directly support daily operations, facility maintenance, staff, and community programs that benefit everyone who walks through our doors.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="https://icbwayland.org/membership" target="_blank" rel="noopener" class="btn btn--primary">Apply for Membership</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scholarship -->
+  <section class="section" id="scholarship">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Education</span>
+        <h2 class="section__title">College Merit Scholarship</h2>
+        <p class="section__subtitle">ICB Wayland annually awards merit-based scholarships to outstanding Muslim students pursuing higher education.</p>
+      </div>
+      <div style="max-width:680px;margin-inline:auto;">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3 class="info-card__title">About the Scholarship</h3>
+          <p class="info-card__body">The ICB Wayland College Merit Scholarship recognizes academic excellence and community involvement among Muslim students. Applications open annually. Eligibility requirements and application details are available through the link below.</p>
+          <a href="https://icbwayland.org/scholarship" target="_blank" rel="noopener" class="btn btn--gold" style="margin-top:1.25rem;">View & Apply</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">Islamic Center of Boston</div>
+          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors in Wayland, MA since 1982.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigate</div>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="prayers.html" class="footer__link">Prayer Times</a>
+            <a href="calendar.html" class="footer__link">Calendar</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Programs</div>
+          <div class="footer__links">
+            <a href="programs.html" class="footer__link">All Programs</a>
+            <a href="school.html" class="footer__link">Sunday School</a>
+            <a href="youth.html" class="footer__link">Youth Group</a>
+            <a href="outreach.html" class="footer__link">Outreach</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Get Involved</div>
+          <div class="footer__links">
+            <a href="support.html" class="footer__link">Donate</a>
+            <a href="support.html#membership" class="footer__link">Membership</a>
+            <a href="about.html#contact" class="footer__link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2001–2026 Islamic Center of Boston, Wayland, MA.</span>
+        <span>Last updated April 17, 2026</span>
+      </div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

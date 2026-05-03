@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunday School — ICB Wayland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .subject-card { border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--gray-100); }
+    .subject-card--arabic { background: var(--green-50); border-color: var(--green-100); }
+    .subject-card--religion { background: var(--gold-100); border-color: #f0d9a8; }
+    .subject-card__label { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .5rem; }
+    .subject-card--arabic .subject-card__label { color: var(--green-700); }
+    .subject-card--religion .subject-card__label { color: var(--gold-600); }
+    .subject-card h3 { margin-bottom: .75rem; }
+    .subject-card p { font-size: .9rem; color: var(--gray-600); line-height: 1.7; }
+    .portal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .portal-btn { display: flex; flex-direction: column; align-items: center; gap: .5rem; padding: 1.5rem 1rem; background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-md); text-align: center; transition: all var(--transition); box-shadow: var(--shadow-sm); font-weight: 600; font-size: .9rem; color: var(--green-800); }
+    .portal-btn:hover { border-color: var(--green-600); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .portal-btn svg { color: var(--green-700); }
+    @media (max-width: 768px) { .curriculum-grid { grid-template-columns: 1fr; } .portal-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <span>ICB Wayland<span class="nav__logo-sub">Islamic Center of Boston</span></span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="prayers.html" class="nav__link">Prayers</a></li>
+        <li><a href="programs.html" class="nav__link">Programs</a></li>
+        <li><a href="school.html" class="nav__link active">School</a></li>
+        <li><a href="calendar.html" class="nav__link">Calendar</a></li>
+        <li><a href="youth.html" class="nav__link">Youth</a></li>
+        <li><a href="outreach.html" class="nav__link">Outreach</a></li>
+        <li><a href="resources.html" class="nav__link">Resources</a></li>
+        <li><a href="support.html" class="nav__cta nav__link">Donate</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="prayers.html" class="nav__link">Prayers</a>
+      <a href="programs.html" class="nav__link">Programs</a>
+      <a href="school.html" class="nav__link active">School</a>
+      <a href="calendar.html" class="nav__link">Calendar</a>
+      <a href="youth.html" class="nav__link">Youth</a>
+      <a href="outreach.html" class="nav__link">Outreach</a>
+      <a href="resources.html" class="nav__link">Resources</a>
+      <a href="support.html" class="nav__cta">Donate</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Education</div>
+      <h1 class="page-hero__title">Sunday Islamic School</h1>
+      <p class="page-hero__sub">Nurturing confident, compassionate American Muslims through faith-centered education — grades K through 10.</p>
+    </div>
+  </div>
+
+  <!-- Mission -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width:720px;margin-inline:auto;text-align:center;margin-bottom:3rem;">
+        <span class="section__label">Our Mission</span>
+        <h2 style="margin-bottom:1rem;">Rooted in Faith, Ready for the World</h2>
+        <p style="font-size:1rem;line-height:1.9;color:var(--gray-700);">
+          Our Sunday school aims to develop students who are grounded in Islamic values, intellectually curious, and engaged with their communities. We create an inclusive, inquiry-friendly environment that celebrates diverse perspectives while building a strong foundation in faith.
+        </p>
+      </div>
+
+      <div class="curriculum-grid">
+        <div class="subject-card subject-card--arabic">
+          <div class="subject-card__label">Subject 1</div>
+          <h3>Islamic Arabic</h3>
+          <p>Students build familiarity with the Arabic language and develop a deep appreciation for the Quran through memorization and translation. Advanced students explore tafsir — the interpretation and exegesis of Quranic verses — to understand the deeper meanings of the text.</p>
+        </div>
+        <div class="subject-card subject-card--religion">
+          <div class="subject-card__label">Subject 2</div>
+          <h3>Religion</h3>
+          <p>Designed to cultivate both emotional and intellectual connections to Islam, Religion classes use group activities and student-centered learning to explore Islamic history, values, and practice. Students also build meaningful social bonds with peers in a supportive environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Schedule & Access</span>
+        <h2 class="section__title">School Details</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="info-card__title">Schedule</h3>
+          <p class="info-card__body">Classes run <strong>Sundays, September through early June</strong>. Each student attends two weekly classes: Islamic Arabic and Religion. Zuhr prayer is held at 12:30 PM for all students and families.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="info-card__title">Who Can Enroll</h3>
+          <p class="info-card__body">Sunday school is open to students in <strong>grades K through 10</strong>. Families do not need to be ICB members to enroll, though membership is encouraged and provides additional benefits.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <h3 class="info-card__title">Documents</h3>
+          <p class="info-card__body">Parent guidelines and detailed curriculum documents for both Islamic Arabic and Religion classes are available upon request or through the SunWebApp parent portal after enrollment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portals -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Quick Links</span>
+        <h2 class="section__title">School Portals & Resources</h2>
+      </div>
+      <div class="portal-grid">
+        <a href="https://icbwayland.org/school/admission" target="_blank" rel="noopener" class="portal-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          Admission
+        </a>
+        <a href="https://icbwayland.org/school/parent-portal" target="_blank" rel="noopener" class="portal-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Parent Portal
+        </a>
+        <a href="https://icbwayland.org/school/teacher-portal" target="_blank" rel="noopener" class="portal-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Teacher Portal
+        </a>
+        <a href="calendar.html" class="portal-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          School Calendar
+        </a>
+        <a href="support.html#scholarship" class="portal-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Scholarship
+        </a>
+        <a href="about.html#contact" class="portal-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact School
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">Islamic Center of Boston</div>
+          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors in Wayland, MA since 1982.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigate</div>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="prayers.html" class="footer__link">Prayer Times</a>
+            <a href="calendar.html" class="footer__link">Calendar</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Programs</div>
+          <div class="footer__links">
+            <a href="programs.html" class="footer__link">All Programs</a>
+            <a href="school.html" class="footer__link">Sunday School</a>
+            <a href="youth.html" class="footer__link">Youth Group</a>
+            <a href="outreach.html" class="footer__link">Outreach</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Get Involved</div>
+          <div class="footer__links">
+            <a href="support.html" class="footer__link">Donate</a>
+            <a href="support.html#membership" class="footer__link">Membership</a>
+            <a href="about.html#contact" class="footer__link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2001–2026 Islamic Center of Boston, Wayland, MA.</span>
+        <span>Last updated April 17, 2026</span>
+      </div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

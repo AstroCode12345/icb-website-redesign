@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — ICB Wayland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .resource-list { display: flex; flex-direction: column; gap: .75rem; }
+    .resource-item {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--white); border: 1px solid var(--gray-100);
+      border-radius: var(--radius-md); padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-sm); transition: all var(--transition);
+    }
+    .resource-item:hover { border-color: var(--green-600); box-shadow: var(--shadow-md); transform: translateX(4px); }
+    .resource-item__icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--green-50); display: flex; align-items: center; justify-content: center; color: var(--green-800); flex-shrink: 0; }
+    .resource-item__body { flex: 1; }
+    .resource-item__title { font-weight: 600; font-size: .95rem; color: var(--gray-900); }
+    .resource-item__desc { font-size: .82rem; color: var(--gray-500); margin-top: .1rem; }
+    .resource-item__arrow { color: var(--gray-400); transition: color var(--transition); }
+    .resource-item:hover .resource-item__arrow { color: var(--green-700); }
+    .faq-item { border-bottom: 1px solid var(--gray-100); padding: 1.25rem 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { font-weight: 600; font-size: .95rem; color: var(--gray-900); margin-bottom: .5rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; }
+    .faq-answer { font-size: .9rem; color: var(--gray-600); line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <span>ICB Wayland<span class="nav__logo-sub">Islamic Center of Boston</span></span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="prayers.html" class="nav__link">Prayers</a></li>
+        <li><a href="programs.html" class="nav__link">Programs</a></li>
+        <li><a href="school.html" class="nav__link">School</a></li>
+        <li><a href="calendar.html" class="nav__link">Calendar</a></li>
+        <li><a href="youth.html" class="nav__link">Youth</a></li>
+        <li><a href="outreach.html" class="nav__link">Outreach</a></li>
+        <li><a href="resources.html" class="nav__link active">Resources</a></li>
+        <li><a href="support.html" class="nav__cta nav__link">Donate</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="prayers.html" class="nav__link">Prayers</a>
+      <a href="programs.html" class="nav__link">Programs</a>
+      <a href="school.html" class="nav__link">School</a>
+      <a href="calendar.html" class="nav__link">Calendar</a>
+      <a href="youth.html" class="nav__link">Youth</a>
+      <a href="outreach.html" class="nav__link">Outreach</a>
+      <a href="resources.html" class="nav__link active">Resources</a>
+      <a href="support.html" class="nav__cta">Donate</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Learn More</div>
+      <h1 class="page-hero__title">Resources</h1>
+      <p class="page-hero__sub">Educational materials, guides, and tools for community members, visitors, and researchers.</p>
+    </div>
+  </div>
+
+  <!-- About Islam -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col" style="gap:3rem;">
+
+        <div>
+          <span class="section__label">For Visitors & Students</span>
+          <h2 style="margin-bottom:1.5rem;">About Islam & Muslims</h2>
+          <div class="resource-list">
+            <a href="https://icbwayland.org/resources/about-islam" target="_blank" rel="noopener" class="resource-item">
+              <div class="resource-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="resource-item__body">
+                <div class="resource-item__title">Introduction to Islam</div>
+                <div class="resource-item__desc">Core beliefs, practices, and history of the Islamic faith</div>
+              </div>
+              <svg class="resource-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="https://icbwayland.org/resources/faq" target="_blank" rel="noopener" class="resource-item">
+              <div class="resource-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div class="resource-item__body">
+                <div class="resource-item__title">Frequently Asked Questions</div>
+                <div class="resource-item__desc">Common questions about Islam, Muslims, and visiting a mosque</div>
+              </div>
+              <svg class="resource-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="https://icbwayland.org/resources/visit-etiquette" target="_blank" rel="noopener" class="resource-item">
+              <div class="resource-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="resource-item__body">
+                <div class="resource-item__title">Mosque Visitor Etiquette</div>
+                <div class="resource-item__desc">What to expect, how to dress, and customs to be aware of</div>
+              </div>
+              <svg class="resource-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="https://icbwayland.org/resources/customs" target="_blank" rel="noopener" class="resource-item">
+              <div class="resource-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="resource-item__body">
+                <div class="resource-item__title">Religious Traditions & Customs</div>
+                <div class="resource-item__desc">Islamic holidays, rituals, beliefs, and daily practices explained</div>
+              </div>
+              <svg class="resource-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div id="islamophobia">
+          <span class="section__label">Awareness & Education</span>
+          <h2 style="margin-bottom:1.5rem;">Islamophobia Resources</h2>
+          <div class="resource-list">
+            <a href="https://icbwayland.org/resources/islamophobia-guide" target="_blank" rel="noopener" class="resource-item">
+              <div class="resource-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div class="resource-item__body">
+                <div class="resource-item__title">Islamophobia Awareness Guide</div>
+                <div class="resource-item__desc">A curated guide for educators, students, and community members</div>
+              </div>
+              <svg class="resource-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="https://icbwayland.org/resources/media" target="_blank" rel="noopener" class="resource-item">
+              <div class="resource-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              </div>
+              <div class="resource-item__body">
+                <div class="resource-item__title">Media Coverage Archive</div>
+                <div class="resource-item__desc">News articles featuring ICB Wayland and Muslim community issues (2015–2026)</div>
+              </div>
+              <svg class="resource-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="https://icbwayland.org/resources/interfaith" target="_blank" rel="noopener" class="resource-item">
+              <div class="resource-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="resource-item__body">
+                <div class="resource-item__title">Interfaith Dialogue Resources</div>
+                <div class="resource-item__desc">Tools and readings for productive interfaith conversation and understanding</div>
+              </div>
+              <svg class="resource-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Quick Answers</span>
+        <h2 class="section__title">Frequently Asked Questions</h2>
+      </div>
+      <div style="max-width:780px;margin-inline:auto;">
+        <div class="faq-item">
+          <div class="faq-question">What should I wear when visiting the mosque?</div>
+          <div class="faq-answer">Modest dress is appreciated for all visitors. Women are asked to cover their hair (a scarf can be provided if needed). Both men and women should avoid sleeveless tops and shorts. Shoes are removed before entering the prayer hall.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can non-Muslims visit the mosque?</div>
+          <div class="faq-answer">Absolutely. ICB Wayland warmly welcomes non-Muslim visitors. We offer structured visits for school groups, interfaith groups, and individuals curious about Islam. Please use our outreach forms to schedule a visit.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What are the Five Pillars of Islam?</div>
+          <div class="faq-answer">The Five Pillars are: Shahada (declaration of faith), Salah (prayer five times daily), Zakat (charitable giving), Sawm (fasting during Ramadan), and Hajj (pilgrimage to Mecca at least once in a lifetime for those able).</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do Muslims pray?</div>
+          <div class="faq-answer">Muslims pray five times daily facing Mecca. Prayer involves standing, bowing, and prostrating while reciting verses from the Quran in Arabic. Ritual purification (wudu) is performed before prayer. Congregational prayer is performed together at the mosque.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is Ramadan?</div>
+          <div class="faq-answer">Ramadan is the ninth month of the Islamic lunar calendar, during which Muslims fast from dawn to sunset. It is a time of spiritual reflection, increased devotion, and community. The fast is broken each evening with a meal called Iftar. Ramadan ends with Eid al-Fitr, a day of celebration.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How can I ask questions about Islam?</div>
+          <div class="faq-answer">We welcome all questions. You can submit questions through our outreach form, attend one of our open visitor sessions, or contact us directly by email. No question is too basic — we are here to help.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">Islamic Center of Boston</div>
+          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors in Wayland, MA since 1982.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigate</div>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="prayers.html" class="footer__link">Prayer Times</a>
+            <a href="calendar.html" class="footer__link">Calendar</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Programs</div>
+          <div class="footer__links">
+            <a href="programs.html" class="footer__link">All Programs</a>
+            <a href="school.html" class="footer__link">Sunday School</a>
+            <a href="youth.html" class="footer__link">Youth Group</a>
+            <a href="outreach.html" class="footer__link">Outreach</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Get Involved</div>
+          <div class="footer__links">
+            <a href="support.html" class="footer__link">Donate</a>
+            <a href="support.html#membership" class="footer__link">Membership</a>
+            <a href="about.html#contact" class="footer__link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2001–2026 Islamic Center of Boston, Wayland, MA.</span>
+        <span>Last updated April 17, 2026</span>
+      </div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
