@@ -1,19 +1,19 @@
 {
   "prayers": {
-    "fajr":    "5:30 AM",
+    "fajr":    "5:00 AM",
     "zuhr":    "1:30 PM",
-    "asr":     "5:45 PM",
-    "maghrib": "7:40 PM",
-    "isha":    "9:00 PM",
+    "asr":     "6:00 PM",
+    "maghrib": "8:30 PM",
+    "isha":    "10:05 PM",
     "jumuah": {
       "khutbah": "1:00 PM",
       "iqamah":  "1:30 PM"
     },
-    "lastUpdated": "May 2026"
+    "lastUpdated": "July 2026"
   },
   "fridaySpeaker": {
-    "name": "Dr. Mohamed Lazzouni",
-    "date": "April 24, 2026"
+    "name": "Dr. Saleem Khanani",
+    "date": "July 17, 2026"
   },
   "events": [
     {
