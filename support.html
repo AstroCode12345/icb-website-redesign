@@ -8,16 +8,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Support ICB Wayland through donations, Zakat, membership, and the college merit scholarship." />
+  <link rel="icon" type="image/jpeg" href="images/icb-logo.jpg" />
+  <meta property="og:title" content="Support Us — ICB Wayland" />
+  <meta property="og:description" content="Support ICB Wayland through donations, Zakat, membership, and the college merit scholarship." />
+  <meta property="og:type" content="website" />
   <style>
     .donate-hero { background: linear-gradient(135deg, var(--green-900), var(--green-700)); border-radius: var(--radius-lg); padding: 2rem 2.5rem; color: var(--white); text-align: center; margin-bottom: 2rem; }
     .donate-hero h2 { color: var(--white); margin-bottom: .75rem; }
     .donate-hero p { color: rgba(255,255,255,.8); max-width: 48ch; margin-inline: auto; margin-bottom: 1.75rem; }
-    .donate-amounts { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .amount-btn { padding: .6rem 1.4rem; border-radius: var(--radius-full); border: 2px solid rgba(255,255,255,.4); color: var(--white); font-weight: 600; font-size: .9rem; cursor: pointer; transition: all var(--transition); background: transparent; }
-    .amount-btn:hover, .amount-btn.selected { background: var(--white); color: var(--green-900); border-color: var(--white); }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <nav class="nav">
     <div class="container nav__inner">
@@ -53,7 +56,7 @@
     </div>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero" id="main">
     <div class="container">
       <div class="page-hero__label">Give Back</div>
       <h1 class="page-hero__title">Support ICB Wayland</h1>
@@ -66,15 +69,9 @@
 
       <div class="donate-hero">
         <h2>Make a Donation</h2>
-        <p>Every contribution — large or small — sustains our prayer space, education programs, outreach initiatives, and community services.</p>
-        <div class="donate-amounts">
-          <button class="amount-btn">$18</button>
-          <button class="amount-btn selected">$36</button>
-          <button class="amount-btn">$72</button>
-          <button class="amount-btn">$108</button>
-          <button class="amount-btn">Other</button>
-        </div>
-        <a href="https://icbwayland.org/donate" target="_blank" rel="noopener" class="btn btn--gold" style="font-size:1rem;padding:.85rem 2.5rem;">Donate Now</a>
+        <p>Every contribution, large or small, sustains our prayer space, education programs, outreach initiatives, and community services.</p>
+        <a href="https://icbwayland.org/donate" data-donate-link target="_blank" rel="noopener" class="btn btn--gold" style="font-size:1rem;padding:.85rem 2.5rem;">Donate Now</a>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.65);margin-top:1rem;margin-bottom:0;">You will choose the amount on the secure donation page.</p>
       </div>
 
       <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--gray-900);margin-bottom:1.5rem;">Ways to Give</h3>
@@ -206,6 +203,7 @@
       </div>
     </div>
   </footer>
+  <script src="content.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

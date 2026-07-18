@@ -33,22 +33,30 @@ document.addEventListener("DOMContentLoaded", async () => {
   const eventsContainer = document.querySelector("[data-events-container]");
   if (eventsContainer) {
     eventsContainer.innerHTML = ICB.events.map(ev => `
-      <div class="event-card${ev.featured ? " event-card--featured" : ""}">
+      <div class="event-card${ev.featured ? " event-card--featured" : ""}" data-tag="${_esc(ev.tag)}">
         <div class="event-card__date">
-          <span class="event-card__month">${ev.month}</span>
-          <span class="event-card__day">${ev.day}</span>
+          <span class="event-card__month">${_esc(ev.month)}</span>
+          <span class="event-card__day">${_esc(ev.day)}</span>
         </div>
         <div class="event-card__body">
-          <div class="event-card__tag">${ev.tag}</div>
-          <div class="event-card__title">${ev.title}</div>
-          <div class="event-card__meta">${ev.meta}</div>
+          <div class="event-card__tag">${_esc(ev.tag)}</div>
+          <div class="event-card__title">${_esc(ev.title)}</div>
+          <div class="event-card__meta">${_esc(ev.meta)}</div>
         </div>
       </div>
     `).join("");
   }
 
-  // --- Announcement banner ---
-  const banner = document.querySelector("[data-announcement]");
+  // --- Announcement banner (works on every page) ---
+  // If the page has no banner div, create one right below the nav.
+  let banner = document.querySelector("[data-announcement]");
+  if (!banner && ICB.announcement.show && ICB.announcement.text) {
+    banner = document.createElement("div");
+    banner.setAttribute("data-announcement", "");
+    banner.style.cssText = "display:none;background:var(--gold-500);color:var(--white);text-align:center;padding:.6rem 1rem;font-size:.9rem;font-weight:600;";
+    const nav = document.querySelector(".nav");
+    if (nav) nav.insertAdjacentElement("afterend", banner);
+  }
   if (banner) {
     if (ICB.announcement.show && ICB.announcement.text) {
       banner.textContent = ICB.announcement.text;
@@ -63,38 +71,55 @@ document.addEventListener("DOMContentLoaded", async () => {
     el.href = ICB.donateUrl;
   });
 
-  // --- Highlight next prayer based on current time ---
-  highlightNextPrayer(ICB.prayers);
+  // --- Next prayer: highlight + live countdown in the prayer bar ---
+  updateNextPrayer();
+  setInterval(updateNextPrayer, 60 * 1000);
 
   function _set(selector, value) {
     document.querySelectorAll(selector).forEach(el => el.textContent = value);
   }
 
-  function highlightNextPrayer(prayers) {
+  function _esc(s) {
+    return String(s ?? "").replace(/[&<>"']/g, c => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    }[c]));
+  }
+
+  function toMinutes(timeStr) {
+    const [time, period] = timeStr.split(" ");
+    let [h, m] = time.split(":").map(Number);
+    if (period === "PM" && h !== 12) h += 12;
+    if (period === "AM" && h === 12) h = 0;
+    return h * 60 + m;
+  }
+
+  function updateNextPrayer() {
+    const names = ["fajr", "zuhr", "asr", "maghrib", "isha"];
     const now = new Date();
-    const minutes = now.getHours() * 60 + now.getMinutes();
-    const schedule = [
-      { key: "fajr",    el: 0 },
-      { key: "zuhr",    el: 1 },
-      { key: "asr",     el: 2 },
-      { key: "maghrib", el: 3 },
-      { key: "isha",    el: 4 },
-    ];
+    const nowMin = now.getHours() * 60 + now.getMinutes();
 
-    function toMinutes(timeStr) {
-      const [time, period] = timeStr.split(" ");
-      let [h, m] = time.split(":").map(Number);
-      if (period === "PM" && h !== 12) h += 12;
-      if (period === "AM" && h === 12) h = 0;
-      return h * 60 + m;
+    let nextIdx = names.findIndex(k => toMinutes(ICB.prayers[k]) > nowMin);
+    let minutesUntil;
+    if (nextIdx === -1) {
+      // After Isha: next prayer is Fajr tomorrow
+      nextIdx = 0;
+      minutesUntil = (24 * 60 - nowMin) + toMinutes(ICB.prayers.fajr);
+    } else {
+      minutesUntil = toMinutes(ICB.prayers[names[nextIdx]]) - nowMin;
     }
-
-    let nextIdx = schedule.findIndex(p => toMinutes(prayers[p.key]) > minutes);
-    if (nextIdx === -1) nextIdx = 0;
 
     document.querySelectorAll(".prayer-time").forEach((el, i) => {
       el.classList.toggle("prayer-time--next", i === nextIdx);
     });
+
+    const label = document.querySelector(".prayer-bar__label");
+    if (label) {
+      const prettyName = names[nextIdx].charAt(0).toUpperCase() + names[nextIdx].slice(1);
+      const h = Math.floor(minutesUntil / 60);
+      const m = minutesUntil % 60;
+      const when = h > 0 ? `${h}h ${m}m` : `${m} min`;
+      label.textContent = `Next: ${prettyName} in ${when}`;
+    }
   }
 
 });

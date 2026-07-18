@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Upcoming events, weekly prayers, and community programs at ICB Wayland." />
+  <link rel="icon" type="image/jpeg" href="images/icb-logo.jpg" />
+  <meta property="og:title" content="Calendar — ICB Wayland" />
+  <meta property="og:description" content="Upcoming events, weekly prayers, and community programs at ICB Wayland." />
+  <meta property="og:type" content="website" />
   <style>
     .calendar-layout { display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; align-items: start; }
     .events-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -56,6 +61,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <nav class="nav">
     <div class="container nav__inner">
@@ -91,7 +97,7 @@
     </div>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero" id="main">
     <div class="container">
       <div class="page-hero__label">Stay Connected</div>
       <h1 class="page-hero__title">Events Calendar</h1>
@@ -105,12 +111,12 @@
 
         <!-- Events list -->
         <div>
-          <div class="filter-bar">
-            <button class="filter-btn active">All Events</button>
-            <button class="filter-btn">Community</button>
-            <button class="filter-btn">Charity</button>
-            <button class="filter-btn">School</button>
-            <button class="filter-btn">Weekly</button>
+          <div class="filter-bar" role="group" aria-label="Filter events by category">
+            <button class="filter-btn active" data-filter="all">All Events</button>
+            <button class="filter-btn" data-filter="community">Community</button>
+            <button class="filter-btn" data-filter="charity">Charity</button>
+            <button class="filter-btn" data-filter="school">School</button>
+            <button class="filter-btn" data-filter="weekly">Weekly</button>
           </div>
 
           <!-- Upcoming events from content.js -->
@@ -120,7 +126,7 @@
 
           <!-- Recurring fixed events -->
           <div class="events-list" style="margin-top:1rem;">
-            <div class="event-row">
+            <div class="event-row" data-tag="Weekly · Prayer">
               <div class="event-row__date">
                 <div class="month">Every</div>
                 <div class="day" style="font-size:1rem;padding-top:.25rem;line-height:1.4;">Fri</div>
@@ -132,7 +138,7 @@
               </div>
             </div>
 
-            <div class="event-row">
+            <div class="event-row" data-tag="Weekly · School">
               <div class="event-row__date">
                 <div class="month">Every</div>
                 <div class="day" style="font-size:1rem;padding-top:.25rem;line-height:1.4;">Sun</div>
@@ -144,7 +150,7 @@
               </div>
             </div>
 
-            <div class="event-row">
+            <div class="event-row" data-tag="Daily · Prayer">
               <div class="event-row__date">
                 <div class="month">Daily</div>
                 <div class="day" style="font-size:1rem;padding-top:.25rem;line-height:1.4;">5×</div>
@@ -167,23 +173,13 @@
 
         <!-- Sidebar -->
         <div>
-          <!-- Mini calendar -->
+          <!-- Mini calendar (generated for the current month by the script below) -->
           <div class="sidebar-card">
             <div class="mini-cal-header">
-              <span>May 2026</span>
+              <span id="miniCalTitle"></span>
             </div>
-            <div class="mini-cal mini-cal-grid">
-              <div class="day-label">Su</div><div class="day-label">Mo</div><div class="day-label">Tu</div>
-              <div class="day-label">We</div><div class="day-label">Th</div><div class="day-label">Fr</div><div class="day-label">Sa</div>
-              <!-- May 2026 starts on Friday -->
-              <div class="day-num empty"></div><div class="day-num empty"></div><div class="day-num empty"></div>
-              <div class="day-num empty"></div><div class="day-num empty"></div><div class="day-num">1 <span style="display:block;width:4px;height:4px;background:var(--gold-500);border-radius:50%;margin:1px auto 0;"></span></div><div class="day-num">2</div>
-              <div class="day-num today">3</div><div class="day-num">4</div><div class="day-num">5</div><div class="day-num">6</div><div class="day-num">7</div><div class="day-num has-event">8</div><div class="day-num has-event">9</div>
-              <div class="day-num has-event">10</div><div class="day-num">11</div><div class="day-num">12</div><div class="day-num">13</div><div class="day-num">14</div><div class="day-num has-event">15</div><div class="day-num">16</div>
-              <div class="day-num has-event">17</div><div class="day-num">18</div><div class="day-num">19</div><div class="day-num">20</div><div class="day-num">21</div><div class="day-num has-event">22</div><div class="day-num">23</div>
-              <div class="day-num has-event">24</div><div class="day-num">25</div><div class="day-num">26</div><div class="day-num">27</div><div class="day-num">28</div><div class="day-num has-event">29</div><div class="day-num">30</div>
-              <div class="day-num has-event">31</div>
-            </div>
+            <div class="mini-cal mini-cal-grid" id="miniCalGrid"></div>
+            <p style="font-size:.72rem;color:var(--gray-500);margin-top:.6rem;">Dots mark Jumu&#39;ah (Fri) and Sunday School days.</p>
           </div>
 
           <!-- Recurring events -->
@@ -268,5 +264,53 @@
   </footer>
   <script src="content.js"></script>
   <script src="app.js"></script>
+  <script>
+    // ---- Mini calendar: always shows the real current month ----
+    (function () {
+      const grid  = document.getElementById("miniCalGrid");
+      const title = document.getElementById("miniCalTitle");
+      if (!grid || !title) return;
+
+      const now   = new Date();
+      const year  = now.getFullYear();
+      const month = now.getMonth();
+      const today = now.getDate();
+
+      title.textContent = now.toLocaleString("en-US", { month: "long", year: "numeric" });
+
+      const labels = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+      let html = labels.map(l => `<div class="day-label">${l}</div>`).join("");
+
+      const firstWeekday = new Date(year, month, 1).getDay();
+      const daysInMonth  = new Date(year, month + 1, 0).getDate();
+
+      for (let i = 0; i < firstWeekday; i++) html += `<div class="day-num empty"></div>`;
+      for (let d = 1; d <= daysInMonth; d++) {
+        const weekday = new Date(year, month, d).getDay();
+        const cls = ["day-num"];
+        if (d === today) cls.push("today");
+        else if (weekday === 5 || weekday === 0) cls.push("has-event"); // Fri + Sun
+        html += `<div class="${cls.join(" ")}">${d}</div>`;
+      }
+      grid.innerHTML = html;
+    })();
+
+    // ---- Event filters: actually hide/show rows and cards ----
+    (function () {
+      const buttons = document.querySelectorAll(".filter-btn");
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          buttons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = (btn.dataset.filter || "all").toLowerCase();
+          document.querySelectorAll("[data-tag]").forEach(el => {
+            const tag = (el.dataset.tag || "").toLowerCase();
+            el.style.display = (filter === "all" || tag.includes(filter)) ? "" : "none";
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

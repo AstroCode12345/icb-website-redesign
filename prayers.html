@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Daily Iqamah times and Friday Jumu&#39;ah schedule at the Islamic Center of Boston, Wayland." />
+  <link rel="icon" type="image/jpeg" href="images/icb-logo.jpg" />
+  <meta property="og:title" content="Prayer Times — ICB Wayland" />
+  <meta property="og:description" content="Daily Iqamah times and Friday Jumu&#39;ah schedule at the Islamic Center of Boston, Wayland." />
+  <meta property="og:type" content="website" />
   <style>
     .prayers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .friday-card { background: var(--green-800); color: var(--white); border-radius: var(--radius-md); padding: 2rem; }
@@ -19,6 +24,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <nav class="nav">
     <div class="container nav__inner">
       <a href="index.html" class="nav__logo">
@@ -53,7 +59,7 @@
     </div>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero" id="main">
     <div class="container">
       <div class="page-hero__label">Salah</div>
       <h1 class="page-hero__title">Prayer Times</h1>
