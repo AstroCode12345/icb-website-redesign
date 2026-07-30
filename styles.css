@@ -217,7 +217,12 @@ p  { color: var(--gray-700); }
   background: var(--green-50);
   color: var(--green-800);
 }
-.nav__cta {
+/* Donate CTA — must win over .nav__link.active/:hover so the
+   button never ends up white-on-pale-green and unreadable. */
+.nav__cta,
+.nav__link.nav__cta,
+.nav__link.nav__cta.active,
+.nav__link.nav__cta:hover {
   font-size: .88rem;
   font-weight: 600;
   background: var(--green-800);
@@ -227,7 +232,8 @@ p  { color: var(--gray-700); }
   transition: background var(--transition);
   margin-left: .5rem;
 }
-.nav__cta:hover { background: var(--green-700); }
+.nav__cta:hover,
+.nav__link.nav__cta:hover { background: var(--green-700); }
 .nav__hamburger {
   display: none;
   flex-direction: column;

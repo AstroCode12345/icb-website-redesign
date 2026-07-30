@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let ICB;
   try {
-    const res = await fetch("/content.json");
+    // cache: "no-store" so staff edits published through the admin show up
+    // right away instead of being masked by a stale cached copy.
+    const res = await fetch("content.json", { cache: "no-store" });
     if (!res.ok) throw new Error("Failed to load content.json");
     ICB = await res.json();
   } catch (err) {
