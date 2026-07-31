@@ -68,6 +68,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
+  // --- Sunday school Zuhr time ---
+  if (ICB.sundaySchool) {
+    _set("[data-school='zuhr']", ICB.sundaySchool.zuhr);
+  }
+
+  // --- Contact email (text + mailto) ---
+  if (ICB.contact) {
+    _set("[data-contact='email']", ICB.contact.email);
+    document.querySelectorAll("[data-contact-email-link]").forEach(el => {
+      el.href = "mailto:" + ICB.contact.email;
+    });
+    document.querySelectorAll("[data-facebook-link]").forEach(el => {
+      el.href = ICB.contact.facebook;
+    });
+    document.querySelectorAll("[data-youtube-link]").forEach(el => {
+      el.href = ICB.contact.youtube;
+    });
+  }
+
   // --- Donate links ---
   document.querySelectorAll("[data-donate-link]").forEach(el => {
     el.href = ICB.donateUrl;
