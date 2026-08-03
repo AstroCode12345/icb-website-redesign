@@ -1,19 +1,19 @@
 {
   "prayers": {
-    "fajr":    "5:00 AM",
+    "fajr":    "5:10 AM",
     "zuhr":    "1:30 PM",
     "asr":     "6:00 PM",
-    "maghrib": "8:30 PM",
-    "isha":    "10:05 PM",
+    "maghrib": "8:10 PM",
+    "isha":    "9:45 PM",
     "jumuah": {
       "khutbah": "1:00 PM",
       "iqamah": "1:30 PM"
     },
-    "lastUpdated": "July 2026"
+    "lastUpdated": "August 2026"
   },
   "fridaySpeaker": {
-    "name": "Dr. Saleem Khanani",
-    "date": "July 17, 2026"
+    "name": "Imam Talal Eid",
+    "date": "August 7, 2026"
   },
   "events": [
     {
