@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
   <meta name="description" content="Visit the mosque, book a school group tour, or request a Muslim speaker. ICB Wayland welcomes neighbors of all faiths." />
-  <link rel="icon" type="image/jpeg" href="images/icb-logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Outreach — ICB Wayland" />
   <meta property="og:description" content="Visit the mosque, book a school group tour, or request a Muslim speaker. ICB Wayland welcomes neighbors of all faiths." />
   <meta property="og:type" content="website" />
@@ -29,35 +29,38 @@
 
   <nav class="nav">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo">
-        <img class="nav__logo-icon" src="images/icb-logo.jpg" alt="Islamic Center of Boston, Wayland">
-        <span>ICB Wayland<span class="nav__logo-sub">Islamic Center of Boston</span></span>
+      <a href="/index.html" class="nav__logo">
+        <img class="nav__logo-icon" src="/images/icb-logo.jpg" alt="Islamic Center of Boston, Wayland">
+        <span>
+          ICB Wayland
+          <span class="nav__logo-sub">Islamic Center of Boston</span>
+        </span>
       </a>
       <ul class="nav__links">
-        <li><a href="index.html" class="nav__link">Home</a></li>
-        <li><a href="about.html" class="nav__link">About</a></li>
-        <li><a href="prayers.html" class="nav__link">Prayers</a></li>
-        <li><a href="programs.html" class="nav__link">Programs</a></li>
-        <li><a href="school.html" class="nav__link">School</a></li>
-        <li><a href="calendar.html" class="nav__link">Calendar</a></li>
-        <li><a href="youth.html" class="nav__link">Youth</a></li>
-        <li><a href="outreach.html" class="nav__link active">Outreach</a></li>
-        <li><a href="resources.html" class="nav__link">Resources</a></li>
-        <li><a href="support.html" class="nav__cta nav__link">Donate</a></li>
+        <li><a href="/index.html" class="nav__link">Home</a></li>
+        <li><a href="/about/index.html" class="nav__link">About</a></li>
+        <li><a href="/facilities/index.html" class="nav__link">Facilities</a></li>
+        <li><a href="/prayers.html" class="nav__link">Prayers</a></li>
+        <li><a href="/school/index.html" class="nav__link">School</a></li>
+        <li><a href="/calendar.html" class="nav__link">Calendar</a></li>
+        <li><a href="/youth/index.html" class="nav__link">Youth</a></li>
+        <li><a href="/outreach.html" class="nav__link">Outreach</a></li>
+        <li><a href="/support.html" class="nav__cta nav__link">Support Us</a></li>
       </ul>
-      <button class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
     <div class="nav__mobile" id="mobileMenu">
-      <a href="index.html" class="nav__link">Home</a>
-      <a href="about.html" class="nav__link">About</a>
-      <a href="prayers.html" class="nav__link">Prayers</a>
-      <a href="programs.html" class="nav__link">Programs</a>
-      <a href="school.html" class="nav__link">School</a>
-      <a href="calendar.html" class="nav__link">Calendar</a>
-      <a href="youth.html" class="nav__link">Youth</a>
-      <a href="outreach.html" class="nav__link active">Outreach</a>
-      <a href="resources.html" class="nav__link">Resources</a>
-      <a href="support.html" class="nav__cta">Donate</a>
+      <a href="/index.html" class="nav__link">Home</a>
+      <a href="/about/index.html" class="nav__link">About</a>
+      <a href="/facilities/index.html" class="nav__link">Facilities</a>
+      <a href="/prayers.html" class="nav__link">Prayers</a>
+      <a href="/school/index.html" class="nav__link">School</a>
+      <a href="/calendar.html" class="nav__link">Calendar</a>
+      <a href="/youth/index.html" class="nav__link">Youth</a>
+      <a href="/outreach.html" class="nav__link">Outreach</a>
+      <a href="/support.html" class="nav__cta">Support Us</a>
     </div>
   </nav>
 
@@ -135,7 +138,7 @@
           </div>
           <h3 class="info-card__title">Frequently Asked Questions</h3>
           <p class="info-card__body">Answers to common questions about visiting a mosque, Islamic practice, prayer etiquette, and what to expect during your visit.</p>
-          <a href="resources.html" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">View FAQs</a>
+          <a href="https://icbwayland.org/outreach/faq.html" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">View FAQs</a>
         </div>
         <div class="info-card">
           <div class="info-card__icon">
@@ -150,7 +153,7 @@
           </div>
           <h3 class="info-card__title">Islamophobia Resources</h3>
           <p class="info-card__body">A curated guide of resources for Islamophobia awareness and education — for educators, students, and community members.</p>
-          <a href="resources.html#islamophobia" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">View Resources</a>
+          <a href="https://sites.google.com/icbwayland.org/outreach/home" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">View Resources</a>
         </div>
       </div>
     </div>
@@ -161,43 +164,51 @@
       <div class="footer__grid">
         <div>
           <div class="footer__brand-logo">Islamic Center of Boston</div>
-          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors in Wayland, MA since 1982.</p>
-        </div>
-        <div>
-          <div class="footer__col-title">Navigate</div>
-          <div class="footer__links">
-            <a href="index.html" class="footer__link">Home</a>
-            <a href="about.html" class="footer__link">About Us</a>
-            <a href="prayers.html" class="footer__link">Prayer Times</a>
-            <a href="calendar.html" class="footer__link">Calendar</a>
-            <a href="services.html" class="footer__link">Facilities</a>
+          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors in Wayland, MA since 1979.</p>
+          <div class="footer__social">
+            <a data-facebook-link href="https://www.facebook.com/icbwayland" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a data-youtube-link href="https://youtube.com/c/ICBWayland" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--green-900)"/></svg>
+            </a>
           </div>
         </div>
         <div>
-          <div class="footer__col-title">Programs</div>
+          <div class="footer__col-title">Visit Us</div>
           <div class="footer__links">
-            <a href="programs.html" class="footer__link">All Programs</a>
-            <a href="school.html" class="footer__link">Sunday School</a>
-            <a href="youth.html" class="footer__link">Youth Group</a>
-            <a href="outreach.html" class="footer__link">Outreach</a>
+            <span class="footer__link">126 Boston Post Road</span>
+            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="/prayers.html" class="footer__link">Prayer Times</a>
+            <a href="/facilities/index.html" class="footer__link">Facilities</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Community</div>
+          <div class="footer__links">
+            <a href="/school/index.html" class="footer__link">Sunday School</a>
+            <a href="/youth/index.html" class="footer__link">Youth Group</a>
+            <a href="/outreach.html" class="footer__link">Outreach</a>
+            <a href="/calendar.html" class="footer__link">Calendar</a>
           </div>
         </div>
         <div>
           <div class="footer__col-title">Get Involved</div>
           <div class="footer__links">
-            <a href="support.html" class="footer__link">Donate</a>
-            <a href="support.html#membership" class="footer__link">Membership</a>
-            <a href="about.html#contact" class="footer__link">Contact Us</a>
+            <a href="/support.html" class="footer__link">Donate</a>
+            <a href="/about/membership.html" class="footer__link">Membership</a>
+            <a href="/about/contact.html" class="footer__link">Contact Us</a>
+            <a data-contact-email-link href="mailto:webmaster@icbwayland.org" class="footer__link">Webmaster</a>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <span>© 2001–2026 Islamic Center of Boston, Wayland, MA.</span>
+        <span>&copy; 2001&ndash;2026 Islamic Center of Boston, Wayland, MA. All rights reserved.</span>
         <span>Last updated July 2026</span>
       </div>
     </div>
   </footer>
-  <script src="content.js"></script>
-  <script src="app.js"></script>
+  <script src="/content.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>

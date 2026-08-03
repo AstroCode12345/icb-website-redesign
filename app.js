@@ -17,15 +17,19 @@ if (hamburger && mobileMenu) {
   });
 }
 
-// Highlight active nav link
-const currentPage = location.pathname.split('/').pop() || 'index.html';
+// Highlight active nav link.
+// Pages now live in folders (about/history.html, facilities/rental.html, etc),
+// so several files share the name "index.html" — matching by filename alone
+// would light up every section at once. Compare full paths instead, and treat
+// any page inside a section's folder as keeping that section highlighted.
+const currentPath = location.pathname.replace(/^\//, '') || 'index.html';
+const currentSection = currentPath.split('/')[0];
 document.querySelectorAll('.nav__link, .nav__mobile .nav__link').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-    link.classList.add('active');
-  } else {
-    link.classList.remove('active');
-  }
+  const href = (link.getAttribute('href') || '').replace(/^\//, '');
+  const linkSection = href.split('/')[0];
+  const isExact = href === currentPath;
+  const isSectionMatch = href.includes('/') && linkSection === currentSection;
+  link.classList.toggle('active', isExact || isSectionMatch);
 });
 
 // Next-prayer highlighting and the countdown live in content.js, which
