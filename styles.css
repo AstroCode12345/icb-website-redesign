@@ -653,6 +653,75 @@ p  { color: var(--gray-700); }
 .info-card__title { font-size: 1.1rem; margin-bottom: .55rem; color: var(--gray-900); }
 .info-card__body { font-size: .97rem; color: var(--gray-700); line-height: 1.75; }
 
+/* ---------- Nav cards (whole-card links to a sub-page) ---------- */
+.nav-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 860px) {
+  .nav-card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .nav-card-grid { grid-template-columns: 1fr; }
+}
+.nav-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  padding: 2rem 2rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+.nav-card:hover,
+.nav-card:focus-visible {
+  border-color: var(--green-700);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+}
+.nav-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--green-50);
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: background var(--transition), color var(--transition);
+}
+.nav-card:hover .nav-card__icon,
+.nav-card:focus-visible .nav-card__icon {
+  background: var(--green-800);
+  color: var(--white);
+}
+.nav-card__title {
+  font-size: 1.1rem;
+  margin-bottom: .5rem;
+  color: var(--gray-900);
+  transition: color var(--transition);
+}
+.nav-card:hover .nav-card__title,
+.nav-card:focus-visible .nav-card__title { color: var(--green-800); }
+.nav-card__body { font-size: .95rem; color: var(--gray-700); line-height: 1.7; flex: 1; }
+.nav-card__arrow {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--gold-600);
+}
+.nav-card__arrow svg { transition: transform var(--transition); }
+.nav-card:hover .nav-card__arrow svg,
+.nav-card:focus-visible .nav-card__arrow svg { transform: translateX(4px); }
+
 /* ---------- Footer ---------- */
 .footer {
   background: var(--green-900);
