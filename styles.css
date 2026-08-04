@@ -456,7 +456,7 @@ p  { color: var(--gray-700); }
 /* ---------- Events grid ---------- */
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 .event-card {
@@ -516,8 +516,10 @@ p  { color: var(--gray-700); }
   transition: all var(--transition);
   box-shadow: var(--shadow-sm);
   min-height: 120px;
-  flex: 1 1 160px;
-  max-width: 200px;
+  flex: 0 0 240px;
+}
+@media (max-width: 560px) {
+  .quicklink { flex-basis: 100%; }
 }
 .quicklink:hover {
   border-color: var(--green-700);
@@ -650,6 +652,13 @@ p  { color: var(--gray-700); }
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
+/* Fixed 2-up variant for grids with an even, known card count (avoids a ragged 3+1 wrap) */
+.info-grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 600px) {
+  .info-grid.cols-2 { grid-template-columns: 1fr; }
+}
 .info-card {
   background: var(--white);
   border: 1.5px solid var(--gray-100);
@@ -661,8 +670,9 @@ p  { color: var(--gray-700); }
 .info-card:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-3px);
-  border-color: var(--green-700);
 }
+/* Only cards with an actual action (a .btn) get the stronger "clickable" cue */
+.info-card:has(.btn):hover { border-color: var(--green-700); }
 .info-card__icon {
   width: 52px;
   height: 52px;
@@ -675,7 +685,7 @@ p  { color: var(--gray-700); }
   margin-bottom: 1.1rem;
   transition: background var(--transition), color var(--transition);
 }
-.info-card:hover .info-card__icon { background: var(--green-800); color: var(--white); }
+.info-card:has(.btn):hover .info-card__icon { background: var(--green-800); color: var(--white); }
 .info-card__title { font-size: 1.1rem; margin-bottom: .55rem; color: var(--gray-900); }
 .info-card__body { font-size: .97rem; color: var(--gray-700); line-height: 1.75; }
 
