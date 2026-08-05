@@ -116,7 +116,17 @@
             Membership Family &mdash; $204.56 USD<br>
             Membership Single &mdash; $102.53 USD
           </p>
-          <a href="https://icbwayland.org/membership.html" target="_blank" rel="noopener" class="btn btn--outline" style="font-size:.85rem;">Renew Online at icbwayland.org &rarr;</a>
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="VBNU2YYYNYDEL">
+            <input type="hidden" name="on0" value="Membership Fees:">
+            <input type="hidden" name="currency_code" value="USD">
+            <select name="os0" style="padding:.7rem 1rem;border-radius:var(--radius-sm);border:1.5px solid var(--gray-200);font-family:inherit;font-size:.9rem;">
+              <option value="Membership Family">Membership Family &mdash; $204.56 USD</option>
+              <option value="Membership Single">Membership Single &mdash; $102.53 USD</option>
+            </select>
+            <button type="submit" class="btn btn--outline" style="font-size:.85rem;">Add to Cart &rarr;</button>
+          </form>
         </div>
 
         <p style="font-size:.9rem;color:var(--gray-500);margin-top:1.5rem;">To make an additional donation kindly visit our <a href="/support.html" style="color:var(--green-700);font-weight:600;">Donations page</a>.</p>
@@ -155,6 +165,8 @@
             <a href="/youth/index.html" class="footer__link">Youth Group</a>
             <a href="/outreach.html" class="footer__link">Outreach</a>
             <a href="/calendar.html" class="footer__link">Calendar</a>
+            <a href="/resources.html" class="footer__link">Resources</a>
+            <a href="/news.html" class="footer__link">In the News</a>
           </div>
         </div>
         <div>

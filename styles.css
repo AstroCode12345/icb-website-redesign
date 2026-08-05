@@ -725,6 +725,50 @@ p  { color: var(--gray-700); }
   color: var(--green-900);
 }
 
+/* ---------- FAQ accordion ---------- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.faq-item {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  padding: 0 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition);
+}
+.faq-item[open] { border-color: var(--green-200, var(--green-100)); }
+.faq-item summary {
+  padding: 1.1rem 0;
+  font-weight: 600;
+  color: var(--gray-900);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::marker { display: none; content: ''; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--gold-600);
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  color: var(--gray-700);
+  font-size: .95rem;
+  line-height: 1.75;
+  padding-bottom: 1.25rem;
+}
+
 /* ---------- Nav cards (whole-card links to a sub-page) ---------- */
 .nav-card-grid {
   display: grid;
