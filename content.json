@@ -11,28 +11,29 @@
     },
     "lastUpdated": "August 2026"
   },
-  "fridaySpeaker": {
-    "name": "Imam Talal Eid",
-    "date": "August 7, 2026"
-  },
+  "khateebs": [
+    { "date": "2026-08-07", "name": "Imam Talal Eid" },
+    { "date": "2026-08-14", "name": "TBD" },
+    { "date": "2026-08-21", "name": "Dr. Saleem Khanani" },
+    { "date": "2026-08-28", "name": "Dr. Mohamed Lazzouni" }
+  ],
   "events": [
     {
+      "date": "2026-05-01",
       "featured": true,
-      "month": "May",
-      "day": "1",
       "tag": "Community Program",
       "title": "Unlocking Door to Jannah with Imam Adnan Wood-Smith",
       "meta": "Thursday · 6:30 – 9:00 PM · Dinner included · Registration required"
     },
     {
+      "date": "2026-05-09",
       "featured": false,
-      "month": "May",
-      "day": "9",
       "tag": "Charity",
       "title": "First Annual Humanitarian Walk",
       "meta": "Saturday · 10:00 AM · Open to all"
     }
   ],
+  "youthEvents": [],
   "announcement": {
     "show": false,
     "text": ""
@@ -45,5 +46,6 @@
     "facebook": "https://www.facebook.com/icbwayland",
     "youtube": "https://youtube.com/c/ICBWayland"
   },
-  "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE"
+  "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE",
+  "siteUpdated": "2026-08-26"
 }

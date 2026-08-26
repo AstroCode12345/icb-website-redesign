@@ -1,7 +1,7 @@
 # ICB Wayland — Build Plan (Phase 2)
 
 Living spec. Updated as decisions are made and work ships.
-Last updated: after scoping call with the long-time site admin.
+Last updated: 26 August 2026, after the full-site audit pass.
 
 ---
 
@@ -51,15 +51,20 @@ Last updated: after scoping call with the long-time site admin.
   - Friday Prayers
 - **School** — short page linking the necessary things
 - **Calendar** — embedded Google Calendar; no past events, no ongoing activities
-- **Youth Group**
-  - About / signup (registration form, honor code)
-  - Events (entries with flyer, description, signup link)
+- **Youth Group** — one page, two tabs. Events tab opens by default so
+  upcoming events are the first thing a visitor sees.
+  - Upcoming Events (entries with date, description, signup link)
+  - Welcome to YG (registration form, honor code, Linktree, Instagram)
 - **Outreach** — keep, expand with more content from the original site
 
 ### Removed / dropped
-`resources.html`, `news.html`, `newsletters.html`, `iftars.html`, `ramadan.html`,
+`resources.html`, `newsletters.html`, `iftars.html`, `ramadan.html`,
 `fooddrive.html`, `collegescholarship/`, `directions.html`, and the Programs page
 (`gem.html`).
+
+`news.html` was **kept** and rebuilt after all — the press archive is real,
+credible material and the links that still resolve were worth carrying over.
+`resources.html` was built and then removed at Taymour's request.
 
 ---
 
@@ -94,7 +99,9 @@ signup link) plus the youth page intro text.
 
 - [x] Founding year 1982 → **1979** everywhere
 - [x] Remove the Programs page
-- [ ] Add the **khatib** for Jumu'ah on the homepage
+- [x] Add the **khatib** for Jumu'ah — now a dated, admin-editable schedule on
+      the Prayers page; the soonest upcoming date is derived automatically as
+      "this week's khateeb", and past dates drop off on their own
 - [ ] Preview → production publishing flow
 
 ---
@@ -108,25 +115,55 @@ signup link) plus the youth page intro text.
 2. [x] Port verbatim content: About (History/Objectives, Membership,
    Management, Contact) and Facilities (+ wedding/funeral/family matters) —
    **done**, using content already scraped and verified against the live
-   site. School and Youth also fully built. Outreach not yet expanded with
-   additional content — still pending.
+   site. School and Youth also fully built. Outreach **is** now expanded:
+   the full 12-question Outreach FAQ was ported in, and School Admission and
+   the press archive were brought over from the old site.
 3. [ ] Calendar page: embed the live Google Calendar — not yet done.
    `calendar.html` still has the old hand-built event list; nav/footer were
    updated but the embed itself is next.
 4. [ ] Preview → production pipeline (set up early so it can be demoed)
 5. [ ] Three-role admin portal
-6. [ ] Youth events with flyer upload (the events page exists with a real
-   empty state, ready to be wired up)
+6. [~] Youth events — **wired up**. `youthEvents` is now a real field in
+   `content.json`, rendered on the Youth page and editable in the admin
+   (date, title, details, category, signup link). Flyer *image upload* is
+   still to do; until then an event shows as a dated card without artwork.
 
 ### Notes from this pass
 - Board and Committee rosters include real names, and the Funeral Services
   page includes two personal cell numbers (Aijaz Baloch, Muneeb Khan) exactly
-  as published on the live site. Flagged to Taymour; no action taken pending
-  his call with the admin.
-- Membership page has real fees ($204.56 family / $102.53 single) and the
-  real membership form PDF, but no confirmed "renew online" payment link was
-  found on the original site — only the mail-in form and Treasurer contact
-  are linked.
+  as published on the live site. **Still unresolved** — flagged twice, no
+  decision yet.
+- Membership online renewal **is** wired up. The real PayPal cart form
+  (`hosted_button_id` VBNU2YYYNYDEL) was pulled from the live page's HTML and
+  embedded directly, fee dropdown and all. Donations use the real buttons too
+  (Z25J5QYZZSYSE general/Zakat, 6UJSCMDHAP22E humanitarian). None have been
+  click-tested end to end by a human — worth doing once before launch.
+- The old site's PDFs and the Adhan recording are now **self-hosted** under
+  `/documents/`, so nothing breaks when icbwayland.org is switched off.
+
+### Audit pass — 26 August 2026
+Full-site review; everything below was found and fixed in one pass.
+- **Dated content now expires by itself.** Events, youth events, and Friday
+  khateebs are filtered against today's date in `content.js`. The homepage had
+  been showing May events as "upcoming" in late August. Volunteers maintain
+  this site, so it needed to stop going stale on its own rather than relying
+  on someone remembering to prune.
+- **`data-youth-events-container` was a dead hook** — the Youth page promised
+  events would appear once leaders added them, but nothing could ever fill it.
+  Now backed by real data and an admin editor.
+- **The admin's offline fallback held a decommissioned donate URL** and stale
+  prayer times. Synced, flagged `mock: true`, shown behind a clear warning
+  banner, and publishing is now blocked outright while on stub data.
+- Added `sitemap.xml`, `robots.txt`, canonical URLs, a designed `404.html`,
+  and `vercel.json` cache headers. Canonicals assume the site takes over
+  **icbwayland.org** — change the `BASE` value if the domain differs.
+- Added `?v=` cache-busting to CSS/JS. Without it, returning visitors keep
+  running the previous deploy's JavaScript.
+- Accessibility: hamburger state no longer goes stale when the menu closes by
+  outside-click, Escape closes it, youth tabs got full tab/tabpanel wiring
+  with arrow-key navigation, and the membership fee dropdown got a label.
+- Footer "last updated" is now stamped automatically on publish instead of
+  being a hand-typed date that sat months behind.
 
 ---
 
@@ -138,3 +175,8 @@ signup link) plus the youth page intro text.
   exists in `_source-content/facilities-policy-text.txt`.
 - Pulling the youth Instagram feed onto the site instead of just linking it.
 - Per-person logins / approval gates on publishing, if the board wants them.
+- Flyer image upload for youth events (the rest of the youth event flow is done).
+- Confirm the production domain and Vercel project. Canonicals and the sitemap
+  currently assume `icbwayland.org`.
+- `ICBFacilitiesRentalPolicyAgreement.pdf` is 5.3 MB — worth compressing before
+  launch, it is a heavy download on a phone.

@@ -68,6 +68,19 @@ ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ---------- Accessibility ---------- */
+/* Available to screen readers, removed from the visual layout. Used for
+   labels on controls whose purpose is already obvious to sighted users. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .skip-link {
   position: absolute;
   top: -100px;
@@ -877,6 +890,21 @@ p  { color: var(--gray-700); }
 }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
+
+/* ---------- Empty states ---------- */
+/* Used wherever a date-filtered list (events, youth events) has nothing
+   upcoming to show. Reads as a designed, deliberate state rather than
+   a section that failed to load. */
+.empty-state {
+  max-width: 520px;
+  margin-inline: auto;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--gray-50);
+  border: 1px dashed var(--gray-300);
+  border-radius: var(--radius-lg);
+}
+.empty-state p { color: var(--gray-500); font-size: .95rem; }
 
 /* ---------- Footer ---------- */
 .footer {

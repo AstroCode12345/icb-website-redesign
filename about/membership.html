@@ -7,11 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=20260826" />
   <meta name="description" content="Membership categories, fees, and how to join or renew your ICB Wayland membership." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Membership — ICB Wayland" />
   <meta property="og:description" content="Membership categories, fees, and how to join or renew your ICB Wayland membership." />
+  <link rel="canonical" href="https://icbwayland.org/about/membership.html" />
+  <meta property="og:url" content="https://icbwayland.org/about/membership.html" />
   <meta property="og:type" content="website" />
 </head>
 <body>
@@ -37,7 +39,7 @@
         <li><a href="/outreach.html" class="nav__link">Outreach</a></li>
         <li><a href="/support.html" class="nav__cta nav__link">Support Us</a></li>
       </ul>
-      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -121,7 +123,8 @@
             <input type="hidden" name="hosted_button_id" value="VBNU2YYYNYDEL">
             <input type="hidden" name="on0" value="Membership Fees:">
             <input type="hidden" name="currency_code" value="USD">
-            <select name="os0" style="padding:.7rem 1rem;border-radius:var(--radius-sm);border:1.5px solid var(--gray-200);font-family:inherit;font-size:.9rem;">
+            <label for="membership-fee" class="visually-hidden">Membership category and fee</label>
+            <select name="os0" id="membership-fee" style="padding:.7rem 1rem;border-radius:var(--radius-sm);border:1.5px solid var(--gray-200);font-family:inherit;font-size:.9rem;">
               <option value="Membership Family">Membership Family &mdash; $204.56 USD</option>
               <option value="Membership Single">Membership Single &mdash; $102.53 USD</option>
             </select>
@@ -180,11 +183,11 @@
       </div>
       <div class="footer__bottom">
         <span>&copy; 2001&ndash;2026 Islamic Center of Boston, Wayland, MA. All rights reserved.</span>
-        <span>Last updated July 2026</span>
+        <span data-site-updated>Last updated August 26, 2026</span>
       </div>
     </div>
   </footer>
-  <script src="/content.js"></script>
-  <script src="/app.js"></script>
+  <script src="/content.js?v=20260826"></script>
+  <script src="/app.js?v=20260826"></script>
 </body>
 </html>

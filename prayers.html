@@ -7,11 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=20260826" />
   <meta name="description" content="Daily Iqamah times and Friday Jumu&#39;ah schedule at the Islamic Center of Boston, Wayland." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Prayer Times — ICB Wayland" />
   <meta property="og:description" content="Daily Iqamah times and Friday Jumu&#39;ah schedule at the Islamic Center of Boston, Wayland." />
+  <link rel="canonical" href="https://icbwayland.org/prayers.html" />
+  <meta property="og:url" content="https://icbwayland.org/prayers.html" />
   <meta property="og:type" content="website" />
   <style>
     .prayers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -45,7 +47,7 @@
         <li><a href="/outreach.html" class="nav__link">Outreach</a></li>
         <li><a href="/support.html" class="nav__cta nav__link">Support Us</a></li>
       </ul>
-      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -120,20 +122,19 @@
               </tr>
             </tbody>
           </table>
-          <p style="font-size:.82rem;color:var(--gray-500);margin-top:.75rem;">* Times may vary slightly by season. Check the website for the most current schedule.</p>
+          <p style="font-size:.82rem;color:var(--gray-500);margin-top:.75rem;">* Times may vary slightly by season. Schedule last set <span data-prayer="lastUpdated">August 2026</span>.</p>
         </div>
 
         <!-- Friday -->
         <div class="friday-card">
           <h3>Friday Prayers</h3>
           <p>Khutba starts at <span data-friday="khutbah">1:00 PM</span> and Iqamah at <span data-friday="iqamah">1:30 PM</span>, Insha Allah.</p>
-          <p style="margin-top:.75rem;"><strong>This week's khateeb (<span data-friday="date">Jul 17</span>):</strong> <span data-friday="speaker">Dr. Saleem Khanani</span></p>
-          <p style="margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.7);">The following khateebs are scheduled for the next few weeks. Please note, occasionally a khateeb may change at the last minute and this page may not reflect that change.</p>
+          <p style="margin-top:.75rem;" data-friday-current><strong>This week's khateeb (<span data-friday="date">August 28, 2026</span>):</strong> <span data-friday="speaker">Dr. Mohamed Lazzouni</span></p>
+          <p style="margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.7);" data-khateeb-intro>The following khateebs are scheduled for the next few weeks. Please note, occasionally a khateeb may change at the last minute and this page may not reflect that change.</p>
           <table style="width:100%;margin-top:.75rem;font-size:.88rem;border-collapse:collapse;">
-            <tr style="border-bottom:1px solid rgba(255,255,255,.2);"><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 7, 2026</td><td style="padding:.4rem 0;">Imam Talal Eid</td></tr>
-            <tr style="border-bottom:1px solid rgba(255,255,255,.2);"><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 14, 2026</td><td style="padding:.4rem 0;">TBD</td></tr>
-            <tr style="border-bottom:1px solid rgba(255,255,255,.2);"><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 21, 2026</td><td style="padding:.4rem 0;">Dr. Saleem Khanani</td></tr>
-            <tr><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 28, 2026</td><td style="padding:.4rem 0;">Dr. Mohamed Lazzouni</td></tr>
+            <tbody data-khateeb-schedule>
+              <tr><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 28, 2026</td><td style="padding:.4rem 0;">Dr. Mohamed Lazzouni</td></tr>
+            </tbody>
           </table>
         </div>
 
@@ -233,11 +234,11 @@
       </div>
       <div class="footer__bottom">
         <span>&copy; 2001&ndash;2026 Islamic Center of Boston, Wayland, MA. All rights reserved.</span>
-        <span>Last updated July 2026</span>
+        <span data-site-updated>Last updated August 26, 2026</span>
       </div>
     </div>
   </footer>
-  <script src="/content.js"></script>
-  <script src="/app.js"></script>
+  <script src="/content.js?v=20260826"></script>
+  <script src="/app.js?v=20260826"></script>
 </body>
 </html>

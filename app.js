@@ -3,17 +3,40 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
 if (hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
+  // Every path that opens or closes the menu goes through here, so the
+  // button's accessible state can never drift out of sync with what is
+  // actually on screen.
+  const setMenu = (isOpen) => {
+    mobileMenu.classList.toggle('open', isOpen);
     hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  };
+
+  hamburger.addEventListener('click', () => {
+    setMenu(!mobileMenu.classList.contains('open'));
   });
+
   // Close on outside click
   document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
+      setMenu(false);
     }
+  });
+
+  // Close on Escape, and put focus back on the button so keyboard users
+  // are not stranded inside a menu that is no longer visible.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      setMenu(false);
+      hamburger.focus();
+    }
+  });
+
+  // Tapping a link navigates away; close first so the menu is not left
+  // open behind the new page when it is served from the back/forward cache.
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setMenu(false);
   });
 }
 
