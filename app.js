@@ -41,18 +41,33 @@ if (hamburger && mobileMenu) {
 }
 
 // Highlight active nav link.
-// Pages now live in folders (about/history.html, facilities/rental.html, etc),
-// so several files share the name "index.html" — matching by filename alone
-// would light up every section at once. Compare full paths instead, and treat
-// any page inside a section's folder as keeping that section highlighted.
-const currentPath = location.pathname.replace(/^\//, '') || 'index.html';
-const currentSection = currentPath.split('/')[0];
+//
+// Every page is served from its own folder, so the site's URLs are clean
+// ("/prayers/", "/about/history/"). Reduce both the current URL and each
+// link to a bare comparable key first — otherwise "/" and "/index.html"
+// look like different pages and Home never lights up. The .html forms are
+// still normalised so an old bookmark highlights the right tab too.
+//
+//   /                     -> ''
+//   /about/               -> 'about'
+//   /about/history/       -> 'about/history'
+//   /prayers.html         -> 'prayers'   (legacy)
+function normalizePath(p) {
+  return p
+    .replace(/^\//, '')
+    .replace(/index\.html$/, '')
+    .replace(/\.html$/, '')
+    .replace(/\/$/, '');
+}
+
+const currentPath = normalizePath(location.pathname);
 document.querySelectorAll('.nav__link, .nav__mobile .nav__link').forEach(link => {
-  const href = (link.getAttribute('href') || '').replace(/^\//, '');
-  const linkSection = href.split('/')[0];
-  const isExact = href === currentPath;
-  const isSectionMatch = href.includes('/') && linkSection === currentSection;
-  link.classList.toggle('active', isExact || isSectionMatch);
+  const target = normalizePath(link.getAttribute('href') || '');
+  // A section stays highlighted while you are on any page inside it, but the
+  // empty Home key must not match everything, hence the target !== '' guard.
+  const isExact = target === currentPath;
+  const isInSection = target !== '' && currentPath.startsWith(target + '/');
+  link.classList.toggle('active', isExact || isInSection);
 });
 
 // Next-prayer highlighting and the countdown live in content.js, which

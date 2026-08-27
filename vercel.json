@@ -37,5 +37,97 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about/index.html",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/index.html",
+      "destination": "/facilities/",
+      "permanent": true
+    },
+    {
+      "source": "/school/index.html",
+      "destination": "/school/",
+      "permanent": true
+    },
+    {
+      "source": "/youth/index.html",
+      "destination": "/youth/",
+      "permanent": true
+    },
+    {
+      "source": "/calendar.html",
+      "destination": "/calendar/",
+      "permanent": true
+    },
+    {
+      "source": "/news.html",
+      "destination": "/news/",
+      "permanent": true
+    },
+    {
+      "source": "/outreach.html",
+      "destination": "/outreach/",
+      "permanent": true
+    },
+    {
+      "source": "/prayers.html",
+      "destination": "/prayers/",
+      "permanent": true
+    },
+    {
+      "source": "/support.html",
+      "destination": "/support/",
+      "permanent": true
+    },
+    {
+      "source": "/about/contact.html",
+      "destination": "/about/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/about/history.html",
+      "destination": "/about/history/",
+      "permanent": true
+    },
+    {
+      "source": "/about/management.html",
+      "destination": "/about/management/",
+      "permanent": true
+    },
+    {
+      "source": "/about/membership.html",
+      "destination": "/about/membership/",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/family-matters.html",
+      "destination": "/facilities/family-matters/",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/funeral.html",
+      "destination": "/facilities/funeral/",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/rental.html",
+      "destination": "/facilities/rental/",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/wedding.html",
+      "destination": "/facilities/wedding/",
+      "permanent": true
+    }
   ]
 }

@@ -77,6 +77,8 @@ credible material and the links that still resolve were worth carrying over.
 | Portals | **One** admin app with three roles (main / school / youth). Each role sees only its own sections. |
 | Content fidelity | Verbatim from the original site. Fix typos only. |
 | Navigation | Section landing pages with cards. **No hover dropdowns** (better for elderly and touch users). |
+| URLs | Clean and readable: every page is `folder/index.html`, served as `/prayers/`, `/about/history/`. Done with folders rather than Vercel's `cleanUrls` so the local preview server behaves identically to production. `vercel.json` 301s the old `.html` URLs. |
+| Asset caching | `styles.css`, `content.js` and `app.js` carry a `?v=` stamp. **Bump it whenever one of those three changes** — a stale copy of `content.js` will crash against newer `content.json` data. |
 | Publish authority | Anyone who can edit can also publish. *Revisit later if the board wants approval gates.* |
 | Youth signup | Each event has a "Signup Link" field; they paste the Google Form URL. No signups collected on our site. |
 
@@ -158,7 +160,12 @@ Full-site review; everything below was found and fixed in one pass.
   and `vercel.json` cache headers. Canonicals assume the site takes over
   **icbwayland.org** — change the `BASE` value if the domain differs.
 - Added `?v=` cache-busting to CSS/JS. Without it, returning visitors keep
-  running the previous deploy's JavaScript.
+  running the previous deploy's JavaScript. The version must be bumped by
+  hand on each change; forgetting it once during this pass served a stale
+  `app.js` and broke nav highlighting until the stamp was raised.
+- URLs are now clean (`/prayers/` rather than `/prayers.html`). Pages moved
+  into folders, links/canonicals/sitemap rewritten, and the old `.html`
+  paths 301 to the new ones.
 - Accessibility: hamburger state no longer goes stale when the menu closes by
   outside-click, Escape closes it, youth tabs got full tab/tabpanel wiring
   with arrow-key navigation, and the membership fee dropdown got a label.

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://icbwayland.org/about/contact.html</loc>
+    <loc>https://icbwayland.org/about/contact/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/about/history.html</loc>
+    <loc>https://icbwayland.org/about/history/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
@@ -16,27 +16,27 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/about/management.html</loc>
+    <loc>https://icbwayland.org/about/management/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/about/membership.html</loc>
+    <loc>https://icbwayland.org/about/membership/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/calendar.html</loc>
+    <loc>https://icbwayland.org/calendar/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/facilities/family-matters.html</loc>
+    <loc>https://icbwayland.org/facilities/family-matters/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/facilities/funeral.html</loc>
+    <loc>https://icbwayland.org/facilities/funeral/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
@@ -46,12 +46,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/facilities/rental.html</loc>
+    <loc>https://icbwayland.org/facilities/rental/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/facilities/wedding.html</loc>
+    <loc>https://icbwayland.org/facilities/wedding/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
@@ -61,17 +61,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/news.html</loc>
+    <loc>https://icbwayland.org/news/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/outreach.html</loc>
+    <loc>https://icbwayland.org/outreach/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/prayers.html</loc>
+    <loc>https://icbwayland.org/prayers/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
   </url>
@@ -81,7 +81,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://icbwayland.org/support.html</loc>
+    <loc>https://icbwayland.org/support/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
   </url>
