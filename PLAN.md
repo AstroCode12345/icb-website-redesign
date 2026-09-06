@@ -224,10 +224,11 @@ Full-site review; everything below was found and fixed in one pass.
   Tax ID, 04-2689954.
 - Eid capitalised throughout.
 
-### Open question
-- The Outreach committee description named **Open Mosque Day**, which Taymour says
-  is not a real event. The clause has been removed and nothing invented in its
-  place — his wording still needed.
+### Resolved
+- The Outreach committee description named **Open Mosque Day**, which is not a real
+  ICB event. On Taymour's instruction the tail is now general rather than naming
+  events: it ends "arrange visits that welcome the wider community into the center."
+  The Outreach Iftar is no longer named either.
 
 ### Worth knowing
 - The Facilities Maintenance Request form returns 401 to anonymous requests, so it
