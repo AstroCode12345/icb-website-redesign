@@ -301,7 +301,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       const h = Math.floor(minutesUntil / 60);
       const m = minutesUntil % 60;
       const when = h > 0 ? `${h}h ${m}m` : `${m} min`;
-      label.textContent = `Next: ${prettyName} in ${when}`;
+      // Keep "Iqamah" in front of the countdown. These are the times the
+      // congregation actually stands for prayer at ICB, not the astronomical
+      // prayer times for Boston, and the bar is the first thing on the page.
+      label.textContent = `ICB Iqamah · Next: ${prettyName} in ${when}`;
     }
   }
 

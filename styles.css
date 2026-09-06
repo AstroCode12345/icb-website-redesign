@@ -224,6 +224,9 @@ p  { color: var(--gray-700); }
   padding: .5rem .7rem;
   border-radius: var(--radius-sm);
   transition: background var(--transition), color var(--transition);
+  /* Never let a nav item wrap. The Support Us pill in particular breaks out
+     of its rounded background if the label splits over two lines. */
+  white-space: nowrap;
 }
 .nav__link:hover,
 .nav__link.active {
@@ -244,6 +247,8 @@ p  { color: var(--gray-700); }
   border-radius: var(--radius-full);
   transition: background var(--transition);
   margin-left: .5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .nav__cta:hover,
 .nav__link.nav__cta:hover { background: var(--green-700); }
@@ -977,10 +982,17 @@ p  { color: var(--gray-700); }
   .about-split { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-split__visual { aspect-ratio: 16/9; }
 }
-@media (max-width: 768px) {
-  :root { --nav-height: 64px; }
+/* The horizontal nav needs about 1050px to lay out: 763px of links plus the
+   209px logo plus container padding. Below that the Support Us pill was being
+   squeezed until its label wrapped and spilled out of the rounded background,
+   so hand over to the hamburger here rather than at the general mobile
+   breakpoint. */
+@media (max-width: 1080px) {
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
+}
+@media (max-width: 768px) {
+  :root { --nav-height: 64px; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); }
   .hero__content { padding-block: 3.5rem; }
   .section { padding-block: 3.5rem; }
@@ -988,9 +1000,33 @@ p  { color: var(--gray-700); }
 }
 @media (max-width: 480px) {
   .stats__grid { grid-template-columns: 1fr 1fr; }
-  .prayer-bar__label { display: none; }
+  /* Stack rather than hide the label. On a phone the bar is the first thing
+     on the page, and a bare row of times reads as "prayer times for Boston"
+     when it is really the congregation schedule at ICB. */
+  .prayer-bar__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .55rem;
+    overflow-x: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .prayer-bar__label {
+    display: block;
+    text-align: center;
+    font-size: .68rem;
+  }
   .prayer-bar__link { display: none; }
-  .prayer-bar__times { gap: .75rem; }
+  /* The times row is the part that scrolls now, so the fade belongs here. */
+  .prayer-bar__times {
+    gap: .75rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 88%, transparent 100%);
+  }
+  .prayer-bar__times::-webkit-scrollbar { display: none; }
   .prayer-time__name { font-size: .62rem; }
   .prayer-time__value { font-size: .88rem; }
   .hero__actions { flex-wrap: wrap; }

@@ -1,7 +1,7 @@
 # ICB Wayland — Build Plan (Phase 2)
 
 Living spec. Updated as decisions are made and work ships.
-Last updated: 26 August 2026, after the full-site audit pass.
+Last updated: 6 September 2026, after the content-refresh pass.
 
 ---
 
@@ -120,9 +120,10 @@ signup link) plus the youth page intro text.
    site. School and Youth also fully built. Outreach **is** now expanded:
    the full 12-question Outreach FAQ was ported in, and School Admission and
    the press archive were brought over from the old site.
-3. [ ] Calendar page: embed the live Google Calendar — not yet done.
-   `calendar.html` still has the old hand-built event list; nav/footer were
-   updated but the embed itself is next.
+3. [x] Calendar page: the live Google Calendar (`icbcalendar@icbwayland.org`)
+   is now embedded, replacing the hand-built event list. The weekly rhythm
+   (daily prayers, Jumu'ah, Sunday School) stayed as a section beneath it,
+   since those repeat rather than appearing as calendar entries.
 4. [ ] Preview → production pipeline (set up early so it can be demoed)
 5. [ ] Three-role admin portal
 6. [~] Youth events — **wired up**. `youthEvents` is now a real field in
@@ -187,3 +188,48 @@ Full-site review; everything below was found and fixed in one pass.
   currently assume `icbwayland.org`.
 - `ICBFacilitiesRentalPolicyAgreement.pdf` is 5.3 MB — worth compressing before
   launch, it is a heavy download on a phone.
+
+
+## Content refresh — 6 September 2026
+
+- **Section renamed Facilities → Services**, matching the original site's own
+  nav. Folder moved too (`/facilities/` → `/services/`) so the label and the URL
+  agree, with `/facilities/*` redirecting. "Facilities Rental" kept its name, and
+  the word stays untouched inside verbatim prose.
+- **Nav breakpoint fixed.** The horizontal nav needs 1050px (763px of links plus
+  the 209px logo) but only collapsed at 768px, so between those widths the
+  Support Us pill was squeezed until its label wrapped out of the rounded
+  background. Hands over to the hamburger at 1080px now.
+- **The prayer bar says what it is.** It now reads "ICB Iqamah · Next: …", and on
+  phones the label stacks above the times instead of being hidden, so a bare row
+  of numbers can't be mistaken for the astronomical times for Boston.
+- **Boston prayer schedule restored** at `/prayers/schedule/`, linked from the
+  Prayers page, with the printable PDF self-hosted. The source table's markup was
+  broken (Date cells opened `<TD>` and closed `</TH>`), so it needed anchor-based
+  parsing rather than row parsing.
+- **Google Calendar embedded** on the Calendar page.
+- **School page brought current**: the day is now two programmes (10:30–1:30 and
+  2:00–5:00), not one 10:30–4:30 block, with the 2026-27 timetables. Sunday-school
+  Zuhr corrected from 12:30 PM to 1:15 PM in `content.json` — the old value
+  contradicted the school's own schedule.
+- **Board and committees brought current** and split into three tabs (Board,
+  Committees, Forms & Requests). Faiza Khan is President; the appointed Director
+  of Operations and Director of Security rows are new. Official Event Booking and
+  Facilities Maintenance Request now live under the Forms tab.
+- Homepage: In the News section removed (footer link kept); second hero button is
+  now Visit or Request a Speaker, since the prayer bar directly above it already
+  linked the full schedule.
+- Rental page: the booking form moved to the bottom, beside the policy download.
+- Donate page: the 501(c)(3) line appeared twice; the second now carries the
+  Tax ID, 04-2689954.
+- Eid capitalised throughout.
+
+### Open question
+- The Outreach committee description named **Open Mosque Day**, which Taymour says
+  is not a real event. The clause has been removed and nothing invented in its
+  place — his wording still needed.
+
+### Worth knowing
+- The Facilities Maintenance Request form returns 401 to anonymous requests, so it
+  likely needs a Google sign-in. Fine for committee members, a dead end for anyone
+  else who clicks it.

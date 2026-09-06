@@ -51,7 +51,7 @@
     },
     {
       "source": "/facilities/index.html",
-      "destination": "/facilities/",
+      "destination": "/services/",
       "permanent": true
     },
     {
@@ -111,22 +111,37 @@
     },
     {
       "source": "/facilities/family-matters.html",
-      "destination": "/facilities/family-matters/",
+      "destination": "/services/family-matters/",
       "permanent": true
     },
     {
       "source": "/facilities/funeral.html",
-      "destination": "/facilities/funeral/",
+      "destination": "/services/funeral/",
       "permanent": true
     },
     {
       "source": "/facilities/rental.html",
-      "destination": "/facilities/rental/",
+      "destination": "/services/rental/",
       "permanent": true
     },
     {
       "source": "/facilities/wedding.html",
-      "destination": "/facilities/wedding/",
+      "destination": "/services/wedding/",
+      "permanent": true
+    },
+    {
+      "source": "/facilities",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/:path*",
+      "destination": "/services/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/prayerschedule.html",
+      "destination": "/prayers/schedule/",
       "permanent": true
     }
   ]
