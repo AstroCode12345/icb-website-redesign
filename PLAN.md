@@ -277,3 +277,56 @@ been announced yet rather than collapsing to a bare border.
   to the portal or update it by hand.
 - School staff roster is 20+ people across three tables, several rows holding
   multiple names. Worth a portal section only if it actually turns over; ask first.
+
+## Full portal coverage — 6 September 2026
+
+Taymour's goal, stated this session: **never edit the website through Claude
+again.** Admins do everything through the portal.
+
+### Why the old approach could not get there
+`content.json` held a few named values and `content.js` dropped each into one
+spot. Every new editable thing needed a field, a binding and a form control,
+all hand-written. Measured coverage: **150 of ~7,900 words, about 2%.** Twelve
+of nineteen pages had nothing editable at all. Worse, structure stayed in the
+HTML, so nobody could add a committee or remove a card without a developer.
+
+### What replaced it
+Pages are now **generated from content/**:
+
+- `content/site.json` — brand, nav, footer (shared by all 19 pages; verified
+  there was exactly one nav and one footer variant before templating them).
+- `content/pages.json` — each page as head metadata, a hero, and an ordered
+  list of typed blocks.
+- `build.js` — renders both into the static HTML that ships.
+- `tools/extract_pages.py` — the one-time migration from the old markup.
+
+**Eleven block types cover all nineteen pages with zero left over.** Icons are
+named (26 of them, in `tools/icons.json`), so an admin picks "heart", never
+pastes SVG.
+
+### Build time, not browser time
+`vercel.json` now carries `buildCommand: node build.js`. People find this site
+by searching for prayer times, so client-side rendering would weaken indexing
+and flash empty content. Publishing stays: portal writes JSON to GitHub,
+Vercel rebuilds, visitors get plain static HTML.
+
+### How it was verified
+The generated pages were written to a temp directory and compared against the
+hand-written originals **before** anything was overwritten. That caught real
+bugs, each fixed: the homepage lost its whole prayer bar (content outside
+`<section class="section">` was never visited); icons silently failed to match
+because `<path/>` and `<path></path>` serialise differently; cards kept only
+their first paragraph; `<h1 class="hero__title">` was flattened to `<div><p>`;
+inline `<strong>`/`<br>` were split out of their sentences; the two tab pages'
+inline scripts and the schedule page's month `id`s were dropped.
+
+Final state: **all 19 pages identical to the originals** on visible text,
+links, element ids, image and iframe sources, data/aria/role attributes, CSS
+classes, heading outline, inline scripts and title. Two builds byte-identical.
+
+### Still to do
+- **The portal UI for blocks does not exist yet.** The dashboard still edits
+  only `content.json`. The site can now be fully edited; the editor cannot yet
+  drive it. This is the next piece of work.
+- Then: `content.json` and `pages.json` overlap (prayer times, school dates).
+  Decide whether the runtime `content.js` layer folds into the build.
