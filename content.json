@@ -51,7 +51,49 @@
     "text": ""
   },
   "sundaySchool": {
-    "zuhr": "1:15 PM"
+    "year": "2026–27",
+    "zuhr": "1:15 PM",
+    "asr": "4:45 PM",
+    "existingDates": [
+      {
+        "when": "May 15, 2026",
+        "what": "Deadline to register without late fee"
+      },
+      {
+        "when": "June 28, 2026",
+        "what": "Final deadline for late registrations"
+      },
+      {
+        "when": "Aug 15, 2026",
+        "what": "Admissions notifications emailed"
+      },
+      {
+        "when": "Sept 13, 2026",
+        "what": "First day of Sunday School"
+      }
+    ],
+    "newDates": [
+      {
+        "when": "June 28, 2026",
+        "what": "Deadline for on-time new family registration"
+      },
+      {
+        "when": "Jul 31, 2026",
+        "what": "Final cutoff for new family registration"
+      },
+      {
+        "when": "Jul 1–Aug 15, 2026",
+        "what": "Arabic assessments (Grade 2+); PATP interviews"
+      },
+      {
+        "when": "Aug 15, 2026",
+        "what": "Admissions notifications emailed"
+      },
+      {
+        "when": "Sept 13, 2026",
+        "what": "First day of Sunday School"
+      }
+    ]
   },
   "contact": {
     "email": "webmaster@icbwayland.org",

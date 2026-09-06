@@ -218,9 +218,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // --- Sunday school Zuhr time --------------------------------------------
+  // --- Sunday school -------------------------------------------------------
+  // The school year label and the two admissions tables turn over every year,
+  // which is the churn the admin portal exists to absorb. The timetable and
+  // staff roster stay in the page markup; they change far less often.
   if (ICB.sundaySchool) {
-    _set("[data-school='zuhr']", ICB.sundaySchool.zuhr);
+    const school = ICB.sundaySchool;
+    _set("[data-school='zuhr']", school.zuhr);
+    _set("[data-school='asr']", school.asr);
+    _set("[data-school='year']", school.year);
+
+    renderSchoolDates("[data-school-dates='existing']", school.existingDates);
+    renderSchoolDates("[data-school-dates='new']", school.newDates);
+  }
+
+  function renderSchoolDates(selector, rows) {
+    const table = document.querySelector(selector);
+    if (!table || !Array.isArray(rows)) return;
+
+    // Nothing scheduled yet is a real state between school years, so say so
+    // rather than leaving an empty table with just its border showing.
+    if (!rows.length) {
+      table.innerHTML = `
+        <tr><td style="padding:.75rem 0;color:var(--gray-500);font-size:.85rem;">
+          Key dates for the coming school year have not been announced yet.
+        </td></tr>`;
+      return;
+    }
+
+    table.innerHTML = rows.map(r => `
+      <tr style="border-top:1px solid var(--gray-100);">
+        <td style="padding:.5rem 0;color:var(--gray-500);">${_esc(r.when)}</td>
+        <td style="padding:.5rem 0;">${_esc(r.what)}</td>
+      </tr>`).join("");
   }
 
   // --- Contact email (text + mailto) --------------------------------------
