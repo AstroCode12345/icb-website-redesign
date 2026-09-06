@@ -234,3 +234,46 @@ Full-site review; everything below was found and fixed in one pass.
 - The Facilities Maintenance Request form returns 401 to anonymous requests, so it
   likely needs a Google sign-in. Fine for committee members, a dead end for anyone
   else who clicks it.
+
+## Layout and portal pass — 6 September 2026
+
+- **Friday Prayers card reworked** (`/prayers/`). It was stretching to match the
+  tall Iqamah table beside it, so on any week with no khateeb posted it read as a
+  large empty panel. The grid is now `align-items: start` so the card sizes to its
+  own content, and it leads with a Khutba / Iqamah stat pair, which is the question
+  the card exists to answer. The no-khateeb copy now says Jumu'ah still runs at the
+  times above instead of only reporting an absence.
+- **SunWeb portals promoted** on the School page: parent and teacher cards sit
+  directly under the hero, above the mission statement. All three SunWeb links
+  moved from the retired `icbwaylandss.sunwebapp.com` to `sunweb.us`.
+- **School hours contradiction fixed.** The New Families paragraph still quoted
+  10:30–1:15 and 1:30–4:30 while the timetable below it said 10:30–1:30 and
+  2:00–5:00. Checked against the live original, which publishes the latter; both
+  now agree.
+- Homepage Quick Access card reads "Visit / Request a Speaker", matching the hero.
+
+### Admin portal: school section
+There is one portal, not one per page: a single dashboard with sections that all
+publish to `content.json`. Its Sunday School section held exactly one field, the
+Zuhr time, which did not even render on the School page (only on `/prayers/`).
+
+Now editable: school year label, Zuhr, Asr, and both admissions date tables.
+Dates are free text rather than ISO, because the school publishes ranges
+("Jul 1–Aug 15, 2026") beside single days and these are printed as written, not
+sorted or date-filtered. Between school years each table says the dates have not
+been announced yet rather than collapsing to a bare border.
+
+### Portal coverage, as it stands
+| Page | State |
+|---|---|
+| Homepage | Covered: prayer bar, announcement banner, events |
+| Prayers | Covered: Iqamah times, khateebs, school Zuhr/Asr |
+| School | Covered for the annual churn. Staff roster still hardcoded |
+| Youth | Events only. Registration year and page copy still hardcoded |
+| About / Services / Outreach | Not covered, and mostly static by nature |
+
+### Next
+- **Youth page is stale**: it still says "2025–2026 Registration". Either bind that
+  to the portal or update it by hand.
+- School staff roster is 20+ people across three tables, several rows holding
+  multiple names. Worth a portal section only if it actually turns over; ask first.
