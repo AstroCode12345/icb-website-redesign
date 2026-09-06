@@ -1,0 +1,128 @@
+{
+  "brand": {
+    "name": "ICB Wayland",
+    "sub": "Islamic Center of Boston",
+    "logo": "/images/icb-logo.jpg"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/",
+      "cta": false
+    },
+    {
+      "label": "About",
+      "href": "/about/",
+      "cta": false
+    },
+    {
+      "label": "Services",
+      "href": "/services/",
+      "cta": false
+    },
+    {
+      "label": "Prayers",
+      "href": "/prayers/",
+      "cta": false
+    },
+    {
+      "label": "School",
+      "href": "/school/",
+      "cta": false
+    },
+    {
+      "label": "Calendar",
+      "href": "/calendar/",
+      "cta": false
+    },
+    {
+      "label": "Youth",
+      "href": "/youth/",
+      "cta": false
+    },
+    {
+      "label": "Outreach",
+      "href": "/outreach/",
+      "cta": false
+    },
+    {
+      "label": "Support Us",
+      "href": "/support/",
+      "cta": true
+    }
+  ],
+  "footer": {
+    "brandLogo": "Islamic Center of Boston",
+    "brandText": "Serving the Muslim community and interfaith neighbors since 1979.",
+    "columns": [
+      {
+        "title": "Visit Us",
+        "items": [
+          {
+            "label": "126 Boston Post Road"
+          },
+          {
+            "label": "Wayland, MA 01778"
+          },
+          {
+            "label": "Prayer Times",
+            "href": "/prayers/"
+          },
+          {
+            "label": "Services",
+            "href": "/services/"
+          }
+        ]
+      },
+      {
+        "title": "Community",
+        "items": [
+          {
+            "label": "Sunday School",
+            "href": "/school/"
+          },
+          {
+            "label": "Youth Group",
+            "href": "/youth/"
+          },
+          {
+            "label": "Outreach",
+            "href": "/outreach/"
+          },
+          {
+            "label": "Calendar",
+            "href": "/calendar/"
+          },
+          {
+            "label": "In the News",
+            "href": "/news/"
+          }
+        ]
+      },
+      {
+        "title": "Get Involved",
+        "items": [
+          {
+            "label": "Donate",
+            "href": "/support/"
+          },
+          {
+            "label": "Membership",
+            "href": "/about/membership/"
+          },
+          {
+            "label": "Contact Us",
+            "href": "/about/contact/"
+          },
+          {
+            "label": "Webmaster",
+            "href": "mailto:webmaster@icbwayland.org",
+            "dynamic": "contactEmail"
+          }
+        ]
+      }
+    ],
+    "copyright": "&copy; 2001&ndash;2026 Islamic Center of Boston, Wayland, MA. All rights reserved.",
+    "updated": "August 26, 2026"
+  }
+}
