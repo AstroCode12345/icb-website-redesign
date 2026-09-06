@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260906" />
+  <link rel="stylesheet" href="/styles.css?v=20260906b" />
   <meta name="description" content="Daily Iqamah times and Friday Jumu&#39;ah schedule at the Islamic Center of Boston, Wayland." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Prayer Times — ICB Wayland" />
@@ -16,8 +16,15 @@
   <meta property="og:url" content="https://icbwayland.org/prayers/" />
   <meta property="og:type" content="website" />
   <style>
-    .prayers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    /* align-items:start so the Friday card sizes to its own content. Stretching
+       it to match the tall Iqamah table left a large hollow panel on the weeks
+       when no khateeb is scheduled yet. */
+    .prayers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
     .friday-card { background: var(--green-800); color: var(--white); border-radius: var(--radius-md); padding: 2rem; }
+    .friday-times { display: flex; gap: 2.5rem; margin: 1.25rem 0 1.5rem; padding: 1.1rem 0; border-top: 1px solid rgba(255,255,255,.18); border-bottom: 1px solid rgba(255,255,255,.18); }
+    .friday-time__name { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-bottom: .3rem; }
+    .friday-time__value { display: block; font-family: var(--font-serif); font-size: 1.55rem; font-weight: 700; color: var(--gold-400); line-height: 1; }
+    .friday-card__khateeb { margin-top: .25rem; }
     .friday-card h3 { color: var(--gold-400); font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 1rem; }
     .friday-card p { color: rgba(255,255,255,.8); margin-bottom: .5rem; font-size: .95rem; }
     .friday-card strong { color: var(--white); }
@@ -135,14 +142,28 @@
         <!-- Friday -->
         <div class="friday-card">
           <h3>Friday Prayers</h3>
-          <p>Khutba starts at <span data-friday="khutbah">1:00 PM</span> and Iqamah at <span data-friday="iqamah">1:30 PM</span>, Insha Allah.</p>
-          <p style="margin-top:.75rem;" data-friday-current><strong>This week's khateeb (<span data-friday="date">August 28, 2026</span>):</strong> <span data-friday="speaker">Dr. Mohamed Lazzouni</span></p>
-          <p style="margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.7);" data-khateeb-intro>The following khateebs are scheduled for the next few weeks. Please note, occasionally a khateeb may change at the last minute and this page may not reflect that change.</p>
-          <table style="width:100%;margin-top:.75rem;font-size:.88rem;border-collapse:collapse;">
-            <tbody data-khateeb-schedule>
-              <tr><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 28, 2026</td><td style="padding:.4rem 0;">Dr. Mohamed Lazzouni</td></tr>
-            </tbody>
-          </table>
+          <p>Jumu'ah is prayed every Friday, Insha Allah.</p>
+
+          <div class="friday-times">
+            <div class="friday-time">
+              <span class="friday-time__name">Khutba</span>
+              <span class="friday-time__value" data-friday="khutbah">1:00 PM</span>
+            </div>
+            <div class="friday-time">
+              <span class="friday-time__name">Iqamah</span>
+              <span class="friday-time__value" data-friday="iqamah">1:30 PM</span>
+            </div>
+          </div>
+
+          <div class="friday-card__khateeb">
+            <p data-friday-current><strong>This week's khateeb (<span data-friday="date">August 28, 2026</span>):</strong> <span data-friday="speaker">Dr. Mohamed Lazzouni</span></p>
+            <p style="margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.7);" data-khateeb-intro>The following khateebs are scheduled for the next few weeks. Please note, occasionally a khateeb may change at the last minute and this page may not reflect that change.</p>
+            <table style="width:100%;margin-top:.75rem;font-size:.88rem;border-collapse:collapse;">
+              <tbody data-khateeb-schedule>
+                <tr><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 28, 2026</td><td style="padding:.4rem 0;">Dr. Mohamed Lazzouni</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </div>
@@ -245,7 +266,7 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260906"></script>
-  <script src="/app.js?v=20260906"></script>
+  <script src="/content.js?v=20260906b"></script>
+  <script src="/app.js?v=20260906b"></script>
 </body>
 </html>

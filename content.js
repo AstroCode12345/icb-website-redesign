@@ -126,9 +126,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td style="padding:.4rem 0;">${_esc(k.name)}</td>
         </tr>`).join("");
     } else {
+      // The Khutba and Iqamah times sit directly above this, so the card still
+      // answers "when is Jumu'ah" even with nobody scheduled yet.
       khateebBody.innerHTML = `
-        <tr><td colspan="2" style="padding:.6rem 0;color:rgba(255,255,255,.7);">
-          The schedule for the coming weeks has not been posted yet.
+        <tr><td colspan="2" style="padding:.2rem 0;color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.6;">
+          The khateeb schedule for the coming weeks has not been posted yet.
+          Jumu'ah is held every Friday at the times above.
         </td></tr>`;
     }
   }
