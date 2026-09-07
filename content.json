@@ -31,21 +31,22 @@
   ],
   "events": [
     {
-      "date": "2026-05-01",
+      "date": "2026-09-18",
       "featured": true,
-      "tag": "Community Program",
-      "title": "Unlocking Door to Jannah with Imam Adnan Wood-Smith",
-      "meta": "Thursday · 6:30 – 9:00 PM · Dinner included · Registration required"
-    },
-    {
-      "date": "2026-05-09",
-      "featured": false,
-      "tag": "Charity",
-      "title": "First Annual Humanitarian Walk",
-      "meta": "Saturday · 10:00 AM · Open to all"
+      "tag": "",
+      "title": "Quran In Conversation With Dr. Mustafa Khattab",
+      "meta": "Friday, September 18th, 2026 at ICB Wayland"
     }
   ],
-  "youthEvents": [],
+  "youthEvents": [
+    {
+      "date": "2026-09-19",
+      "title": "YG Kickoff!",
+      "tag": "",
+      "meta": "Come to our first event  of of the year! We'll have food and games!",
+      "signupUrl": ""
+    }
+  ],
   "announcement": {
     "show": false,
     "text": ""
@@ -103,7 +104,7 @@
     "youtube": "https://youtube.com/c/ICBWayland"
   },
   "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE",
-  "siteUpdated": "2026-09-06",
+  "siteUpdated": "2026-09-07",
   "youth": {
     "registrationTitle": "2026–2027 Registration",
     "registrationBody": "Sign up for the ICB Wayland Youth Group for this school year.",
