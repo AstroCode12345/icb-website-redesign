@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://icbwayland.org/calendar/" />
   <meta property="og:type" content="website" />
   <style>
-/* Google Calendar ships a fixed-size iframe. Wrap it so it scales with the
+    /* Google Calendar ships a fixed-size iframe. Wrap it so it scales with the
        column instead of overflowing on a phone. */
     .gcal-frame {
       position: relative;
@@ -91,12 +91,26 @@
       <div style="max-width:820px;margin-inline:auto;text-align:center;margin-bottom:2.5rem;">
         <span class="section__label">What's On</span>
         <h2 class="section__title" style="margin-bottom:1rem;">ICB Event Calendar</h2>
-        <p style="color:var(--gray-700);line-height:1.85;">The calendar below lists approved ICB, public and private special events. There may be other requests in the approval pipeline. Click an event to see its details. If a date and time is free and you would like to reserve the facility, see <a href="/services/rental/" style="color:var(--green-700);font-weight:600;">rental fees and policies</a>.</p>
+        <p style="color:var(--gray-700);line-height:1.85;">
+          The calendar below lists approved ICB, public and private special events. There may be
+          other requests in the approval pipeline. Click an event to see its details. If a date and
+          time is free and you would like to reserve the facility, see
+          <a href="/services/rental/" style="color:var(--green-700);font-weight:600;">rental fees and policies</a>.
+        </p>
       </div>
+
       <div class="gcal-frame">
-        <iframe src="https://calendar.google.com/calendar/embed?src=icbcalendar%40icbwayland.org&amp;ctz=America%2FNew_York" title="ICB Wayland event calendar" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=icbcalendar%40icbwayland.org&amp;ctz=America%2FNew_York"
+          title="ICB Wayland event calendar"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <p style="max-width:820px;margin:1rem auto 0;font-size:.85rem;color:var(--gray-500);text-align:center;">Having trouble with the calendar above? <a href="https://calendar.google.com/calendar/embed?src=icbcalendar%40icbwayland.org&amp;ctz=America%2FNew_York" rel="noopener" style="color:var(--green-700);font-weight:600;" target="_blank">Open it in Google Calendar →</a></p>
+      <p style="max-width:820px;margin:1rem auto 0;font-size:.85rem;color:var(--gray-500);text-align:center;">
+        Having trouble with the calendar above?
+        <a href="https://calendar.google.com/calendar/embed?src=icbcalendar%40icbwayland.org&amp;ctz=America%2FNew_York"
+           target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;">Open it in Google Calendar &rarr;</a>
+      </p>
     </div>
   </section>
 
@@ -107,32 +121,37 @@
         <h2 class="section__title">Regular Gatherings</h2>
         <p class="section__subtitle">These run on a fixed weekly rhythm and are not listed individually on the calendar.</p>
       </div>
-      <div class="two-col">
-          <div class="info-card">
-            <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <h3 class="info-card__title">Weekly Rhythm</h3>
-            <div class="recurring-list" style="margin-top:.9rem;">
-              <div class="recurring-item">
-                <div class="recurring-dot"></div>
-                <div><strong>Daily × 5</strong><br/><span>Congregational prayers</span></div>
-              </div>
-              <div class="recurring-item">
-                <div class="recurring-dot"></div>
-                <div><strong>Every Friday</strong><br/><span>Jumu'ah, Khutba <span data-friday="khutbah">1:00 PM</span> and Iqamah <span data-friday="iqamah">1:30 PM</span></span></div>
-              </div>
-              <div class="recurring-item">
-                <div class="recurring-dot"></div>
-                <div><strong>Every Sunday (Sep–Jun)</strong><br/><span>Sunday School, morning and afternoon programs</span></div>
-              </div>
+      <div class="two-col" style="max-width:900px;margin-inline:auto;">
+        <div class="info-card">
+          <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3 class="info-card__title">Weekly Rhythm</h3>
+          <div class="recurring-list" style="margin-top:.9rem;">
+            <div class="recurring-item">
+              <div class="recurring-dot"></div>
+              <div><strong>Daily &times; 5</strong><br><span>Congregational prayers</span></div>
             </div>
-            <a class="btn btn--outline" href="/prayers/">See Iqamah times</a>
+            <div class="recurring-item">
+              <div class="recurring-dot" style="background:var(--gold-500);"></div>
+              <div><strong>Every Friday</strong><br><span>Jumu'ah, Khutba <span data-friday="khutbah">1:00 PM</span> and Iqamah <span data-friday="iqamah">1:30 PM</span></span></div>
+            </div>
+            <div class="recurring-item">
+              <div class="recurring-dot"></div>
+              <div><strong>Every Sunday (Sep&ndash;Jun)</strong><br><span>Sunday School, morning and afternoon programs</span></div>
+            </div>
           </div>
-          <div class="info-card">
-            <h3 class="info-card__title">Stay Updated</h3>
-            <p style="font-size:.92rem;color:rgba(255,255,255,.78);line-height:1.7;">Follow ICB Wayland on Facebook and YouTube for event announcements, Friday khutbahs, and community news. School holidays and cancellations are posted on the <a href="/school/" style="color:var(--gold-400);font-weight:600;">School page</a>.</p>
-            <a class="btn btn--gold" href="https://www.facebook.com/icbwayland" target="_blank" rel="noopener" data-facebook-link>Facebook</a>
-            <a class="btn btn--outline" href="https://youtube.com/c/ICBWayland" target="_blank" rel="noopener" data-youtube-link>YouTube</a>
-          </div>
+          <a href="/prayers/" class="btn btn--outline" style="margin-top:1.25rem;font-size:.85rem;">See Iqamah times</a>
+        </div>
+
+        <div class="info-card" style="background:var(--green-800);border-color:var(--green-800);">
+          <h3 class="info-card__title" style="color:var(--white);">Stay Updated</h3>
+          <p style="font-size:.92rem;color:rgba(255,255,255,.78);line-height:1.7;">
+            Follow ICB Wayland on Facebook and YouTube for event announcements, Friday khutbahs,
+            and community news. School holidays and cancellations are posted on the
+            <a href="/school/" style="color:var(--gold-400);font-weight:600;">School page</a>.
+          </p>
+          <a data-facebook-link href="https://www.facebook.com/icbwayland" target="_blank" rel="noopener" class="btn btn--gold" style="width:100%;justify-content:center;margin-top:1.25rem;font-size:.85rem;">Facebook</a>
+          <a data-youtube-link href="https://youtube.com/c/ICBWayland" target="_blank" rel="noopener" class="btn btn--outline" style="width:100%;justify-content:center;border-color:rgba(255,255,255,.4);color:var(--white);margin-top:.6rem;font-size:.85rem;">YouTube</a>
+        </div>
       </div>
     </div>
   </section>
@@ -187,8 +206,8 @@
       </div>
     </div>
   </footer>
-  <script src="/icons.js?v=20260906c"></script>
   <script src="/content.js?v=20260906c"></script>
   <script src="/app.js?v=20260906c"></script>
+
 </body>
 </html>
