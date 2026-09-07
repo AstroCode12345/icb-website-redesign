@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260906c" />
+  <link rel="stylesheet" href="/styles.css?v=20260907a" />
   <meta name="description" content="The ICB Wayland Youth Group: registration, Honor Code, and upcoming events for young Muslims." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Youth Group — ICB Wayland" />
@@ -82,7 +82,7 @@
           <div class="empty-state">
             <p>No youth events are posted right now.</p>
             <p style="color:var(--gray-500);font-size:.9rem;margin-top:1rem;">
-              In the meantime, check <a href="https://www.instagram.com/icbwayland.yg/" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;">@icbwayland.yg on Instagram</a> for the latest.
+              In the meantime, check <a data-youth-link="instagramUrl" href="https://www.instagram.com/icbwayland.yg/" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;">@icbwayland.yg on Instagram</a> for the latest.
             </p>
           </div>
         </div>
@@ -101,27 +101,27 @@
         <div class="info-grid cols-2" style="max-width:820px;margin-inline:auto;">
           <div class="info-card">
             <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-            <h3 class="info-card__title">2026&ndash;2027 Registration</h3>
-            <p class="info-card__body">Sign up for the ICB Wayland Youth Group for this school year.</p>
-            <a href="https://docs.google.com/forms/d/1dylOTYnEggEu01FBKMjlDfmc5E9kw_q1eOaBKrM0EY8/viewform" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:1rem;font-size:.85rem;">Register Now</a>
+            <h3 class="info-card__title" data-youth="registrationTitle">2026&ndash;2027 Registration</h3>
+            <p class="info-card__body" data-youth="registrationBody">Sign up for the ICB Wayland Youth Group for this school year.</p>
+            <a data-youth-link="registerUrl" href="https://docs.google.com/forms/d/1dylOTYnEggEu01FBKMjlDfmc5E9kw_q1eOaBKrM0EY8/viewform" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:1rem;font-size:.85rem;">Register Now</a>
           </div>
           <div class="info-card">
             <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <h3 class="info-card__title">Youth Group Honor Code</h3>
             <p class="info-card__body">The conduct expectations and guidelines every member agrees to.</p>
-            <a href="https://docs.google.com/document/d/1d79oGsFgU81cLf5etuqQhw8lS0dudHCuENHOjpQ6CfU/edit" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Read the Honor Code</a>
+            <a data-youth-link="honorCodeUrl" href="https://docs.google.com/document/d/1d79oGsFgU81cLf5etuqQhw8lS0dudHCuENHOjpQ6CfU/edit" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Read the Honor Code</a>
           </div>
           <div class="info-card">
             <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></div>
             <h3 class="info-card__title">Follow on Instagram</h3>
-            <p class="info-card__body">@icbwayland.yg &mdash; photos and updates from youth group events.</p>
-            <a href="https://www.instagram.com/icbwayland.yg/" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Open Instagram</a>
+            <p class="info-card__body"><span data-youth="instagramHandle">@icbwayland.yg</span> &mdash; photos and updates from youth group events.</p>
+            <a data-youth-link="instagramUrl" href="https://www.instagram.com/icbwayland.yg/" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Open Instagram</a>
           </div>
           <div class="info-card">
             <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
             <h3 class="info-card__title">Youth Group Linktree</h3>
             <p class="info-card__body">All of the Youth Group's links &mdash; registration, forms, and social &mdash; in one place.</p>
-            <a href="https://linktr.ee/icbyg" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Open Linktree</a>
+            <a data-youth-link="linktreeUrl" href="https://linktr.ee/icbyg" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Open Linktree</a>
           </div>
         </div>
       </div>
@@ -178,8 +178,8 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260906c"></script>
-  <script src="/app.js?v=20260906c"></script>
+  <script src="/content.js?v=20260907a"></script>
+  <script src="/app.js?v=20260907a"></script>
   <script>
     (function () {
       var tabs = document.querySelectorAll(".tab-btn");

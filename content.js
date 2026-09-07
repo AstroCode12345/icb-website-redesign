@@ -253,6 +253,39 @@ document.addEventListener("DOMContentLoaded", async () => {
       </tr>`).join("");
   }
 
+  // --- Youth group ---------------------------------------------------------
+  // The registration heading, its blurb, and the four outside links (form,
+  // honor code, Instagram, Linktree). These turn over every school year, which
+  // is why they are here rather than in the page.
+  if (ICB.youth) {
+    _setAll("[data-youth]", ICB.youth);
+    _setLinks("[data-youth-link]", "youthLink", ICB.youth);
+  }
+
+  // --- Sunday school portal links ------------------------------------------
+  if (ICB.sundaySchool) {
+    _setLinks("[data-school-link]", "schoolLink", ICB.sundaySchool);
+  }
+
+  /** Fill every [data-<attr>="key"] element from `values[key]`. */
+  function _setAll(selector, values) {
+    document.querySelectorAll(selector).forEach(el => {
+      const key = el.dataset.youth;
+      if (values[key] !== undefined && values[key] !== "") {
+        el.textContent = values[key];
+      }
+    });
+  }
+
+  /** Point every matching link at `values[key]`, ignoring blanks. */
+  function _setLinks(selector, dataKey, values) {
+    document.querySelectorAll(selector).forEach(el => {
+      const key = el.dataset[dataKey];
+      const url = values[key];
+      if (url) el.href = url;
+    });
+  }
+
   // --- Contact email (text + mailto) --------------------------------------
   if (ICB.contact) {
     _set("[data-contact='email']", ICB.contact.email);

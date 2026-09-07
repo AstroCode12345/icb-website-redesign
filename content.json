@@ -93,7 +93,9 @@
         "when": "Sept 13, 2026",
         "what": "First day of Sunday School"
       }
-    ]
+    ],
+    "parentPortalUrl": "https://sunweb.us/?s=icbwaylandss",
+    "teacherPortalUrl": "https://sunweb.us/admin/admin-login?s=icbwaylandss"
   },
   "contact": {
     "email": "webmaster@icbwayland.org",
@@ -101,5 +103,14 @@
     "youtube": "https://youtube.com/c/ICBWayland"
   },
   "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE",
-  "siteUpdated": "2026-09-06"
+  "siteUpdated": "2026-09-06",
+  "youth": {
+    "registrationTitle": "2026–2027 Registration",
+    "registrationBody": "Sign up for the ICB Wayland Youth Group for this school year.",
+    "registerUrl": "https://docs.google.com/forms/d/1dylOTYnEggEu01FBKMjlDfmc5E9kw_q1eOaBKrM0EY8/viewform",
+    "honorCodeUrl": "https://docs.google.com/document/d/1d79oGsFgU81cLf5etuqQhw8lS0dudHCuENHOjpQ6CfU/edit",
+    "instagramHandle": "@icbwayland.yg",
+    "instagramUrl": "https://www.instagram.com/icbwayland.yg/",
+    "linktreeUrl": "https://linktr.ee/icbyg"
+  }
 }
