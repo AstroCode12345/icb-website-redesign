@@ -38,7 +38,15 @@
       "meta": "Friday, September 18th, 2026 at ICB Wayland"
     }
   ],
-  "youthEvents": [],
+  "youthEvents": [
+    {
+      "date": "2026-09-19",
+      "title": "YG Kickoff!",
+      "tag": "",
+      "meta": "Come to our first event  of of the year! We'll have food and games!",
+      "signupUrl": ""
+    }
+  ],
   "announcement": {
     "show": false,
     "text": ""
