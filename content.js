@@ -154,6 +154,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     container.innerHTML = events.map(ev => `
       <div class="event-card${ev.featured ? " event-card--featured" : ""}" data-tag="${_esc(ev.tag)}">
+        ${eventImage(ev)}
         <div class="event-card__date">
           <span class="event-card__month">${_esc(monthOf(ev))}</span>
           <span class="event-card__day">${_esc(dayOf(ev))}</span>
@@ -184,6 +185,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       youthContainer.innerHTML = `<div class="events-grid">` + youthEvents.map(ev => `
         <div class="event-card${ev.featured ? " event-card--featured" : ""}">
+          ${eventImage(ev)}
           <div class="event-card__date">
             <span class="event-card__month">${_esc(monthOf(ev))}</span>
             <span class="event-card__day">${_esc(dayOf(ev))}</span>
@@ -315,6 +317,33 @@ document.addEventListener("DOMContentLoaded", async () => {
   // --- Next prayer: highlight + live countdown in the prayer bar -----------
   updateNextPrayer();
   setInterval(updateNextPrayer, 60 * 1000);
+
+  /**
+   * An event's flyer, when one has been uploaded. Flyers are portrait posters,
+   * so the image keeps its own aspect ratio rather than being cropped to a
+   * banner: cropping a flyer usually cuts off the times at the bottom.
+   */
+  function eventImage(ev) {
+    if (!ev.image) return "";
+    const alt = ev.imageAlt || `Flyer for ${ev.title || "this event"}`;
+    const src = _escImg(ev.image);
+    if (!src) return "";
+    return `<a class="event-card__flyer" href="${src}" target="_blank" rel="noopener">
+      <img src="${src}" alt="${_esc(alt)}" loading="lazy">
+    </a>`;
+  }
+
+  /**
+   * Image sources, which unlike the link fields may be site-relative
+   * ("/images/flyer.jpg") as well as absolute. Anything else, including a
+   * javascript: or data: paste, is dropped rather than rendered.
+   */
+  function _escImg(url) {
+    const v = String(url ?? "").trim();
+    if (!v) return "";
+    if (/^https?:\/\//i.test(v) || /^\/[^/]/.test(v)) return _esc(v);
+    return "";
+  }
 
   function _set(selector, value) {
     if (value === undefined || value === null) return;

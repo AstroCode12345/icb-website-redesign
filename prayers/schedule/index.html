@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260907a" />
+  <link rel="stylesheet" href="/styles.css?v=20260907b" />
   <meta name="description" content="Daily prayer times for Boston through the year: Fajr, Shuruq, Zuhr, Asr, Maghrib and Isha." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Prayer Schedule for Boston — ICB Wayland" />
@@ -23,6 +23,46 @@
     .friday-card strong { color: var(--white); }
     .adhan-note { background: var(--gold-100); border: 1px solid #f0d9a8; border-radius: var(--radius-sm); padding: 1rem 1.25rem; font-size: .9rem; color: var(--gray-700); }
     @media (max-width: 768px) { .prayers-grid { grid-template-columns: 1fr; } }
+    /* Floating month jumper. Fixed to the right gutter and vertically
+       centred, so it stays put through twelve tables. The active month is set
+       by an IntersectionObserver below. */
+    .month-rail {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      gap: .1rem;
+      padding: .8rem .55rem;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .month-rail__label {
+      font-size: .6rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gray-500);
+      text-align: center; margin-bottom: .35rem;
+    }
+    .month-rail a {
+      display: block;
+      padding: .28rem .5rem;
+      border-radius: var(--radius-sm);
+      font-size: .78rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition);
+    }
+    .month-rail a:hover { background: var(--green-50); color: var(--green-700); }
+    .month-rail a.is-active { background: var(--green-700); color: var(--white); }
+    /* Below this the rail would sit on top of the tables. */
+    @media (max-width: 1199px) { .month-rail { display: none; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
@@ -301,6 +341,27 @@
     </div>
   </section>
 
+
+  <!-- Floating month rail. The page is twelve tables long, so a persistent
+       jumper saves scrolling back to the top. Hidden under 1200px, where there
+       is no room beside the content; the inline "Jump to" row above the tables
+       covers that case. -->
+  <nav class="month-rail" aria-label="Jump to month">
+    <span class="month-rail__label">Month</span>
+      <a href="#m-jan" data-month="m-jan">Jan</a>
+      <a href="#m-feb" data-month="m-feb">Feb</a>
+      <a href="#m-mar" data-month="m-mar">Mar</a>
+      <a href="#m-apr" data-month="m-apr">Apr</a>
+      <a href="#m-may" data-month="m-may">May</a>
+      <a href="#m-jun" data-month="m-jun">Jun</a>
+      <a href="#m-jul" data-month="m-jul">Jul</a>
+      <a href="#m-aug" data-month="m-aug">Aug</a>
+      <a href="#m-sept" data-month="m-sept">Sep</a>
+      <a href="#m-oct" data-month="m-oct">Oct</a>
+      <a href="#m-nov" data-month="m-nov">Nov</a>
+      <a href="#m-dec" data-month="m-dec">Dec</a>
+  </nav>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
@@ -351,7 +412,49 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260907a"></script>
-  <script src="/app.js?v=20260907a"></script>
+  <script src="/content.js?v=20260907b"></script>
+  <script src="/app.js?v=20260907b"></script>
+  <script>
+    // Highlight whichever month the reader is in. A plain scroll position test
+    // beats an IntersectionObserver band here: twelve tall sections mean the
+    // band is often empty (at the top of the page, for instance) and nothing
+    // would be highlighted at all. The last heading above the trigger line
+    // always gives an answer.
+    (function () {
+      var rail = document.querySelector(".month-rail");
+      if (!rail) return;
+
+      var links = [].slice.call(rail.querySelectorAll("a[data-month]"));
+      var months = links.map(function (a) {
+        return { link: a, el: document.getElementById(a.dataset.month) };
+      }).filter(function (m) { return m.el; });
+      if (!months.length) return;
+
+      var ticking = false;
+
+      function update() {
+        ticking = false;
+        var line = 140;                 // just below the sticky nav
+        var current = months[0];
+        for (var i = 0; i < months.length; i++) {
+          if (months[i].el.getBoundingClientRect().top <= line) current = months[i];
+        }
+        months.forEach(function (m) {
+          m.link.classList.toggle("is-active", m === current);
+        });
+      }
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+
+      addEventListener("scroll", onScroll, { passive: true });
+      addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+
 </body>
 </html>

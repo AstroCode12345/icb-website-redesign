@@ -495,6 +495,21 @@ p  { color: var(--gray-700); }
   transition: box-shadow var(--transition), transform var(--transition);
 }
 .event-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+/* An event with a flyer. The card is a flex row (date strip, then body), so
+   wrapping lets a full-width flyer take the first line and leaves the date and
+   body to flow underneath unchanged. Flyers are portrait posters and are shown
+   whole rather than cropped, because cropping one usually cuts the times off
+   the bottom. Clicking opens the full-size image. */
+.event-card:has(.event-card__flyer) { flex-wrap: wrap; }
+.event-card__flyer {
+  flex: 0 0 100%;
+  display: block;
+  line-height: 0;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-100);
+}
+.event-card__flyer img { width: 100%; height: auto; display: block; }
 .event-card__date {
   width: 76px;
   flex-shrink: 0;
@@ -1042,4 +1057,12 @@ p  { color: var(--gray-700); }
 }
 @media (max-width: 768px) {
   .two-col { grid-template-columns: 1fr; }
+}
+
+
+/* The calendar page's flyer grid. Wider columns than the homepage list so a
+   portrait poster is legible without opening it. */
+.events-grid--flyers {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  align-items: start;
 }
