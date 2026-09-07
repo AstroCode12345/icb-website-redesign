@@ -277,3 +277,38 @@ been announced yet rather than collapsing to a bare border.
   to the portal or update it by hand.
 - School staff roster is 20+ people across three tables, several rows holding
   multiple names. Worth a portal section only if it actually turns over; ask first.
+
+
+## Three portals — 7 September 2026
+
+Taymour asked for **three portals for frequently changing content**, not an
+editor for every word on the site. An earlier pass on 6 September misread
+"everything" and built a block-based content system with a build step; that was
+reverted (commit a6889a7), and the shipped HTML is unchanged by the round trip.
+
+### The split
+One dashboard held every field, so whoever runs the Youth Group had to scroll
+past the Iqamah times to change a registration link. Now:
+
+| Portal | Edits |
+|---|---|
+| **Main Website** `/dashboard/main` | Iqamah times, Friday khateebs, announcement banner, events, contact and social, donate link |
+| **Sunday School** `/dashboard/school` | School year, session Zuhr/Asr, both admissions date tables, SunWeb parent and teacher links |
+| **Youth Group** `/dashboard/youth` | Youth events, registration heading and blurb, registration form / honor code / Instagram / Linktree URLs |
+
+`/dashboard` is a chooser. Shared plumbing (types, the load-and-publish hook,
+the shell, the form primitives) lives in `app/portal.tsx`, so all three read and
+write the same `content.json` and cannot drift apart. Splitting by audience is a
+navigation decision, not a storage one.
+
+### New on the site side
+`content.json` gains a `youth` block (registration heading, blurb, and the four
+outside links) and two `sundaySchool` keys for the SunWeb portal URLs. Bound in
+the pages via `data-youth`, `data-youth-link` and `data-school-link`, rendered
+by `content.js`. A blank value is ignored rather than published, so clearing a
+field falls back to what is in the page instead of emptying it.
+
+### Open
+- **The site repo has unpushed commits.** The portal reads `content.json` from
+  GitHub, so the new Youth and School fields show empty until those land. That
+  push is Taymour's call.
