@@ -2,7 +2,9 @@
 #
 # Point this checkout, and the admin portal, at the mosque admin's fork.
 #
-#   ./tools/point-at-fork.sh <admin-github-username>
+#   ./tools/point-at-fork.sh <owner>/<repo>
+#
+# e.g. ./tools/point-at-fork.sh icbwayland/icbwayland-website-redesign
 #
 # What it does:
 #   1. checks the fork exists and that you can actually push to it
@@ -14,13 +16,17 @@
 # script, a chat window, or a commit.
 set -euo pipefail
 
-ADMIN="${1:-}"
-REPO_NAME="icb-website-redesign"
+TARGET="${1:-}"
+# The fork may be named differently from the original, so take the full path
+# rather than assuming <admin>/<same-name>.
+ADMIN="${TARGET%%/*}"
+REPO_NAME="${TARGET#*/}"
 SITE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ADMIN_DIR="$(cd "$SITE_DIR/../../Projects/icb-admin" && pwd)"
 
-if [[ -z "$ADMIN" ]]; then
-  echo "Usage: ./tools/point-at-fork.sh <admin-github-username>" >&2
+if [[ -z "$TARGET" || "$TARGET" != */* ]]; then
+  echo "Usage: ./tools/point-at-fork.sh <owner>/<repo>" >&2
+  echo "  e.g. ./tools/point-at-fork.sh icbwayland/icbwayland-website-redesign" >&2
   exit 1
 fi
 
@@ -32,7 +38,7 @@ echo
 echo "==> Checking the fork exists and you can push to it"
 if ! git ls-remote "$FORK" >/dev/null 2>&1; then
   echo "FAILED: cannot reach $FORK" >&2
-  echo "  Check the username, and that the repo is named '$REPO_NAME'." >&2
+  echo "  Check the owner and repo name." >&2
   exit 1
 fi
 echo "    fork is reachable"
