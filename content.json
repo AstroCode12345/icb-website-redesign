@@ -52,8 +52,8 @@
     }
   ],
   "announcement": {
-    "show": false,
-    "text": ""
+    "show": true,
+    "text": "Salam Everyone! We are launching our new website!"
   },
   "sundaySchool": {
     "year": "2026–27",
