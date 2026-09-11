@@ -48,7 +48,8 @@
       "title": "YG Kickoff!",
       "tag": "",
       "meta": "Come to our first event  of of the year! We'll have food and games!",
-      "signupUrl": ""
+      "signupUrl": "",
+      "image": "/images/events/2026-09-11-yg-kickoff-flyer.png"
     }
   ],
   "announcement": {
@@ -108,7 +109,7 @@
     "youtube": "https://youtube.com/c/ICBWayland"
   },
   "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE",
-  "siteUpdated": "2026-09-10",
+  "siteUpdated": "2026-09-11",
   "youth": {
     "registrationTitle": "2026–2027 Registration",
     "registrationBody": "Sign up for the ICB Wayland Youth Group for this school year.",
