@@ -143,6 +143,11 @@
       "source": "/prayerschedule.html",
       "destination": "/prayers/schedule/",
       "permanent": true
+    },
+    {
+      "source": "/accessibility.html",
+      "destination": "/about/accessibility/",
+      "permanent": true
     }
   ]
 }
