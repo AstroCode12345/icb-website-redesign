@@ -509,7 +509,18 @@ p  { color: var(--gray-700); }
   background: var(--gray-50);
   border-bottom: 1px solid var(--gray-100);
 }
-.event-card__flyer img { width: 100%; height: auto; display: block; }
+/* Flyers are portrait posters. A single event makes its card full width, and
+   at that width a 1080x1350 poster renders about 1500px tall and swamps the
+   page. Cap the height and let the width follow, so the whole flyer is still
+   shown, just at a sane size. Clicking still opens it full size. */
+.event-card__flyer img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 520px;
+  height: auto;
+  margin-inline: auto;
+}
 .event-card__date {
   width: 76px;
   flex-shrink: 0;
