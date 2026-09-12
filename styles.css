@@ -485,6 +485,24 @@ p  { color: var(--gray-700); }
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
+/* The grid these sit in (`.events-grid`, `repeat(auto-fit, minmax(300px,
+   1fr))`) stretches a lone card to fill the whole row, since auto-fit
+   collapses unused tracks and lets the occupied one expand to 1fr. That
+   first showed up as a flyer swimming in ~400px of dead space on each side
+   (a 1200px card holding a 416px image); capping just the flyer variant
+   fixed that, but a plain text card has the identical problem without an
+   image to make it obvious, e.g. a single "Quran In Conversation..." event
+   still filling the full 1200px row as a wide, shallow strip on the
+   Calendar page even after that fix.
+
+   So every card is capped and centred, not just flyer ones, via
+   margin-inline:auto. 420px is measured, not guessed: the title
+   "Quran In Conversation With Dr. Mustafa Khattab" wraps to 2 lines from
+   340px up through 500px and only reaches 1 line at 560px+, so nothing
+   narrower than ~560px avoids wrapping anyway, and 420px is where the
+   2-line height stops improving from extra width. This is the same
+   markup on the homepage, the Calendar page, and the Youth page, so one
+   rule covers all three rather than three separate fixes. */
 .event-card {
   background: var(--white);
   border-radius: var(--radius-md);
@@ -492,28 +510,19 @@ p  { color: var(--gray-700); }
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   display: flex;
+  max-width: 420px;
+  margin-inline: auto;
   transition: box-shadow var(--transition), transform var(--transition);
 }
 .event-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 
-/* An event with a flyer. The card is a flex row (date strip, then body), so
-   wrapping lets a full-width flyer take the first line and leaves the date and
-   body to flow underneath unchanged. Flyers are portrait posters and are shown
-   whole rather than cropped, because cropping one usually cuts the times off
-   the bottom. Clicking opens the full-size image.
-
-   The grid this sits in (`.events-grid`, `repeat(auto-fit, minmax(300px,
-   1fr))`) stretches a lone card to fill the whole row: with one event that
-   measured out to a 1200px-wide card holding a 416px-wide image, i.e. roughly
-   400px of dead space down each side. A poster reads fine at a fixed,
-   human-scale width, so the card is capped instead of letting the grid decide,
-   and centred in whatever cell it lands in. This is the same markup on the
-   homepage, the Calendar page, and the Youth page, so one rule covers all
-   three rather than three separate fixes. */
+/* A flyer's own natural width (a portrait poster) reads better narrower than
+   a text-only card's title-driven width, so it keeps its own tighter cap.
+   The card wraps to a column (image on its own row, date+body below)
+   instead of the base card's row layout. */
 .event-card:has(.event-card__flyer) {
   flex-wrap: wrap;
   max-width: 340px;
-  margin-inline: auto;
 }
 .event-card__flyer {
   flex: 0 0 100%;
