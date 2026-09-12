@@ -513,8 +513,18 @@ p  { color: var(--gray-700); }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
   justify-content: center;
-  align-items: start;
+  /* Deliberately not align-items:start. Cards stretch to match the tallest in
+     their row, so a two-line title next to a one-line title gives two cards of
+     equal height rather than a stepped edge. */
   gap: 1.5rem;
+}
+/* Except when a flyer is in the mix. A flyer card runs about 670px tall, and
+   stretching a one-line text card to match would leave a near-empty 670px
+   box beside it. Equalising heights is right for cards that differ by a line
+   or two of text, not for cards that differ by a whole poster, so a grid
+   holding any flyer falls back to natural heights, top-aligned. */
+.events-grid:has(.event-card__flyer) {
+  align-items: start;
 }
 .event-card {
   background: var(--white);
@@ -559,7 +569,15 @@ p  { color: var(--gray-700); }
 }
 .event-card__month { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.82); }
 .event-card__day { font-size: 2rem; font-weight: 800; line-height: 1; }
-.event-card__body { padding: 1.35rem 1.25rem 1.35rem 1rem; flex: 1; }
+.event-card__body {
+  padding: 1.35rem 1.25rem 1.35rem 1rem;
+  flex: 1;
+  /* Centred, so the shorter card in a row wears its extra height as
+     breathing room instead of a gap below the text. */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .event-card__tag {
   font-size: .72rem;
   font-weight: 700;
