@@ -23,11 +23,12 @@
        (see .friday-card on /prayers/). Honor Code / Instagram / Linktree
        stay the site's standard .info-card, same as every other page, so
        only the top of the panel departs from the shared vocabulary.
-       The accent photo is small and pushed into the corner (most of it
-       hangs past the main photo's edge into the padding, not on top of
-       it) specifically so it covers as little of the group as possible;
-       a bigger, more centered accent was the first version and it ate
-       into the crowd. */
+       The apple-picking photo is the main one, not the mosque group shot:
+       it has real empty space (trees/sky above the group, gravel below),
+       so the accent can overlap its top-right corner without ever landing
+       on a person. The mosque photo is people wall-to-wall with no safe
+       margin anywhere, which is exactly what kept getting clipped when it
+       was the one being overlapped, no matter how the numbers were tuned. */
     .yg-welcome {
       max-width: 1080px;
       margin: 0 auto 3.5rem;
@@ -38,11 +39,11 @@
     }
     .yg-photos {
       position: relative;
-      padding: 0 2rem 11rem 0;
+      padding: 11rem 2rem 0 0;
     }
     .yg-photos__main {
       width: 84%;
-      aspect-ratio: 800 / 591;
+      aspect-ratio: 800 / 777;
       object-fit: cover;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
@@ -51,7 +52,7 @@
     .yg-photos__accent {
       position: absolute;
       right: 0;
-      bottom: 0;
+      top: 0;
       width: 54%;
       aspect-ratio: 1;
       object-fit: cover;
@@ -100,7 +101,7 @@
 
     @media (max-width: 860px) {
       .yg-welcome { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-      .yg-photos { padding: 0 1.5rem 9rem 0; margin-inline: auto; max-width: 480px; }
+      .yg-photos { padding: 9rem 1.5rem 0 0; margin-inline: auto; max-width: 480px; }
       .yg-welcome__text .lede { margin-inline: auto; }
       .yg-cta { padding: 1.75rem; }
     }
@@ -174,10 +175,10 @@
                overlapping pair rather than two same-size boxes, so "welcome"
                feels like a snapshot of the group instead of a form field. -->
           <div class="yg-photos">
-            <img class="yg-photos__main" src="/images/youth/group-mosque.jpg"
-                 alt="ICB Youth Group members gathered together inside the mosque">
-            <img class="yg-photos__accent" src="/images/youth/apple-picking.jpg"
+            <img class="yg-photos__main" src="/images/youth/apple-picking.jpg"
                  alt="ICB Youth Group members on an outdoor trip, holding bags of apples">
+            <img class="yg-photos__accent" src="/images/youth/group-mosque.jpg"
+                 alt="ICB Youth Group members gathered together inside the mosque">
           </div>
           <div class="yg-welcome__text">
             <p class="yg-welcome__eyebrow">...In the name of Allah, most Gracious, most Merciful...</p>
