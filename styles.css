@@ -480,29 +480,42 @@ p  { color: var(--gray-700); }
 .stat__label { font-size: .9rem; color: var(--gray-700); font-weight: 500; }
 
 /* ---------- Events grid ---------- */
+/* Sizing lives on the track, not the card.
+   
+   The obvious fix for "a lone card stretches across the whole page" is to cap
+   the card (max-width) and centre it (margin-inline:auto). That is wrong here,
+   and measurably so: auto margins make a grid item shrink to fit its own
+   content instead of filling its track, so card width started following title
+   length. Two real events rendered at 420px and 226px, each floating in the
+   middle of its own 587px cell, which reads as mismatched cards at uneven
+   gaps.
+   
+   Capping the track instead fixes both problems at once. A fixed max in
+   minmax() (rather than 1fr) means a track can never grow past 420px however
+   few cards there are, so a single card cannot balloon. Cards then stretch to
+   their track as grid items normally do, so every card in a row is exactly the
+   same width whatever its content. justify-content:center puts the leftover
+   space outside the row rather than between the cards, keeping every gap equal
+   to the gap value.
+   
+   380px for the max is chosen off the container, not by eye: it is the widest
+   track that still fits three columns in the 1200px container
+   ((1200 + 24) / (380 + 24) = 3.03), so a third event completes a row instead
+   of stranding itself on a second one. It also suits both card kinds. A text
+   card's title ("Quran In Conversation With Dr. Mustafa Khattab") wraps to
+   2 lines anywhere from 340px to 500px, so 380px costs nothing there; and a
+   portrait flyer lands about 670px tall, near the size this looked right at
+   before, where 420px pushed it to 718px.
+   
+   align-items:start so a plain text card next to a tall flyer card keeps its
+   own height instead of stretching to match. */
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+  justify-content: center;
+  align-items: start;
   gap: 1.5rem;
 }
-/* The grid these sit in (`.events-grid`, `repeat(auto-fit, minmax(300px,
-   1fr))`) stretches a lone card to fill the whole row, since auto-fit
-   collapses unused tracks and lets the occupied one expand to 1fr. That
-   first showed up as a flyer swimming in ~400px of dead space on each side
-   (a 1200px card holding a 416px image); capping just the flyer variant
-   fixed that, but a plain text card has the identical problem without an
-   image to make it obvious, e.g. a single "Quran In Conversation..." event
-   still filling the full 1200px row as a wide, shallow strip on the
-   Calendar page even after that fix.
-
-   So every card is capped and centred, not just flyer ones, via
-   margin-inline:auto. 420px is measured, not guessed: the title
-   "Quran In Conversation With Dr. Mustafa Khattab" wraps to 2 lines from
-   340px up through 500px and only reaches 1 line at 560px+, so nothing
-   narrower than ~560px avoids wrapping anyway, and 420px is where the
-   2-line height stops improving from extra width. This is the same
-   markup on the homepage, the Calendar page, and the Youth page, so one
-   rule covers all three rather than three separate fixes. */
 .event-card {
   background: var(--white);
   border-radius: var(--radius-md);
@@ -510,19 +523,15 @@ p  { color: var(--gray-700); }
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   display: flex;
-  max-width: 420px;
-  margin-inline: auto;
   transition: box-shadow var(--transition), transform var(--transition);
 }
 .event-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 
-/* A flyer's own natural width (a portrait poster) reads better narrower than
-   a text-only card's title-driven width, so it keeps its own tighter cap.
-   The card wraps to a column (image on its own row, date+body below)
-   instead of the base card's row layout. */
+/* A flyer card wraps to a column (image on its own row, date and body below)
+   instead of the base card's row layout. It takes the same track width as
+   every other card, so a mixed row stays even. */
 .event-card:has(.event-card__flyer) {
   flex-wrap: wrap;
-  max-width: 340px;
 }
 .event-card__flyer {
   flex: 0 0 100%;
@@ -533,11 +542,8 @@ p  { color: var(--gray-700); }
 }
 .event-card__flyer img {
   display: block;
-  width: auto;
-  max-width: 100%;
-  max-height: 440px;
+  width: 100%;
   height: auto;
-  margin-inline: auto;
 }
 .event-card__date {
   width: 76px;
@@ -1109,16 +1115,4 @@ p  { color: var(--gray-700); }
 }
 @media (max-width: 768px) {
   .two-col { grid-template-columns: 1fr; }
-}
-
-
-/* events-grid--flyers used to switch this grid to auto-fill so a lone item
-   would not stretch to fill the row. Now that the flyer card caps its own
-   width (see .event-card:has(.event-card__flyer) above) and centers itself,
-   auto-fill actively hurts: it reserves extra empty tracks that a single item
-   never fills, so the card sits docked in the left column instead of centred
-   in the row. Left as a no-op selector (still referenced in calendar/index.html)
-   rather than touching markup for a class that costs nothing sitting idle. */
-.events-grid--flyers {
-  align-items: start;
 }
