@@ -38,12 +38,14 @@
       .partner-card__logo { max-width: 220px; margin-inline: auto; }
     }
 
-    /* The ASL announcement is the actual news on this page (a dated, concrete
-       service, not the standing partnership below it), so it gets the site's
-       dark emphasis-card treatment rather than a plain text block, matching
-       .friday-card on /prayers/schedule/ and the "Stay Updated" card on
-       /calendar/. */
-    .asl-announcement {
+    /* A standing policy statement, not a dated announcement (it was, until
+       Taymour corrected the December 27 start date I had guessed: ASL is
+       available on request, not from a fixed date), so it keeps the site's
+       dark emphasis-card treatment for visual weight, matching .friday-card
+       on /prayers/schedule/ and the "Stay Updated" card on /calendar/, without
+       the eyebrow/date pairing that treatment normally carries for something
+       time-bound. */
+    .accessibility-announcement {
       background: var(--green-800);
       color: var(--white);
       border-radius: var(--radius-md);
@@ -52,35 +54,21 @@
       margin-inline: auto;
       text-align: center;
     }
-    .asl-announcement__eyebrow {
-      display: inline-block;
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      color: var(--gold-400);
-      margin-bottom: .6rem;
-    }
-    .asl-announcement__title {
+    .accessibility-announcement__title {
       font-family: var(--font-serif);
       /* h1-h5 carry color:var(--gray-900) directly on the element (not just
          inherited), which otherwise wins over this card's white and renders
          the title in near-black on dark green. */
       color: var(--white);
-      margin-bottom: .5rem;
+      margin-bottom: 1rem;
     }
-    .asl-announcement__date {
-      font-weight: 600;
-      color: var(--gold-400);
-      margin-bottom: 1.25rem;
-    }
-    .asl-announcement__body {
+    .accessibility-announcement__body {
       color: rgba(255,255,255,.85);
       line-height: 1.8;
       max-width: 56ch;
       margin-inline: auto;
     }
-    .asl-announcement__actions {
+    .accessibility-announcement__actions {
       display: flex;
       gap: .85rem;
       justify-content: center;
@@ -88,7 +76,7 @@
       margin-top: 1.75rem;
     }
     @media (max-width: 640px) {
-      .asl-announcement { padding: 2rem 1.5rem; }
+      .accessibility-announcement { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -142,18 +130,17 @@
 
   <section class="section">
     <div class="container">
-      <div class="asl-announcement">
-        <span class="asl-announcement__eyebrow">Accessibility Initiative</span>
-        <h2 class="asl-announcement__title">ASL Interpretation for Jumu&rsquo;ah Khutbas</h2>
-        <p class="asl-announcement__date">Starting December 27, 2026</p>
-        <p class="asl-announcement__body">
+      <div class="accessibility-announcement">
+        <h2 class="accessibility-announcement__title">Accessibility Initiative</h2>
+        <p class="accessibility-announcement__body">
           ICB Wayland has partnered with MUHSEN, an organization to make Islamic
           centers and mosques accessible to those with disabilities. The goal is
           to make our facilities more accessible and create programs that will
           educate us about such needs within our community and how best to
-          support those.
+          support those. ASL services can be made available upon request for
+          Friday Khutbas, and we can review other needs.
         </p>
-        <div class="asl-announcement__actions">
+        <div class="accessibility-announcement__actions">
           <a href="https://muhsen.org" target="_blank" rel="noopener" class="btn btn--gold">
             More on MUHSEN
           </a>
