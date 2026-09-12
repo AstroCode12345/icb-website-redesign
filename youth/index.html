@@ -16,56 +16,64 @@
   <meta property="og:url" content="https://icbwayland.org/youth/" />
   <meta property="og:type" content="website" />
   <style>
-    /* Welcome panel as a bento grid instead of one long linear stack: the
-       greeting and the photo pair share a row (photos set a 320px floor;
-       the text cell stretches to match via normal grid row sizing, so
-       there is no way for a gap to open under the shorter one), a
-       full-width registration banner borrows the site's existing dark-card
-       language (see .friday-card on /prayers/), and Honor Code / Instagram
-       / Linktree sit as equal thirds below, since they really are
-       equal-weight secondary links rather than a 2x2 of unrelated things.
-       Collapses to a single column under 840px: three uneven column widths
-       have no good in-between arrangement on tablet. */
-    .yg-bento {
-      max-width: 1040px;
-      margin: 0 auto 3rem;
+    /* Welcome panel as a photo-led editorial layout, not a grid of boxes:
+       one large photo with a second smaller, rotated print overlapping its
+       corner sits beside a large unboxed welcome statement; a full-width
+       registration banner keeps the site's existing dark-card language
+       (see .friday-card on /prayers/). Honor Code / Instagram / Linktree
+       stay the site's standard .info-card, same as every other page, so
+       only the top of the panel departs from the shared vocabulary.
+       The accent photo is small and pushed into the corner (most of it
+       hangs past the main photo's edge into the padding, not on top of
+       it) specifically so it covers as little of the group as possible;
+       a bigger, more centered accent was the first version and it ate
+       into the crowd. */
+    .yg-welcome {
+      max-width: 1080px;
+      margin: 0 auto 3.5rem;
       display: grid;
-      grid-template-columns: 1fr 1.3fr 1.3fr;
-      grid-template-areas:
-        "welcome gallery gallery"
-        "cta     cta     cta"
-        "honor   insta   link";
-      gap: 1.25rem;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
     }
-    .yg-bento__welcome {
-      grid-area: welcome;
-      background: var(--white);
-      border: 1.5px solid var(--gray-100);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
+    .yg-photos {
+      position: relative;
+      padding: 0 3rem 3rem 0;
     }
-    .yg-bento__gallery {
-      grid-area: gallery;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      min-height: 320px;
-    }
-    .yg-bento__gallery img {
+    .yg-photos__main {
       width: 100%;
-      height: 100%;
+      height: 420px;
       object-fit: cover;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
       display: block;
     }
+    .yg-photos__accent {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 30%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 6px solid var(--white);
+      box-shadow: var(--shadow-lg);
+      transform: rotate(4deg);
+      display: block;
+    }
+    .yg-welcome__eyebrow {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--green-800);
+      font-size: 1.1rem;
+      margin-bottom: .6rem;
+    }
+    .yg-welcome__text h2 { font-size: clamp(2rem, 4vw, 2.75rem); margin: .75rem 0 1rem; }
+    .yg-welcome__text .lede { color: var(--gray-700); font-size: 1.05rem; line-height: 1.8; max-width: 42ch; }
+
     .yg-cta {
-      grid-area: cta;
+      max-width: 1080px;
+      margin: 0 auto 3rem;
       background: var(--green-800);
       border-radius: var(--radius-md);
       padding: 2rem 2.5rem;
@@ -87,25 +95,17 @@
       align-items: center;
       justify-content: center;
     }
-    .yg-cta h3 { color: var(--white); font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: .3rem; }
+    .yg-cta h3 { color: var(--white); font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: .3rem; }
     .yg-cta p { color: rgba(255,255,255,.8); font-size: .95rem; }
-    @media (max-width: 840px) {
-      .yg-bento {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          "welcome"
-          "gallery"
-          "cta"
-          "honor"
-          "insta"
-          "link";
-      }
-      .yg-bento__gallery { min-height: 0; }
-      .yg-bento__gallery img { height: 260px; }
+
+    @media (max-width: 860px) {
+      .yg-welcome { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .yg-photos { padding: 0 2rem 2rem 0; margin-inline: auto; max-width: 480px; }
+      .yg-photos__main { height: 320px; }
+      .yg-welcome__text .lede { margin-inline: auto; }
       .yg-cta { padding: 1.75rem; }
     }
     @media (max-width: 480px) {
-      .yg-bento__gallery { grid-template-columns: 1fr; }
       .yg-cta { flex-direction: column; align-items: stretch; text-align: center; }
       .yg-cta__text { flex-direction: column; }
       .yg-cta > .btn { width: 100%; text-align: center; }
@@ -169,48 +169,49 @@
 
       <!-- WELCOME -->
       <div class="tab-panel active" data-panel="welcome" id="panel-welcome" role="tabpanel" aria-labelledby="tab-welcome" tabindex="0">
-        <div class="yg-bento">
-          <div class="yg-bento__welcome">
-            <p style="font-family:var(--font-serif);font-style:italic;color:var(--green-800);font-size:1.05rem;margin-bottom:.5rem;">
-              ...In the name of Allah, most Gracious, most Merciful...
-            </p>
-            <p style="color:var(--gray-700);">Assalamu Alaikum, and may peace be upon you.</p>
-            <h2 style="margin-top:1.25rem;">Welcome to ICB Youth Group</h2>
-          </div>
 
-          <!-- Two photos from actual Youth Group gatherings, so "welcome" shows
-               what it means rather than just saying it. -->
-          <div class="yg-bento__gallery">
-            <img src="/images/youth/group-mosque.jpg"
+        <div class="yg-welcome">
+          <!-- Two photos from actual Youth Group gatherings, composed as an
+               overlapping pair rather than two same-size boxes, so "welcome"
+               feels like a snapshot of the group instead of a form field. -->
+          <div class="yg-photos">
+            <img class="yg-photos__main" src="/images/youth/group-mosque.jpg"
                  alt="ICB Youth Group members gathered together inside the mosque">
-            <img src="/images/youth/apple-picking.jpg"
+            <img class="yg-photos__accent" src="/images/youth/apple-picking.jpg"
                  alt="ICB Youth Group members on an outdoor trip, holding bags of apples">
           </div>
-
-          <div class="yg-cta">
-            <div class="yg-cta__text">
-              <div class="yg-cta__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-              <div>
-                <h3 data-youth="registrationTitle">2026&ndash;2027 Registration</h3>
-                <p data-youth="registrationBody">Sign up for the ICB Wayland Youth Group for this school year.</p>
-              </div>
-            </div>
-            <a data-youth-link="registerUrl" href="https://docs.google.com/forms/d/1dylOTYnEggEu01FBKMjlDfmc5E9kw_q1eOaBKrM0EY8/viewform" target="_blank" rel="noopener" class="btn btn--gold">Register Now</a>
+          <div class="yg-welcome__text">
+            <p class="yg-welcome__eyebrow">...In the name of Allah, most Gracious, most Merciful...</p>
+            <p class="lede" style="max-width:none;margin-bottom:0;">Assalamu Alaikum, and may peace be upon you.</p>
+            <h2>Welcome to ICB Youth Group</h2>
           </div>
+        </div>
 
-          <div class="info-card" style="grid-area:honor;">
+        <div class="yg-cta">
+          <div class="yg-cta__text">
+            <div class="yg-cta__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div>
+              <h3 data-youth="registrationTitle">2026&ndash;2027 Registration</h3>
+              <p data-youth="registrationBody">Sign up for the ICB Wayland Youth Group for this school year.</p>
+            </div>
+          </div>
+          <a data-youth-link="registerUrl" href="https://docs.google.com/forms/d/1dylOTYnEggEu01FBKMjlDfmc5E9kw_q1eOaBKrM0EY8/viewform" target="_blank" rel="noopener" class="btn btn--gold">Register Now</a>
+        </div>
+
+        <div class="info-grid" style="max-width:1080px;margin-inline:auto;">
+          <div class="info-card">
             <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <h3 class="info-card__title">Youth Group Honor Code</h3>
             <p class="info-card__body">The conduct expectations and guidelines every member agrees to.</p>
             <a data-youth-link="honorCodeUrl" href="https://docs.google.com/document/d/1d79oGsFgU81cLf5etuqQhw8lS0dudHCuENHOjpQ6CfU/edit" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Read Honor Code</a>
           </div>
-          <div class="info-card" style="grid-area:insta;">
+          <div class="info-card">
             <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></div>
             <h3 class="info-card__title">Follow on Instagram</h3>
             <p class="info-card__body"><span data-youth="instagramHandle">@icbwayland.yg</span> &mdash; photos and updates from youth group events.</p>
             <a data-youth-link="instagramUrl" href="https://www.instagram.com/icbwayland.yg/" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Open Instagram</a>
           </div>
-          <div class="info-card" style="grid-area:link;">
+          <div class="info-card">
             <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
             <h3 class="info-card__title">Youth Group Linktree</h3>
             <p class="info-card__body">All of the Youth Group's links &mdash; registration, forms, and social &mdash; in one place.</p>
