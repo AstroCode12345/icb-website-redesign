@@ -349,3 +349,29 @@ Caught and fixed in the same pass: the new card's `<h2>` inherited
 element, not just by inheritance from the dark card), rendering the title in
 near-black on dark green until given an explicit white override, the same
 fix already used on the Calendar page's "Stay Updated" card.
+
+## Security fix: old tokens never got invalidated — 12 September 2026
+
+Taymour reported switching between admin portals via the sidebar with no
+password prompt. Real bug, but not in the current login flow: a fresh login
+can never mint a multi-portal token today. It was that an **older** version
+of this same auth system (before the lobby/two-stage model existed) minted
+a single ADMIN_PASSWORD login straight into `[main, school, youth]`, and
+tokens carry no version or expiry. Any token from that era, still
+cryptographically valid under a signing secret that hadn't changed since,
+was honored exactly like a current one, and the sidebar correctly (but
+dangerously) trusted whatever scopes it carried.
+
+Fixed in `icb-admin` two ways: `TOKEN_SECRET` was rotated, which instantly
+invalidates every token issued before this fix (everyone needs to log in
+again), and `scopesFromToken` now structurally rejects any token carrying
+more than one real portal scope, independent of whether its signature
+checks out, so this class of bug can't silently work again even if a future
+change to the mint path allowed it. Verified against the live running
+server, not just the isolated module: a token minted with the *current*
+secret but carrying all three scopes still gets a 401.
+
+**Lesson for next time:** a security fix to who a system will *issue*
+credentials to says nothing about credentials it already issued. Anything
+this happens to again should rotate the signing secret as part of the same
+fix, not as an afterthought once a symptom is reported.
