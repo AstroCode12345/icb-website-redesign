@@ -535,18 +535,19 @@ p  { color: var(--gray-700); }
 .event-card:has(.event-card__flyer) {
   flex-wrap: wrap;
 }
-/* Fixed-height media strip at the top of every card, poster or not, so cards
-   in a row match without one of them having to stretch around a void. A
-   portrait poster at full height made a 624px card sit beside a 105px one;
-   cropping it to a consistent strip keeps the row even, and the poster is
-   still one click from being seen whole. */
+/* The media area at the top of every card. A poster is shown whole, at its own
+   proportions, rather than cropped to a strip: cropping read as careless on a
+   flyer someone designed, and the detail at the foot of a poster is often the
+   part people need.
+   
+   That makes a poster card tall, so the card beside it stretches to match and
+   its green panel grows into the space rather than a white void opening up.
+   Growth matters here: with a fixed height the panel could not follow its card
+   when the grid stretched it, and the leftover space surfaced as a 24px white
+   band between the panel and the date block. */
 .event-card__flyer {
-  flex: 0 0 100%;
+  flex: 1 0 100%;
   display: block;
-  /* 240px, not 200px: at this card width a portrait poster's headline sits
-     just under the halfway mark, and 200px cut the Quran event's title
-     mid-word. */
-  height: 240px;
   line-height: 0;
   background: var(--gray-50);
   border-bottom: 1px solid var(--gray-100);
@@ -554,17 +555,14 @@ p  { color: var(--gray-700); }
 .event-card__flyer img {
   display: block;
   width: 100%;
-  height: 100%;
-  /* Posters lead with their artwork and headline, so anchoring the crop to the
-     top keeps the recognisable part and loses only the footer detail, which the
-     card repeats as text underneath anyway. */
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
 }
-/* An event with no poster still gets a strip, in the site's green with the
-   same diamond motif as the homepage hero, so it reads as a designed panel
-   rather than a missing image. */
+/* An event with no poster gets the site's green with the same diamond motif as
+   the homepage hero, so the card reads as designed rather than as one missing
+   its picture. min-height keeps it a real panel when nothing taller is forcing
+   it to grow. */
 .event-card__flyer--blank {
+  min-height: 240px;
   background-color: var(--green-800);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='white' stroke-opacity='0.10' stroke-width='1'/%3E%3Cpath d='M30 10 L50 30 L30 50 L10 30Z' fill='none' stroke='white' stroke-opacity='0.10' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 60px 60px;
