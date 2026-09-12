@@ -60,36 +60,19 @@
     <div class="container">
       <div class="page-hero__label">Youth Group</div>
       <h1 class="page-hero__title">ICB Youth Group</h1>
-      <p class="page-hero__sub">Upcoming events, registration, and how to get involved.</p>
+      <p class="page-hero__sub">For students in grades 8&ndash;12. Upcoming events, registration, and how to get involved.</p>
     </div>
   </div>
 
   <section class="section">
     <div class="container">
       <div class="tab-bar" role="tablist" aria-label="Youth Group sections">
-        <button class="tab-btn active" data-tab="events" role="tab" id="tab-events" aria-selected="true" aria-controls="panel-events">Upcoming Events</button>
-        <button class="tab-btn" data-tab="welcome" role="tab" id="tab-welcome" aria-selected="false" aria-controls="panel-welcome">Welcome to YG</button>
-      </div>
-
-      <!-- EVENTS -->
-      <div class="tab-panel active" data-panel="events" id="panel-events" role="tabpanel" aria-labelledby="tab-events" tabindex="0">
-        <div class="section__header">
-          <span class="section__label">What&#39;s Coming</span>
-          <h2 class="section__title">Upcoming Youth Events</h2>
-          <p class="section__subtitle">Flyers, details, and sign-up links for youth group events.</p>
-        </div>
-        <div data-youth-events-container>
-          <div class="empty-state">
-            <p>No youth events are posted right now.</p>
-            <p style="color:var(--gray-500);font-size:.9rem;margin-top:1rem;">
-              In the meantime, check <a data-youth-link="instagramUrl" href="https://www.instagram.com/icbwayland.yg/" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;">@icbwayland.yg on Instagram</a> for the latest.
-            </p>
-          </div>
-        </div>
+        <button class="tab-btn active" data-tab="welcome" role="tab" id="tab-welcome" aria-selected="true" aria-controls="panel-welcome">Welcome to YG</button>
+        <button class="tab-btn" data-tab="events" role="tab" id="tab-events" aria-selected="false" aria-controls="panel-events">Upcoming Events</button>
       </div>
 
       <!-- WELCOME -->
-      <div class="tab-panel" data-panel="welcome" id="panel-welcome" role="tabpanel" aria-labelledby="tab-welcome" tabindex="0">
+      <div class="tab-panel active" data-panel="welcome" id="panel-welcome" role="tabpanel" aria-labelledby="tab-welcome" tabindex="0">
         <div style="max-width:680px;margin-inline:auto;text-align:center;margin-bottom:3rem;">
           <p style="font-family:var(--font-serif);font-style:italic;color:var(--green-800);font-size:1.05rem;margin-bottom:.5rem;">
             ...In the name of Allah, most Gracious, most Merciful...
@@ -122,6 +105,23 @@
             <h3 class="info-card__title">Youth Group Linktree</h3>
             <p class="info-card__body">All of the Youth Group's links &mdash; registration, forms, and social &mdash; in one place.</p>
             <a data-youth-link="linktreeUrl" href="https://linktr.ee/icbyg" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Open Linktree</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENTS -->
+      <div class="tab-panel" data-panel="events" id="panel-events" role="tabpanel" aria-labelledby="tab-events" tabindex="0">
+        <div class="section__header">
+          <span class="section__label">What&#39;s Coming</span>
+          <h2 class="section__title">Upcoming Youth Events</h2>
+          <p class="section__subtitle">Flyers, details, and sign-up links for youth group events.</p>
+        </div>
+        <div data-youth-events-container>
+          <div class="empty-state">
+            <p>No youth events are posted right now.</p>
+            <p style="color:var(--gray-500);font-size:.9rem;margin-top:1rem;">
+              In the meantime, check <a data-youth-link="instagramUrl" href="https://www.instagram.com/icbwayland.yg/" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;">@icbwayland.yg on Instagram</a> for the latest.
+            </p>
           </div>
         </div>
       </div>
