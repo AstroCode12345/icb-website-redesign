@@ -312,3 +312,40 @@ field falls back to what is in the page instead of emptying it.
 - **The site repo has unpushed commits.** The portal reads `content.json` from
   GitHub, so the new Youth and School fields show empty until those land. That
   push is Taymour's call.
+
+## Event flyer sizing fix, ASL accessibility announcement — 11-12 September 2026
+
+### Flyer cards no longer stretch to fill the row
+A single event fills its whole grid row (`.events-grid` uses `auto-fit`, which
+collapses unused tracks and lets the occupied one expand to 1fr). With a flyer
+image inside, that meant a 1200px-wide card holding a 416px-wide poster, about
+400px of dead space down each side, measured on the youth page after the first
+real upload (a 1080x1350 poster rendering at 1200x621 overall).
+
+`.event-card:has(.event-card__flyer)` now caps at 340px and centres itself via
+`margin-inline: auto`. One rule, since content.js renders identical markup for
+the homepage, Calendar, and Youth widgets. Also removed `events-grid--flyers`'s
+`auto-fill` override on the Calendar page: it predated the card-level fix and
+was actively wrong for a lone item, reserving empty tracks that docked the card
+in the leftmost column instead of centring it.
+
+### Accessibility page: real ASL initiative content added
+Taymour supplied ICB's official flyer announcing ASL interpretation for
+Jumu'ah Khutbas, starting December 27 (year inferred as 2026 from context;
+worth confirming). The page's MUHSEN section previously carried only a
+generic paraphrase with no mention of this specific, dated program.
+
+Added a highlighted announcement section (dark green, matching the
+`.friday-card` / "Stay Updated" treatment elsewhere on the site) leading with
+this real content, verbatim from the flyer: the ASL/Jumu'ah headline and
+start date, ICB's actual partnership statement, a MUHSEN link, and the
+accessibility contact email. The flyer graphic itself was not embedded (no
+file was available to place in `images/`, and an accessibility page
+specifically should not rely on a raster image as its substantive content
+regardless); the real text now exists as accessible, readable HTML instead.
+
+Caught and fixed in the same pass: the new card's `<h2>` inherited
+`color: var(--gray-900)` from the sitewide heading rule (set directly on the
+element, not just by inheritance from the dark card), rendering the title in
+near-black on dark green until given an explicit white override, the same
+fix already used on the Calendar page's "Stay Updated" card.
