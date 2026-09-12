@@ -535,9 +535,18 @@ p  { color: var(--gray-700); }
 .event-card:has(.event-card__flyer) {
   flex-wrap: wrap;
 }
+/* Fixed-height media strip at the top of every card, poster or not, so cards
+   in a row match without one of them having to stretch around a void. A
+   portrait poster at full height made a 624px card sit beside a 105px one;
+   cropping it to a consistent strip keeps the row even, and the poster is
+   still one click from being seen whole. */
 .event-card__flyer {
   flex: 0 0 100%;
   display: block;
+  /* 240px, not 200px: at this card width a portrait poster's headline sits
+     just under the halfway mark, and 200px cut the Quran event's title
+     mid-word. */
+  height: 240px;
   line-height: 0;
   background: var(--gray-50);
   border-bottom: 1px solid var(--gray-100);
@@ -545,7 +554,21 @@ p  { color: var(--gray-700); }
 .event-card__flyer img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  /* Posters lead with their artwork and headline, so anchoring the crop to the
+     top keeps the recognisable part and loses only the footer detail, which the
+     card repeats as text underneath anyway. */
+  object-fit: cover;
+  object-position: top center;
+}
+/* An event with no poster still gets a strip, in the site's green with the
+   same diamond motif as the homepage hero, so it reads as a designed panel
+   rather than a missing image. */
+.event-card__flyer--blank {
+  background-color: var(--green-800);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='white' stroke-opacity='0.10' stroke-width='1'/%3E%3Cpath d='M30 10 L50 30 L30 50 L10 30Z' fill='none' stroke='white' stroke-opacity='0.10' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  border-bottom: none;
 }
 .event-card__date {
   width: 76px;

@@ -323,11 +323,19 @@ document.addEventListener("DOMContentLoaded", async () => {
    * so the image keeps its own aspect ratio rather than being cropped to a
    * banner: cropping a flyer usually cuts off the times at the bottom.
    */
+  /**
+   * Every event card opens with a media strip of the same height, so a card
+   * with a poster and a card without still match. With a flyer it is the
+   * poster, cropped to the strip and clickable for the full thing. Without
+   * one it is a plain branded panel, which keeps the card looking deliberate
+   * rather than like a card with a hole where the picture goes.
+   */
   function eventImage(ev) {
-    if (!ev.image) return "";
+    const src = ev.image ? _escImg(ev.image) : "";
+    if (!src) {
+      return `<div class="event-card__flyer event-card__flyer--blank" aria-hidden="true"></div>`;
+    }
     const alt = ev.imageAlt || `Flyer for ${ev.title || "this event"}`;
-    const src = _escImg(ev.image);
-    if (!src) return "";
     return `<a class="event-card__flyer" href="${src}" target="_blank" rel="noopener">
       <img src="${src}" alt="${_esc(alt)}" loading="lazy">
     </a>`;
