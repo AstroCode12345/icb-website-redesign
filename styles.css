@@ -518,23 +518,31 @@ p  { color: var(--gray-700); }
      equal height rather than a stepped edge. */
   gap: 1.5rem;
 }
+/* The card is a 2-row subgrid of .events-grid rather than a self-contained
+   flex box, so its media area and its text area line up with every other card
+   in the row. As a flex box each card divided its own height independently:
+   the poster card split 474/149 between picture and text while the panel card
+   beside it split 380/242, so the two white bands started at different heights
+   and the row read as misaligned. Sharing the parent's rows means one row
+   height for all the pictures and one for all the text. */
 .event-card {
   background: var(--white);
   border-radius: var(--radius-md);
   border: 1px solid var(--gray-100);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  display: flex;
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  /* A subgrid inherits the parent's gap, which would open the 1.5rem meant to
+     separate cards between the poster and the text inside each card. The gap
+     belongs between cards, not within one. */
+  gap: 0;
   transition: box-shadow var(--transition), transform var(--transition);
 }
 .event-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 
-/* A flyer card wraps to a column (image on its own row, date and body below)
-   instead of the base card's row layout. It takes the same track width as
-   every other card, so a mixed row stays even. */
-.event-card:has(.event-card__flyer) {
-  flex-wrap: wrap;
-}
 /* The media area at the top of every card. A poster is shown whole, at its own
    proportions, rather than cropped to a strip: cropping read as careless on a
    flyer someone designed, and the detail at the foot of a poster is often the
@@ -546,7 +554,8 @@ p  { color: var(--gray-700); }
    when the grid stretched it, and the leftover space surfaced as a 24px white
    band between the panel and the date block. */
 .event-card__flyer {
-  flex: 1 0 100%;
+  grid-column: 1 / -1;
+  grid-row: 1;
   display: block;
   line-height: 0;
   background: var(--gray-50);
@@ -569,8 +578,8 @@ p  { color: var(--gray-700); }
   border-bottom: none;
 }
 .event-card__date {
-  width: 76px;
-  flex-shrink: 0;
+  grid-column: 1;
+  grid-row: 2;
   background: var(--green-800);
   color: var(--white);
   display: flex;
@@ -583,8 +592,9 @@ p  { color: var(--gray-700); }
 .event-card__month { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.82); }
 .event-card__day { font-size: 2rem; font-weight: 800; line-height: 1; }
 .event-card__body {
+  grid-column: 2;
+  grid-row: 2;
   padding: 1.35rem 1.25rem 1.35rem 1rem;
-  flex: 1;
   /* Centred, so the shorter card in a row wears its extra height as
      breathing room instead of a gap below the text. */
   display: flex;
