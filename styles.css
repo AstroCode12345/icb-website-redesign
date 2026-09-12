@@ -500,8 +500,21 @@ p  { color: var(--gray-700); }
    wrapping lets a full-width flyer take the first line and leaves the date and
    body to flow underneath unchanged. Flyers are portrait posters and are shown
    whole rather than cropped, because cropping one usually cuts the times off
-   the bottom. Clicking opens the full-size image. */
-.event-card:has(.event-card__flyer) { flex-wrap: wrap; }
+   the bottom. Clicking opens the full-size image.
+
+   The grid this sits in (`.events-grid`, `repeat(auto-fit, minmax(300px,
+   1fr))`) stretches a lone card to fill the whole row: with one event that
+   measured out to a 1200px-wide card holding a 416px-wide image, i.e. roughly
+   400px of dead space down each side. A poster reads fine at a fixed,
+   human-scale width, so the card is capped instead of letting the grid decide,
+   and centred in whatever cell it lands in. This is the same markup on the
+   homepage, the Calendar page, and the Youth page, so one rule covers all
+   three rather than three separate fixes. */
+.event-card:has(.event-card__flyer) {
+  flex-wrap: wrap;
+  max-width: 340px;
+  margin-inline: auto;
+}
 .event-card__flyer {
   flex: 0 0 100%;
   display: block;
@@ -509,15 +522,11 @@ p  { color: var(--gray-700); }
   background: var(--gray-50);
   border-bottom: 1px solid var(--gray-100);
 }
-/* Flyers are portrait posters. A single event makes its card full width, and
-   at that width a 1080x1350 poster renders about 1500px tall and swamps the
-   page. Cap the height and let the width follow, so the whole flyer is still
-   shown, just at a sane size. Clicking still opens it full size. */
 .event-card__flyer img {
   display: block;
   width: auto;
   max-width: 100%;
-  max-height: 520px;
+  max-height: 440px;
   height: auto;
   margin-inline: auto;
 }
@@ -1094,9 +1103,13 @@ p  { color: var(--gray-700); }
 }
 
 
-/* The calendar page's flyer grid. Wider columns than the homepage list so a
-   portrait poster is legible without opening it. */
+/* events-grid--flyers used to switch this grid to auto-fill so a lone item
+   would not stretch to fill the row. Now that the flyer card caps its own
+   width (see .event-card:has(.event-card__flyer) above) and centers itself,
+   auto-fill actively hurts: it reserves extra empty tracks that a single item
+   never fills, so the card sits docked in the left column instead of centred
+   in the row. Left as a no-op selector (still referenced in calendar/index.html)
+   rather than touching markup for a class that costs nothing sitting idle. */
 .events-grid--flyers {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   align-items: start;
 }
