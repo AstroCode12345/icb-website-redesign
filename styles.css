@@ -518,14 +518,6 @@ p  { color: var(--gray-700); }
      equal height rather than a stepped edge. */
   gap: 1.5rem;
 }
-/* Except when a flyer is in the mix. A flyer card runs about 670px tall, and
-   stretching a one-line text card to match would leave a near-empty 670px
-   box beside it. Equalising heights is right for cards that differ by a line
-   or two of text, not for cards that differ by a whole poster, so a grid
-   holding any flyer falls back to natural heights, top-aligned. */
-.events-grid:has(.event-card__flyer) {
-  align-items: start;
-}
 .event-card {
   background: var(--white);
   border-radius: var(--radius-md);
