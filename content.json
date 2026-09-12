@@ -40,6 +40,15 @@
       "tag": "",
       "title": "Quran In Conversation With Dr. Mustafa Khattab",
       "meta": "Friday, September 18th, 2026 at ICB Wayland"
+    },
+    {
+      "date": "2026-10-01",
+      "featured": true,
+      "tag": "",
+      "title": "Event",
+      "meta": "@ ICB WAYLAND",
+      "image": "",
+      "imageAlt": ""
     }
   ],
   "youthEvents": [
@@ -53,7 +62,7 @@
     }
   ],
   "announcement": {
-    "show": true,
+    "show": false,
     "text": "Salam Everyone! We are launching our new website!"
   },
   "sundaySchool": {
