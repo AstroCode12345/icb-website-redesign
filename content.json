@@ -123,6 +123,11 @@
   "scholarship": {
     "startYear": "2027"
   },
+  "membership": {
+    "familyFee": "204.56",
+    "singleFee": "102.53",
+    "paypalButtonId": "VBNU2YYYNYDEL"
+  },
   "ramadan": {
     "visible": false,
     "iqama": {

@@ -274,6 +274,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     _set("[data-scholarship='startYear']", ICB.scholarship.startYear);
   }
 
+  // --- Membership fees --------------------------------------------------------
+  // Both figures appear twice: once in the plain-text summary, once inside a
+  // <select> option. Real browsers keep a <span> nested in <option> as a real
+  // DOM node (verified directly, despite <option> officially being text-only
+  // content), so the same querySelectorAll/_set approach covers both.
+  if (ICB.membership) {
+    _set("[data-membership='familyFee']", ICB.membership.familyFee);
+    _set("[data-membership='singleFee']", ICB.membership.singleFee);
+    const buttonIdInput = document.querySelector("[data-membership-button-id]");
+    if (buttonIdInput && ICB.membership.paypalButtonId) {
+      buttonIdInput.value = ICB.membership.paypalButtonId;
+    }
+  }
+
   // --- Ramadan nav link ------------------------------------------------------
   // Hidden until an admin turns the page on, then injected on every page here
   // rather than hand-added to each one, so turning it on or off is never a

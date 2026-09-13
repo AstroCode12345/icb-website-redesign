@@ -906,6 +906,13 @@ p  { color: var(--gray-700); }
   grid-column: 2 / span 2;
 }
 
+/* Six cards in a four-column grid strand two alone on a second row;
+   three-and-three needs no centring trick, just a plain three-column grid.
+   Scoped to exactly six so four- and five-card grids elsewhere are untouched. */
+.nav-card-grid:has(> :nth-child(6)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 @media (max-width: 860px) {
   .nav-card-grid { grid-template-columns: repeat(2, 1fr); }
   /* Back to a plain two-up below this; the centring above assumes three

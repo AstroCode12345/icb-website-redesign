@@ -115,18 +115,18 @@
           </p>
           <p style="font-size:.95rem;color:var(--gray-700);margin-bottom:1rem;">
             <strong>Membership Fees:</strong><br>
-            Membership Family &mdash; $204.56 USD<br>
-            Membership Single &mdash; $102.53 USD
+            Membership Family &mdash; $<span data-membership="familyFee">204.56</span> USD<br>
+            Membership Single &mdash; $<span data-membership="singleFee">102.53</span> USD
           </p>
           <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;">
             <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="VBNU2YYYNYDEL">
+            <input type="hidden" name="hosted_button_id" value="VBNU2YYYNYDEL" data-membership-button-id>
             <input type="hidden" name="on0" value="Membership Fees:">
             <input type="hidden" name="currency_code" value="USD">
             <label for="membership-fee" class="visually-hidden">Membership category and fee</label>
             <select name="os0" id="membership-fee" style="padding:.7rem 1rem;border-radius:var(--radius-sm);border:1.5px solid var(--gray-200);font-family:inherit;font-size:.9rem;">
-              <option value="Membership Family">Membership Family &mdash; $204.56 USD</option>
-              <option value="Membership Single">Membership Single &mdash; $102.53 USD</option>
+              <option value="Membership Family">Membership Family &mdash; $<span data-membership="familyFee">204.56</span> USD</option>
+              <option value="Membership Single">Membership Single &mdash; $<span data-membership="singleFee">102.53</span> USD</option>
             </select>
             <button type="submit" class="btn btn--outline" style="font-size:.85rem;">Add to Cart &rarr;</button>
           </form>
