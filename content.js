@@ -269,6 +269,111 @@ document.addEventListener("DOMContentLoaded", async () => {
     _setLinks("[data-school-link]", "schoolLink", ICB.sundaySchool);
   }
 
+  // --- Scholarship ----------------------------------------------------------
+  if (ICB.scholarship) {
+    _set("[data-scholarship='startYear']", ICB.scholarship.startYear);
+  }
+
+  // --- Ramadan nav link ------------------------------------------------------
+  // Hidden until an admin turns the page on, then injected on every page here
+  // rather than hand-added to each one, so turning it on or off is never a
+  // code change. Desktop nav is a <ul> of <li><a>; mobile nav is a flat list
+  // of <a> tags. Both keep the "Support Us" CTA as the last item.
+  if (ICB.ramadan && ICB.ramadan.visible) {
+    const desktopList = document.querySelector(".nav__links");
+    if (desktopList && !desktopList.querySelector("[data-ramadan-link]")) {
+      const li = document.createElement("li");
+      li.innerHTML = '<a href="/ramadan/" class="nav__link" data-ramadan-link>Ramadan</a>';
+      const cta = desktopList.querySelector(".nav__cta");
+      desktopList.insertBefore(li, cta ? cta.closest("li") : null);
+    }
+    const mobileList = document.querySelector(".nav__mobile");
+    if (mobileList && !mobileList.querySelector("[data-ramadan-link]")) {
+      const a = document.createElement("a");
+      a.href = "/ramadan/";
+      a.className = "nav__link";
+      a.setAttribute("data-ramadan-link", "");
+      a.textContent = "Ramadan";
+      const cta = mobileList.querySelector(".nav__cta");
+      mobileList.insertBefore(a, cta);
+    }
+  }
+
+  // --- Ramadan page ----------------------------------------------------------
+  // Only relevant on /ramadan/ itself: [data-ramadan-gate] wraps the real
+  // content, [data-ramadan-not-ready] is the placeholder shown instead when the
+  // page has not been switched on yet, so visiting the URL directly before
+  // then does not show stale or half-finished content.
+  const ramadanGate = document.querySelector("[data-ramadan-gate]");
+  if (ramadanGate) {
+    const ramadanOn = Boolean(ICB.ramadan && ICB.ramadan.visible);
+    ramadanGate.style.display = ramadanOn ? "" : "none";
+    const notReady = document.querySelector("[data-ramadan-not-ready]");
+    if (notReady) notReady.style.display = ramadanOn ? "none" : "";
+
+    if (ramadanOn) {
+      const r = ICB.ramadan;
+      _set("[data-ramadan='fajr']", r.iqama && r.iqama.fajr);
+      _set("[data-ramadan='zuhr']", r.iqama && r.iqama.zuhr);
+      _set("[data-ramadan='asr']", r.iqama && r.iqama.asr);
+      _set("[data-ramadan='maghrib']", r.iqama && r.iqama.maghrib);
+      _set("[data-ramadan='isha']", r.iqama && r.iqama.isha);
+      _set("[data-ramadan='tarawihNote']", r.tarawihNote);
+      _set("[data-ramadan='lailatulQadrNote']", r.lailatulQadrNote);
+      _set("[data-ramadan='zakatFitrAmount']", r.zakatFitrAmount);
+      _set("[data-ramadan='fidyahAmount']", r.fidyahAmount);
+
+      if (r.lailatulQadrRegisterUrl) {
+        document.querySelectorAll("[data-ramadan-register-link]").forEach(el => {
+          el.href = r.lailatulQadrRegisterUrl;
+          el.style.display = "";
+        });
+      }
+      if (r.lailatulQadrFoodUrl) {
+        document.querySelectorAll("[data-ramadan-food-link]").forEach(el => {
+          el.href = r.lailatulQadrFoodUrl;
+          el.style.display = "";
+        });
+      }
+
+      renderRamadanList("khutbas", r.khutbas, "The Friday khutba schedule for Ramadan has not been posted yet.");
+      renderRamadanList("maximizing", r.maximizingProgram, "The weekend lecture schedule has not been posted yet.");
+      renderRamadanList("iftars", r.communityIftars, "The community Iftar schedule has not been posted yet.");
+
+      const scheduleBody = document.querySelector("[data-ramadan-schedule]");
+      if (scheduleBody) {
+        const days = Array.isArray(r.schedule) ? r.schedule : [];
+        if (!days.length) {
+          scheduleBody.innerHTML = `<tr><td colspan="6" style="padding:1.5rem 0;text-align:center;color:var(--gray-500);">The day-by-day schedule has not been posted yet.</td></tr>`;
+        } else {
+          scheduleBody.innerHTML = days.map(d => `
+            <tr>
+              <td>${_esc(longDate(d.date))}</td>
+              <td>${_esc(d.fajr)}</td>
+              <td>${_esc(d.dhuhr)}</td>
+              <td>${_esc(d.asr)}</td>
+              <td>${_esc(d.maghrib)}</td>
+              <td>${_esc(d.isha)}</td>
+            </tr>`).join("");
+        }
+      }
+    }
+  }
+
+  /** A {when, what} list under [data-ramadan-list=name], reusing the School
+   *  page's date-list shape since a khutba speaker, a Ramadan lecture, and a
+   *  community Iftar are all really the same "date paired with a label". */
+  function renderRamadanList(name, rows, emptyMsg) {
+    const el = document.querySelector(`[data-ramadan-list='${name}']`);
+    if (!el) return;
+    const list = (Array.isArray(rows) ? rows : []).filter(r => r.when || r.what);
+    if (!list.length) {
+      el.innerHTML = `<li>${_esc(emptyMsg)}</li>`;
+      return;
+    }
+    el.innerHTML = list.map(r => `<li><strong>${_esc(r.when)}</strong> &mdash; ${_esc(r.what)}</li>`).join("");
+  }
+
   /** Fill every [data-<attr>="key"] element from `values[key]`. */
   function _setAll(selector, values) {
     document.querySelectorAll(selector).forEach(el => {

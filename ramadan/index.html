@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadan — ICB Wayland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=20260913a" />
+  <meta name="description" content="Ramadan at ICB Wayland: Suhoor and Iftar schedule, Friday khutbas, Tarawih, community Iftars, Lailatul Qadr, and the rules of fasting and Zakat al-Fitr." />
+  <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
+  <meta property="og:title" content="Ramadan — ICB Wayland" />
+  <meta property="og:description" content="Ramadan at ICB Wayland: Suhoor and Iftar schedule, Friday khutbas, Tarawih, community Iftars, Lailatul Qadr, and the rules of fasting and Zakat al-Fitr." />
+  <link rel="canonical" href="https://icbwayland.org/ramadan/" />
+  <meta property="og:url" content="https://icbwayland.org/ramadan/" />
+  <meta property="og:type" content="website" />
+  <style>
+    .ramadan-verse {
+      max-width: 640px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--green-800);
+    }
+    .ramadan-verse cite {
+      display: block;
+      font-style: normal;
+      font-size: .85rem;
+      color: var(--gray-500);
+      margin-top: .75rem;
+    }
+    .ramadan-iqama {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto 3.5rem;
+    }
+    .ramadan-iqama__cell {
+      background: var(--white);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .ramadan-iqama__name {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: .4rem;
+    }
+    .ramadan-iqama__time {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--green-800);
+    }
+    @media (max-width: 700px) {
+      .ramadan-iqama { grid-template-columns: repeat(3, 1fr); }
+      .ramadan-iqama__cell:nth-child(4), .ramadan-iqama__cell:nth-child(5) { border-top: 1px solid var(--gray-100); }
+    }
+    .ramadan-schedule-wrap { max-width: 700px; margin: 0 auto 1rem; overflow-x: auto; }
+    .ramadan-list { list-style: none; padding: 0; max-width: 700px; margin: 0 auto; display: grid; gap: .6rem; }
+    .ramadan-list li { padding: .85rem 1.1rem; background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-sm); font-size: .95rem; color: var(--gray-700); }
+    .ramadan-list li strong { color: var(--green-800); }
+    .ramadan-note { max-width: 700px; margin: 0 auto 2rem; color: var(--gray-700); line-height: 1.9; font-size: 1rem; }
+    .ramadan-not-ready {
+      max-width: 560px;
+      margin: 4rem auto;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--gray-50);
+      border: 1px dashed var(--gray-300);
+      border-radius: var(--radius-lg);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo">
+        <img class="nav__logo-icon" src="/images/icb-logo.jpg" alt="Islamic Center of Boston, Wayland">
+        <span>
+          ICB Wayland
+          <span class="nav__logo-sub">Islamic Center of Boston</span>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li><a href="/about/" class="nav__link">About</a></li>
+        <li><a href="/services/" class="nav__link">Services</a></li>
+        <li><a href="/prayers/" class="nav__link">Prayers</a></li>
+        <li><a href="/school/" class="nav__link">School</a></li>
+        <li><a href="/calendar/" class="nav__link">Calendar</a></li>
+        <li><a href="/youth/" class="nav__link">Youth</a></li>
+        <li><a href="/outreach/" class="nav__link">Outreach</a></li>
+        <li><a href="/support/" class="nav__cta nav__link">Support Us</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="/" class="nav__link">Home</a>
+      <a href="/about/" class="nav__link">About</a>
+      <a href="/services/" class="nav__link">Services</a>
+      <a href="/prayers/" class="nav__link">Prayers</a>
+      <a href="/school/" class="nav__link">School</a>
+      <a href="/calendar/" class="nav__link">Calendar</a>
+      <a href="/youth/" class="nav__link">Youth</a>
+      <a href="/outreach/" class="nav__link">Outreach</a>
+      <a href="/support/" class="nav__cta">Support Us</a>
+    </div>
+  </nav>
+
+  <div class="page-hero" id="main">
+    <div class="container">
+      <div class="page-hero__label">Ramadan</div>
+      <h1 class="page-hero__title">Ramadan at ICB</h1>
+      <p class="page-hero__sub">Schedule and programs for the month of Ramadan.</p>
+    </div>
+  </div>
+
+  <div data-ramadan-not-ready class="container" style="display:none;">
+    <div class="ramadan-not-ready">
+      <h2 style="margin-bottom:.75rem;">Details coming closer to Ramadan</h2>
+      <p style="color:var(--gray-500);">This page will fill in with the Suhoor and Iftar schedule, khutba speakers, and Ramadan programs as the month approaches. Check back soon.</p>
+    </div>
+  </div>
+
+  <div data-ramadan-gate>
+
+    <section class="section">
+      <div class="container">
+        <p class="ramadan-verse">
+          &ldquo;O you who believe, fasting is prescribed to you as it was prescribed to those before you, that you may (learn) self-restraint.&rdquo;
+          <cite>Al-Qur'an 2:183</cite>
+        </p>
+
+        <div class="ramadan-iqama">
+          <div class="ramadan-iqama__cell">
+            <div class="ramadan-iqama__name">Fajr</div>
+            <div class="ramadan-iqama__time" data-ramadan="fajr">&mdash;</div>
+          </div>
+          <div class="ramadan-iqama__cell">
+            <div class="ramadan-iqama__name">Zuhr</div>
+            <div class="ramadan-iqama__time" data-ramadan="zuhr">&mdash;</div>
+          </div>
+          <div class="ramadan-iqama__cell">
+            <div class="ramadan-iqama__name">Asr</div>
+            <div class="ramadan-iqama__time" data-ramadan="asr">&mdash;</div>
+          </div>
+          <div class="ramadan-iqama__cell">
+            <div class="ramadan-iqama__name">Maghrib (Iftar)</div>
+            <div class="ramadan-iqama__time" data-ramadan="maghrib">&mdash;</div>
+          </div>
+          <div class="ramadan-iqama__cell">
+            <div class="ramadan-iqama__name">Isha &amp; Tarawih</div>
+            <div class="ramadan-iqama__time" data-ramadan="isha">&mdash;</div>
+          </div>
+        </div>
+
+        <div class="nav-card-grid">
+          <a href="#schedule" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <h3 class="nav-card__title">Suhoor &amp; Iftar Schedule</h3>
+            <p class="nav-card__body">Day-by-day prayer times for the month.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+          <a href="#friday" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+            <h3 class="nav-card__title">Friday Khutbas</h3>
+            <p class="nav-card__body">Khutba speakers during Ramadan.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+          <a href="#maximizing" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <h3 class="nav-card__title">Maximizing Ramadan</h3>
+            <p class="nav-card__body">Weekend lecture program.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+          <a href="#tarawih" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <h3 class="nav-card__title">Tarawih</h3>
+            <p class="nav-card__body">Nightly Tarawih prayer schedule.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+          <a href="#iftars" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 class="nav-card__title">Community Iftars</h3>
+            <p class="nav-card__body">Sponsored and potluck Iftars.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+          <a href="#qadr" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+            <h3 class="nav-card__title">Lailatul Qadr</h3>
+            <p class="nav-card__body">Qiyam al-Layl program.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+          <a href="#rules" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <h3 class="nav-card__title">Rules of Fasting</h3>
+            <p class="nav-card__body">Who fasts, and when a fast may be postponed.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+          <a href="#zakat" class="nav-card">
+            <div class="nav-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
+            <h3 class="nav-card__title">Zakat al-Fitr &amp; Fidyah</h3>
+            <p class="nav-card__body">Mandatory charity for the month.</p>
+            <span class="nav-card__arrow">View <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">Day by Day</span>
+          <h2 class="section__title">Suhoor &amp; Iftar Schedule</h2>
+          <p class="section__subtitle">Fajr means both the Fajr Athan and Imsak (starting the fast); Maghrib means both the Maghrib Athan and Iftar (breaking the fast).</p>
+        </div>
+        <div class="ramadan-schedule-wrap">
+          <table class="prayer-table">
+            <thead>
+              <tr><th>Date</th><th>Fajr</th><th>Dhuhr</th><th>Asr</th><th>Maghrib</th><th>Isha</th></tr>
+            </thead>
+            <tbody data-ramadan-schedule>
+              <tr><td colspan="6" style="padding:1.5rem 0;text-align:center;color:var(--gray-500);">The day-by-day schedule has not been posted yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="friday" class="section">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">1:00&ndash;1:30 PM</span>
+          <h2 class="section__title">Friday Khutbas &amp; Prayers</h2>
+          <p class="section__subtitle">Also live-streamed on ICB Wayland's Facebook page and YouTube channel.</p>
+        </div>
+        <ul class="ramadan-list" data-ramadan-list="khutbas">
+          <li>The Friday khutba schedule for Ramadan has not been posted yet.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="maximizing" class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">Weekends, Before Isha</span>
+          <h2 class="section__title">Maximizing Ramadan Program</h2>
+          <p class="section__subtitle">Short, impactful talks by local scholars, brought to you by ICB Wayland's Religious Affairs Committee, at ICB and live-streamed on Facebook and YouTube.</p>
+        </div>
+        <ul class="ramadan-list" data-ramadan-list="maximizing">
+          <li>The weekend lecture schedule has not been posted yet.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tarawih" class="section">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">Every Night</span>
+          <h2 class="section__title">Tarawih Prayers</h2>
+        </div>
+        <p class="ramadan-note" data-ramadan="tarawihNote">The Tarawih schedule for this year has not been posted yet.</p>
+      </div>
+    </section>
+
+    <section id="iftars" class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">By Registration</span>
+          <h2 class="section__title">Community Iftars</h2>
+          <p class="section__subtitle">The food for ICB Community Iftars is catered and sponsored by members of the community and the Center. Registration helps our volunteers plan and ensures everyone has a seat.</p>
+        </div>
+        <ul class="ramadan-list" data-ramadan-list="iftars">
+          <li>The community Iftar schedule has not been posted yet.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="qadr" class="section">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">27th of Ramadan</span>
+          <h2 class="section__title">Lailatul Qadr Program</h2>
+          <p class="section__subtitle">A Qiyam al-Layl program: families and kids are welcome to spend the night at the mosque for Taraweeh, Quran, Zikr and Dua, Tahajjud, and Suhoor together.</p>
+        </div>
+        <p class="ramadan-note" data-ramadan="lailatulQadrNote">Details for this year's program have not been posted yet.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a data-ramadan-register-link href="#" target="_blank" rel="noopener" class="btn btn--primary" style="display:none;">Register for Suhoor Count</a>
+          <a data-ramadan-food-link href="#" target="_blank" rel="noopener" class="btn btn--outline" style="display:none;">Sign Up to Bring Food</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules" class="section section--alt">
+      <div class="container">
+        <div style="max-width:760px;margin-inline:auto;">
+          <span class="section__label">Fiqh</span>
+          <h2 style="margin-bottom:1.5rem;">Some Rules and Regulations About Fasting</h2>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            Fasting in Ramadan is obligatory on every sane, adult Muslim, male or female. It was first required of Muslims during the second year of Hijrah. The way to fast is to abstain from eating, drinking, and intimate marital relations from dawn to sunset. Children over eight years are to be encouraged to fast gradually so that they get used to fasting. One must have the intention (niyah) during the night to fast the following day of Ramadan; it is sufficient to have the intention to fast during Ramadan at the beginning of the month.
+          </p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            Ramadan has a greater meaning than fasting alone. It involves a moral and social code, and a commitment to charitable deeds. Prophet Muhammad (PBUH) said that whoever fasts but indulges in falsehood, let him or her know that giving up food and drink alone shall not benefit them in front of Allah. Ramadan is therefore a period of meditation and prayer during which Muslims tend to withdraw a little from their usual daily affairs and spend long periods in the mosque, in addition to the five daily prayers observed throughout the year.
+          </p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1rem;">
+            Although fasting during Ramadan is obligatory, under certain circumstances a fast may be postponed:
+          </p>
+          <ul style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;padding-left:1.5rem;">
+            <li>During sickness</li>
+            <li>If traveling more than 60 miles</li>
+            <li>Women who are pregnant or breastfeeding</li>
+            <li>During their monthly period, women are not only exempted but also forbidden to fast; the same applies during post-natal discharge</li>
+          </ul>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            All days missed for any of the above reasons are to be made up when the cause of exemption is over, on any day except the days of Eid (fasting on Eid days is forbidden). Full exemption from fasting is granted by Allah to those permanently incapacitated by old age, an incurable disease, or uninterrupted hard labor; they are required to feed a poor person for each day they cannot fast, if they can afford it, or pay the cost of the food (fidyah) in charity instead.
+          </p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            Fasting is invalidated if a person, while fasting, deliberately eats, drinks, vomits, or lets an object pass through the throat; a fast invalidated this way should be made up after Ramadan. The Kaffarah (atonement) for breaking the fast through intimate marital relations is more serious: fasting sixty consecutive days, or if unable, feeding sixty poor people. Fasting remains valid if the fast is broken through compulsion or genuine forgetting.
+          </p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);">
+            While fasting, it is permissible to use eye drops, wear contact lenses, receive injections, have a blood test, shower, swim (though it is better to avoid diving, which may let water into the throat), use miswak or brush with toothpaste, rinse the mouth or nostrils with water without swallowing it, and apply perfume or cosmetics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="zakat" class="section">
+      <div class="container">
+        <div style="max-width:760px;margin-inline:auto;">
+          <span class="section__label">Charity</span>
+          <h2 style="margin-bottom:1.5rem;">Zakat al-Fitr, Fidyah, and Zakat al-Maal</h2>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            Muslims are urged to be charitable always, but especially so in Ramadan. Prophet Muhammad (PBUH) used to give away much during this month.
+          </p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:.5rem;"><strong>Zakat al-Fitr (Fitrana):</strong></p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            A special mandatory charity, paid by the head of the family on behalf of every dependent member, during Ramadan or before the Eid al-Fitr prayers. Dependents include all children, even one born during Ramadan before the Eid prayers, and any helpers or parents financially supported by the head of the family. A companion of the Prophet (PBUH), Abu Sa'eed al-Khudree, said the Prophet's companions used to give it as a Sa'a of food, dried dates, barley, raisins, or dried cheese (Bukhari, Arabic/English vol. 2, p. 340, no. 582); most scholars put one Sa'a at roughly 2.6 to 3 kg. Zakat al-Fitr is estimated this year at <strong data-ramadan="zakatFitrAmount">$&mdash;</strong> per person, though one may give more.
+          </p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:.5rem;"><strong>Fidyah:</strong></p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            A donation of money or food made when someone cannot fast for the required number of days and will not be able to make them up. Fidyah is equal to the cost of a full meal, paid for each missed fast; it is estimated this year at <strong data-ramadan="fidyahAmount">$&mdash;</strong> per missed fast, or your own typical meal cost if different.
+          </p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:.5rem;"><strong>Zakat al-Maal:</strong></p>
+          <p style="font-size:1.02rem;line-height:1.9;color:var(--gray-700);margin-bottom:1.5rem;">
+            One of the five pillars of Islam, alongside prayer, fasting, Hajj, and belief in Allah (SWT) and His Messenger. Every sane, adult Muslim who owns wealth over the nisab threshold must pay 2.5% of that wealth as zakat. The Qur'an (2:110) says: &ldquo;And establish prayer and give zakat, and whatever good you put forward for yourselves, you will find it with Allah; surely Allah sees what you do.&rdquo; Many Muslims pay Zakat al-Maal on their savings during Ramadan, for a period of one full year.
+          </p>
+          <div style="text-align:center;">
+            <a data-donate-link href="/support/" class="btn btn--primary">Pay Fitrana, Fidyah &amp; Zakat al-Maal Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">Islamic Center of Boston</div>
+          <p class="footer__brand-text">Serving the Muslim community and interfaith neighbors since 1979.</p>
+          <div class="footer__social">
+            <a data-facebook-link href="https://www.facebook.com/icbwayland" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a data-youtube-link href="https://youtube.com/c/ICBWayland" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--green-900)"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Visit Us</div>
+          <div class="footer__links">
+            <span class="footer__link">126 Boston Post Road</span>
+            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="/prayers/" class="footer__link">Prayer Times</a>
+            <a href="/services/" class="footer__link">Services</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Community</div>
+          <div class="footer__links">
+            <a href="/school/" class="footer__link">Sunday School</a>
+            <a href="/youth/" class="footer__link">Youth Group</a>
+            <a href="/outreach/" class="footer__link">Outreach</a>
+            <a href="/calendar/" class="footer__link">Calendar</a>
+            <a href="/news/" class="footer__link">In the News</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Get Involved</div>
+          <div class="footer__links">
+            <a href="/support/" class="footer__link">Donate</a>
+            <a href="/about/membership/" class="footer__link">Membership</a>
+            <a href="/about/accessibility/" class="footer__link">Accessibility</a>
+            <a href="/about/contact/" class="footer__link">Contact Us</a>
+            <a data-contact-email-link href="mailto:webmaster@icbwayland.org" class="footer__link">Webmaster</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2001&ndash;2026 Islamic Center of Boston, Wayland, MA. All rights reserved.</span>
+        <span data-site-updated>Last updated August 26, 2026</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/content.js?v=20260913a"></script>
+  <script src="/app.js?v=20260913a"></script>
+</body>
+</html>
