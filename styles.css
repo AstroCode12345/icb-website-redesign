@@ -924,9 +924,13 @@ p  { color: var(--gray-700); }
   .nav-card-grid:has(> :nth-child(5)):not(:has(> :nth-child(6))) > :nth-child(4) {
     grid-column: auto;
   }
+  /* The count-scoped rules outrank the plain one above on specificity, so each
+     needs restating here or six cards stay three-up and run off a phone. */
+  .nav-card-grid:has(> :nth-child(6)) { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px) {
   .nav-card-grid { grid-template-columns: 1fr; }
+  .nav-card-grid:has(> :nth-child(6)) { grid-template-columns: 1fr; }
 }
 .nav-card {
   position: relative;
