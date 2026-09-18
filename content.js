@@ -117,14 +117,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     el.style.display = nextKhateeb ? "" : "none";
   });
 
+  // The next khateeb is already named in the line above the table, so the table
+  // covers the Fridays after him. Listing the whole schedule printed him twice.
+  const laterKhateebs = khateebs.slice(1);
+
   const khateebBody = document.querySelector("[data-khateeb-schedule]");
   if (khateebBody) {
-    if (khateebs.length) {
-      khateebBody.innerHTML = khateebs.map((k, i) => `
-        <tr${i < khateebs.length - 1 ? ' style="border-bottom:1px solid rgba(255,255,255,.2);"' : ""}>
+    if (laterKhateebs.length) {
+      khateebBody.innerHTML = laterKhateebs.map((k, i) => `
+        <tr${i < laterKhateebs.length - 1 ? ' style="border-bottom:1px solid rgba(255,255,255,.2);"' : ""}>
           <td style="padding:.4rem 0;color:rgba(255,255,255,.7);">${_esc(longDate(k.date))}</td>
           <td style="padding:.4rem 0;">${_esc(k.name)}</td>
         </tr>`).join("");
+    } else if (khateebs.length) {
+      // Exactly one Friday is scheduled and the line above already names him.
+      khateebBody.innerHTML = "";
     } else {
       // The Khutba and Iqamah times sit directly above this, so the card still
       // answers "when is Jumu'ah" even with nobody scheduled yet.
@@ -137,7 +144,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   // The intro sentence above the table only makes sense with a list under it.
   document.querySelectorAll("[data-khateeb-intro]").forEach(el => {
-    el.style.display = khateebs.length ? "" : "none";
+    el.style.display = laterKhateebs.length ? "" : "none";
   });
 
   // --- Events (homepage & calendar) ---------------------------------------
