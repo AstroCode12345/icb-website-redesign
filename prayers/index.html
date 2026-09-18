@@ -20,6 +20,11 @@
        it to match the tall Iqamah table left a large hollow panel on the weeks
        when no khateeb is scheduled yet. */
     .prayers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    /* The aside carries both secondary items. With only the Friday card in it, the
+       column dead-ended in half a screen of empty space next to the tall table on
+       any week with no khateeb schedule posted. */
+    .prayers-aside { display: flex; flex-direction: column; gap: 1.5rem; }
+    .schedule-note { padding: 1.1rem 1.25rem; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: var(--radius-md); }
     .friday-card { background: var(--green-800); color: var(--white); border-radius: var(--radius-md); padding: 2rem; }
     .friday-times { display: flex; gap: 2.5rem; margin: 1.25rem 0 1.5rem; padding: 1.1rem 0; border-top: 1px solid rgba(255,255,255,.18); border-bottom: 1px solid rgba(255,255,255,.18); }
     .friday-time__name { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-bottom: .3rem; }
@@ -130,39 +135,43 @@
             </tbody>
           </table>
           <p style="font-size:.82rem;color:var(--gray-500);margin-top:.75rem;">* These are Iqamah times at ICB. Times may vary slightly by season. Schedule last set <span data-prayer="lastUpdated">August 2026</span>.</p>
-          <div style="margin-top:1.25rem;padding:1.1rem 1.25rem;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius-md);">
+        </div>
+
+        <!-- Friday, and the pointer to the Boston times: both secondary to the Iqamah
+             table, so they share the aside column. -->
+        <div class="prayers-aside">
+          <div class="friday-card">
+            <h3>Friday Prayers</h3>
+            <p>Jumu'ah is prayed every Friday, Insha Allah.</p>
+
+            <div class="friday-times">
+              <div class="friday-time">
+                <span class="friday-time__name">Khutba</span>
+                <span class="friday-time__value" data-friday="khutbah">1:00 PM</span>
+              </div>
+              <div class="friday-time">
+                <span class="friday-time__name">Iqamah</span>
+                <span class="friday-time__value" data-friday="iqamah">1:30 PM</span>
+              </div>
+            </div>
+
+            <div class="friday-card__khateeb">
+              <p data-friday-current><strong>This week's khateeb (<span data-friday="date">August 28, 2026</span>):</strong> <span data-friday="speaker">Dr. Mohamed Lazzouni</span></p>
+              <p style="margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.7);" data-khateeb-intro>The following khateebs are scheduled for the next few weeks. Please note, occasionally a khateeb may change at the last minute and this page may not reflect that change.</p>
+              <table style="width:100%;margin-top:.75rem;font-size:.88rem;border-collapse:collapse;">
+                <tbody data-khateeb-schedule>
+                  <tr><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 28, 2026</td><td style="padding:.4rem 0;">Dr. Mohamed Lazzouni</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="schedule-note">
             <p style="font-size:.92rem;color:var(--gray-700);line-height:1.7;margin-bottom:.85rem;">
               Looking for the astronomical prayer times for the Boston area rather than the
               congregation times here at the mosque?
             </p>
             <a href="/prayers/schedule/" class="btn btn--outline" style="font-size:.85rem;">Prayer Schedule for Boston &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Friday -->
-        <div class="friday-card">
-          <h3>Friday Prayers</h3>
-          <p>Jumu'ah is prayed every Friday, Insha Allah.</p>
-
-          <div class="friday-times">
-            <div class="friday-time">
-              <span class="friday-time__name">Khutba</span>
-              <span class="friday-time__value" data-friday="khutbah">1:00 PM</span>
-            </div>
-            <div class="friday-time">
-              <span class="friday-time__name">Iqamah</span>
-              <span class="friday-time__value" data-friday="iqamah">1:30 PM</span>
-            </div>
-          </div>
-
-          <div class="friday-card__khateeb">
-            <p data-friday-current><strong>This week's khateeb (<span data-friday="date">August 28, 2026</span>):</strong> <span data-friday="speaker">Dr. Mohamed Lazzouni</span></p>
-            <p style="margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.7);" data-khateeb-intro>The following khateebs are scheduled for the next few weeks. Please note, occasionally a khateeb may change at the last minute and this page may not reflect that change.</p>
-            <table style="width:100%;margin-top:.75rem;font-size:.88rem;border-collapse:collapse;">
-              <tbody data-khateeb-schedule>
-                <tr><td style="padding:.4rem 0;color:rgba(255,255,255,.7);">August 28, 2026</td><td style="padding:.4rem 0;">Dr. Mohamed Lazzouni</td></tr>
-              </tbody>
-            </table>
           </div>
         </div>
 
