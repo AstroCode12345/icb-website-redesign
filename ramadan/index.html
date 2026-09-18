@@ -6,8 +6,8 @@
   <title>Ramadan — ICB Wayland</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260913a" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=20260917c" />
   <meta name="description" content="Ramadan at ICB Wayland: Suhoor and Iftar schedule, Friday khutbas, Tarawih, community Iftars, Lailatul Qadr, and the rules of fasting and Zakat al-Fitr." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Ramadan — ICB Wayland" />
@@ -28,10 +28,13 @@
     }
     .ramadan-verse cite {
       display: block;
+      font-family: var(--font-mono);
       font-style: normal;
-      font-size: .85rem;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
       color: var(--gray-500);
-      margin-top: .75rem;
+      margin-top: 1rem;
     }
     .ramadan-iqama {
       display: grid;
@@ -50,9 +53,10 @@
       text-align: center;
     }
     .ramadan-iqama__name {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .08em;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--gray-500);
       margin-bottom: .4rem;
