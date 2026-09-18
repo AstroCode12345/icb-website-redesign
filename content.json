@@ -1,15 +1,15 @@
 {
   "prayers": {
-    "fajr": "5:50 AM",
+    "fajr": "6:00 AM",
     "zuhr": "1:30 PM",
-    "asr": "5:15 PM",
-    "maghrib": "7:05 PM",
-    "isha": "8:30 PM",
+    "asr": "5:00 PM",
+    "maghrib": "6:55 PM",
+    "isha": "8:15 PM",
     "jumuah": {
       "khutbah": "1:00 PM",
       "iqamah": "1:30 PM"
     },
-    "lastUpdated": "12 September 2026"
+    "lastUpdated": "19 September 2026"
   },
   "khateebs": [
     {
