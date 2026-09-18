@@ -13,24 +13,24 @@
   },
   "khateebs": [
     {
-      "date": "2026-08-07",
-      "name": "Imam Talal Eid"
+      "date": "2026-09-18",
+      "name": "Imam Hamayun Baksh"
     },
     {
-      "date": "2026-08-14",
-      "name": "TBD"
+      "date": "2026-09-25",
+      "name": "Dr. Mohamad Lazzouni"
     },
     {
-      "date": "2026-08-21",
-      "name": "Dr. Saleem Khanani"
-    },
-    {
-      "date": "2026-08-28",
-      "name": "Dr. Mohamed Lazzouni"
-    },
-    {
-      "date": "2026-09-11",
+      "date": "2026-10-02",
       "name": "Dr. Dris Djermoun"
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Hussein Dayib"
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Dr. Saleem Khanani"
     }
   ],
   "events": [
@@ -38,9 +38,9 @@
       "date": "2026-09-18",
       "featured": true,
       "tag": "",
-      "title": "Quran In Conversation With Dr. Mustafa Khattab",
+      "title": "Quran In Conversation With Imam Hamayun Baksh",
       "meta": "Friday, September 18th, 2026 at ICB Wayland",
-      "image": "/images/events/2026-09-12-img-0012.jpg"
+      "image": "/images/events/2026-09-18-icb-flywe-imam-hamayun-baksh-sept18-2026.jpg"
     }
   ],
   "youthEvents": [
@@ -110,7 +110,7 @@
     "youtube": "https://youtube.com/c/ICBWayland"
   },
   "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE",
-  "siteUpdated": "2026-09-12",
+  "siteUpdated": "2026-09-18",
   "youth": {
     "registrationTitle": "2026–2027 Registration",
     "registrationBody": "Sign up for the ICB Wayland Youth Group for this school year.",
