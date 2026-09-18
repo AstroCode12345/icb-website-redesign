@@ -147,5 +147,200 @@
     "zakatFitrAmount": "",
     "fidyahAmount": "",
     "schedule": []
+  },
+  "management": {
+    "boardElected": [
+      {
+        "name": "Faiza Khan",
+        "position": "President",
+        "email": "president@icbwayland.org",
+        "term": "July 1, 2025 – June 30, 2027"
+      },
+      {
+        "name": "Amarah Khan",
+        "position": "Vice President",
+        "email": "vicepresident@icbwayland.org",
+        "term": "July 1, 2026 – June 30, 2028"
+      },
+      {
+        "name": "Mahmoud Hafeed",
+        "position": "Director of Religious Affairs / Imam",
+        "email": "imam@icbwayland.org",
+        "term": "July 1, 2025 – June 30, 2027"
+      },
+      {
+        "name": "Mahmood Rahman",
+        "position": "Treasurer",
+        "email": "treasurer@icbwayland.org",
+        "term": "July 1, 2026 – June 30, 2028"
+      },
+      {
+        "name": "Shumaila Qazafi",
+        "position": "Secretary",
+        "email": "secretary@icbwayland.org",
+        "term": "July 1, 2025 – June 30, 2027"
+      },
+      {
+        "name": "Sami Durrani",
+        "position": "Director of Education",
+        "email": "directoreducation@icbwayland.org",
+        "term": "July 1, 2026 – June 30, 2028"
+      },
+      {
+        "name": "Adeel Bhutta",
+        "position": "Member at Large",
+        "email": "director1@icbwayland.org",
+        "term": "July 1, 2026 – June 30, 2028"
+      },
+      {
+        "name": "Maryam Libdi",
+        "position": "Member at Large",
+        "email": "director2@icbwayland.org",
+        "term": "July 1, 2026 – June 30, 2028"
+      },
+      {
+        "name": "Toufic Hirbli",
+        "position": "Member at Large",
+        "email": "director3@icbwayland.org",
+        "term": "July 1, 2025 – June 30, 2027"
+      }
+    ],
+    "boardAppointed": [
+      {
+        "name": "Malik M.A. Khan",
+        "position": "Director of Operations",
+        "email": "directorops@icbwayland.org",
+        "term": "July 1, 2026 – June 30, 2027"
+      },
+      {
+        "name": "Adeel Bhutta",
+        "position": "Director of Security",
+        "email": "dirsecurity@icbwayland.org",
+        "term": "July 1, 2026 – June 30, 2027"
+      }
+    ],
+    "committees": [
+      {
+        "name": "Education",
+        "leads": [
+          "Sami Durrani"
+        ],
+        "description": "This committee shall be responsible for helping in matters pertaining to the school and Islamic education."
+      },
+      {
+        "name": "Finance and Investment",
+        "leads": [
+          "Mahmood Rahman"
+        ],
+        "description": "This committee shall be responsible for all fundraising activities on behalf of the center, and for supervising of the financial management of the assets and liabilities of the ICB."
+      },
+      {
+        "name": "Membership and Bylaws",
+        "leads": [
+          "Shumaila Qazafi"
+        ],
+        "description": "This committee shall be responsible for all routine administrative matters, and preparation and interpretation of the by laws. The Secretary shall be a statutory member of the committee."
+      },
+      {
+        "name": "Religious Affairs",
+        "leads": [
+          "Mahmoud Hafeed",
+          "Faisal Khan"
+        ],
+        "description": "This committee shall be responsible for organization of lectures, seminars, and group discussions in the center."
+      },
+      {
+        "name": "Library",
+        "leads": [
+          "Safiyat Hamiss"
+        ],
+        "description": "This committee shall be responsible for looking after the library."
+      },
+      {
+        "name": "Social Activities",
+        "leads": [
+          "Seeme Moreira",
+          "Huma Najam"
+        ],
+        "description": "This committee shall be responsible for all social activities in the center."
+      },
+      {
+        "name": "Public Relations",
+        "leads": [
+          "Amarah Khan",
+          "Maryam Libdi"
+        ],
+        "description": "This committee shall be responsible for public relations and liaison with other Islamic organizations. It is also responsible for all activities involving various outreach groups and media."
+      },
+      {
+        "name": "Maintenance / Building",
+        "leads": [
+          "Aijaz Baloch",
+          "Malik Khan"
+        ],
+        "description": "This committee shall be responsible for general upkeep and maintenance of the facilities in the ICB. It shall also be responsible for planning and supervising of any future expansions to the existing facilities of the center."
+      },
+      {
+        "name": "Youth",
+        "leads": [
+          "Farah Abbas",
+          "Shumaila Qazafi"
+        ],
+        "description": "This committee shall be responsible for organizing activities for the Junior members of the center."
+      },
+      {
+        "name": "Cemetery",
+        "leads": [
+          "Aijaz Baloch",
+          "Muneeb Khan"
+        ],
+        "description": "This committee shall be responsible for all affairs relating to the Muslim section of the Forest Hills cemetery."
+      },
+      {
+        "name": "Information Technology",
+        "leads": [
+          "Aijaz Baloch",
+          "Sarwar Raza"
+        ],
+        "description": "This committee maintains and manages the IT and network infrastructure for ICB Wayland, serving the diverse needs of the board, volunteers, students, teachers, parents, and visitors. Maintains ICB Wayland's website, and IT backend (servers, network, AV etc)."
+      },
+      {
+        "name": "Family Matters",
+        "leads": [
+          "Najiba Akbar"
+        ],
+        "description": "Family Matters Committee aims to support the development of strong, harmonious and connected Muslim families, and also supports individuals in building a strong communal network. Our programs center on helping people create greater socio-emotional wellbeing, and greater connection with others and with Allah swt. Our areas of focus include: Parenting Support, Family Dynamics &amp; Communication, Healthy Relationships, Mental Health, Emotional Wellbeing, Brotherhood and Sisterhood, Elder Support"
+      },
+      {
+        "name": "Outreach",
+        "leads": [
+          "Saadia Baloch"
+        ],
+        "description": "This committee organizes and manages interfaith activities that promote an understanding of Islam and Muslims. We receive visitors from local houses of worship, host school and adult education groups, send speakers to events, represent ICB in local communities where a Muslim voice is needed, and arrange visits that welcome the wider community into the center."
+      },
+      {
+        "name": "Family Promise Metrowest",
+        "leads": [
+          "Ghazala Alam"
+        ],
+        "description": "ICB is a support organization of Family Promise Metrowest (FPM) a cooperative, interfaith partnership offering hope to homeless families with children."
+      },
+      {
+        "name": "ICB Cares",
+        "leads": [
+          "Seeme Moreira",
+          "Saadia Baloch"
+        ],
+        "description": "This committee outreach and extends warm gestures to anyone in the community, during times of sickness or loss."
+      },
+      {
+        "name": "Green",
+        "leads": [
+          "Seeme Moreira",
+          "Jana Said"
+        ],
+        "description": "This committee works on reducing our negative impact on the environment and moving towards becoming a zero-carbon congregation. Our multi-faceted approach includes waste reduction and improving the energy efficiency of our building."
+      }
+    ]
   }
 }

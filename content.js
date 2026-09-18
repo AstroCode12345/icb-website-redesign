@@ -147,6 +147,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     el.style.display = laterKhateebs.length ? "" : "none";
   });
 
+  // --- Board and committees ------------------------------------------------
+  // Office holders turn over every year or two, so the tables are data rather
+  // than markup. The rows in the page are the current values and act as the
+  // fallback if this never runs.
+  if (ICB.management) {
+    renderPeopleTable("[data-board='elected']", ICB.management.boardElected);
+    renderPeopleTable("[data-board='appointed']", ICB.management.boardAppointed);
+    renderCommitteeTable("[data-committees]", ICB.management.committees);
+  }
+
+  function renderPeopleTable(selector, rows) {
+    const body = document.querySelector(selector);
+    if (!body || !Array.isArray(rows) || !rows.length) return;
+    body.innerHTML = rows.map(p => `
+      <tr>
+        <td><strong>${_esc(p.name)}</strong></td>
+        <td>${_esc(p.position)}</td>
+        <td>${p.email
+          ? `<a href="mailto:${_escAttr(p.email)}" style="color:var(--green-700);font-weight:600;">${_esc(p.email)}</a>`
+          : ""}</td>
+        <td style="color:var(--gray-500);font-size:.9rem;white-space:nowrap;">${_esc(p.term)}</td>
+      </tr>`).join("");
+  }
+
+  function renderCommitteeTable(selector, rows) {
+    const body = document.querySelector(selector);
+    if (!body || !Array.isArray(rows) || !rows.length) return;
+    body.innerHTML = rows.map(c => `
+      <tr>
+        <td><strong>${_esc(c.name)}</strong></td>
+        <td style="white-space:nowrap;">${(Array.isArray(c.leads) ? c.leads : [c.leads])
+          .filter(Boolean).map(_esc).join("<br>")}</td>
+        <td style="color:var(--gray-500);font-size:.9rem;">${_esc(c.description)}</td>
+      </tr>`).join("");
+  }
+
   // --- Events (homepage & calendar) ---------------------------------------
   const events = upcomingSorted(ICB.events);
   document.querySelectorAll("[data-events-container]").forEach(container => {
