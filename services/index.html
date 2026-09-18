@@ -15,6 +15,25 @@
   <link rel="canonical" href="https://icbwayland.org/services/" />
   <meta property="og:url" content="https://icbwayland.org/services/" />
   <meta property="og:type" content="website" />
+  <style>
+    /* Address and Telephone sit side by side, so they share a height and their
+       buttons land on one line. Without this the shorter card stopped halfway up
+       the row and its tinted panel looked cut off next to the taller one. */
+    .connect-grid { align-items: stretch; }
+    .connect-grid .info-card { display: flex; flex-direction: column; }
+    .connect-grid .info-card__body { margin-bottom: 1.25rem; }
+    .connect-grid .info-card .btn { margin-top: auto; align-self: flex-start; }
+    /* This card sits on a green tint, so its icon chip is white rather than the
+       usual pale green. It has to stay a class: as an inline style it outranked
+       the shared hover rule, which still turned the icon white, so the icon
+       vanished into its own chip on hover. */
+    .connect-card--tinted { background: var(--green-50); border-color: var(--green-100); }
+    .connect-card--tinted .info-card__icon { background: var(--white); }
+    /* Restate the hover chip here. The shared rule recolours the icon to white,
+       and this card's white chip was winning the background, so the icon
+       disappeared into it. */
+    .connect-card--tinted:hover .info-card__icon { background: var(--green-800); color: var(--white); }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -106,17 +125,18 @@
         <span class="section__label">Location</span>
         <h2 class="section__title">Connect</h2>
       </div>
-      <div class="two-col">
+      <div class="two-col connect-grid">
         <div class="info-card">
           <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <h3 class="info-card__title">Address</h3>
           <p class="info-card__body">126 Boston Post Road<br>Wayland, MA 01778</p>
-          <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1rem;font-size:.85rem;">Get Directions</a>
+          <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA" target="_blank" rel="noopener" class="btn btn--outline" style="font-size:.85rem;">Get Directions</a>
         </div>
-        <div class="info-card" style="background:var(--green-50);border-color:var(--green-100);">
-          <div class="info-card__icon" style="background:var(--white);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <div class="info-card connect-card--tinted">
+          <div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.1 19.79 19.79 0 0 1 1.61 2.5 2 2 0 0 1 3.58.32h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.4 6.4l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <h3 class="info-card__title">Telephone</h3>
           <p class="info-card__body">+1 (508) 358-5885</p>
+          <a href="tel:+15083585885" class="btn btn--outline" style="font-size:.85rem;">Call the Center</a>
         </div>
       </div>
       <div style="margin-top:2rem;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--gray-100);">
@@ -176,7 +196,7 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260912m"></script>
+  <script src="/content.js?v=20260917b"></script>
   <script src="/app.js?v=20260912m"></script>
 </body>
 </html>
