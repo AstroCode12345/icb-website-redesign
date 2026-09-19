@@ -65,48 +65,14 @@
     "year": "2026–27",
     "zuhr": "1:15 PM",
     "asr": "4:45 PM",
-    "existingDates": [
-      {
-        "when": "May 15, 2026",
-        "what": "Deadline to register without late fee"
-      },
-      {
-        "when": "June 28, 2026",
-        "what": "Final deadline for late registrations"
-      },
-      {
-        "when": "Aug 15, 2026",
-        "what": "Admissions notifications emailed"
-      },
-      {
-        "when": "Sept 13, 2026",
-        "what": "First day of Sunday School"
-      }
-    ],
-    "newDates": [
-      {
-        "when": "June 28, 2026",
-        "what": "Deadline for on-time new family registration"
-      },
-      {
-        "when": "Jul 31, 2026",
-        "what": "Final cutoff for new family registration"
-      },
-      {
-        "when": "Jul 1–Aug 15, 2026",
-        "what": "Arabic assessments (Grade 2+); PATP interviews"
-      },
-      {
-        "when": "Aug 15, 2026",
-        "what": "Admissions notifications emailed"
-      },
-      {
-        "when": "Sept 13, 2026",
-        "what": "First day of Sunday School"
-      }
-    ],
+    "existingDates": [],
+    "newDates": [],
     "parentPortalUrl": "https://sunweb.us/?s=icbwaylandss",
-    "teacherPortalUrl": "https://sunweb.us/admin/admin-login?s=icbwaylandss"
+    "teacherPortalUrl": "https://sunweb.us/admin/admin-login?s=icbwaylandss",
+    "existingNote": "Admissions are now complete and school has started. If you have not paid tuition yet, your child(ren) will be marked as “pending” until the tuition is paid.",
+    "newNote": "As-salaamu 'alaykum, and welcome! We offer two program options: Morning Program (10:30 AM–1:30 PM) and Afternoon Program (2:00 PM–5:00 PM). Our school operates on a cooperative model, so each family is required to volunteer at least three days per academic year.",
+    "showCurriculum": false,
+    "calendarUrl": "/calendar/"
   },
   "contact": {
     "email": "webmaster@icbwayland.org",

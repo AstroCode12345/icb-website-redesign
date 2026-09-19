@@ -273,23 +273,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     _set("[data-school='asr']", school.asr);
     _set("[data-school='year']", school.year);
 
+    // The status of each admissions cycle, which the school rewrites as the
+    // year turns: open, closed, complete.
+    _set("[data-school='existingNote']", school.existingNote);
+    _set("[data-school='newNote']", school.newNote);
+
     renderSchoolDates("[data-school-dates='existing']", school.existingDates);
     renderSchoolDates("[data-school-dates='new']", school.newDates);
+
+    // The curriculum detail dates from 2019-20 and stays down until the school
+    // replaces it, so it is off unless the portal switch is on.
+    document.querySelectorAll("[data-school-curriculum]").forEach(el => {
+      el.style.display = school.showCurriculum ? "" : "none";
+    });
   }
 
   function renderSchoolDates(selector, rows) {
     const table = document.querySelector(selector);
     if (!table || !Array.isArray(rows)) return;
 
-    // Nothing scheduled yet is a real state between school years, so say so
-    // rather than leaving an empty table with just its border showing.
+    // No dates published means none are current. Hide the table rather than
+    // leave last year's deadlines up or announce an empty schedule.
     if (!rows.length) {
-      table.innerHTML = `
-        <tr><td style="padding:.75rem 0;color:var(--gray-500);font-size:.85rem;">
-          Key dates for the coming school year have not been announced yet.
-        </td></tr>`;
+      table.innerHTML = "";
+      table.style.display = "none";
       return;
     }
+    table.style.display = "";
 
     table.innerHTML = rows.map(r => `
       <tr style="border-top:1px solid var(--gray-100);">
