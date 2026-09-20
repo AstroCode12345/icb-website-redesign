@@ -143,74 +143,68 @@
     "contacts": [
       {
         "group": "ICB Sunday School – Morning Program",
-        "role": "Principal",
-        "name": "Rehna Khan",
-        "email": "principal.am@icbwayland.org"
-      },
-      {
-        "group": "ICB Sunday School – Morning Program",
-        "role": "Vice Principal",
-        "name": "Sunniya Saleem",
-        "email": "viceprincipal.am@icbwayland.org"
-      },
-      {
-        "group": "ICB Sunday School – Morning Program",
-        "role": "AM and PM Liaison Principal",
-        "name": "Rihab Babikar",
-        "email": "assistantprincipal1.pm@icbwayland.org"
-      },
-      {
-        "group": "ICB Sunday School – Morning Program",
-        "role": "Assistant Principals",
-        "name": "Raheel Imtiaz",
-        "email": "assistantprincipal2.am@icbwayland.org"
-      },
-      {
-        "group": "ICB Sunday School – Morning Program",
-        "role": "Assistant Principals",
-        "name": "Shahnaz Islam",
-        "email": "assistantprincipal3.am@icbwayland.org"
-      },
-      {
-        "group": "ICB Sunday School – Morning Program",
-        "role": "Assistant Principals",
+        "role": "Head of School",
         "name": "Nimra Taqi",
-        "email": "assistantprincipal4.am@icbwayland.org"
+        "email": "headofschool.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Head of Teachers",
+        "name": "Dawood Nagda",
+        "email": "headofteachers.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Head of Events",
+        "name": "Rehan Mirza",
+        "email": "headofevents.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Head of Volunteers",
+        "name": "Raheel Imtiaz",
+        "email": "headofvolunteers.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Head of Students",
+        "name": "Raheel Imtiaz",
+        "email": "headofstudents.am@icbwayland.org"
       },
       {
         "group": "ICB Sunday School – Afternoon Program",
-        "role": "Principal",
-        "name": "Hina Jolin",
-        "email": "principal.pm@icbwayland.org"
+        "role": "Head of School",
+        "name": "Sahar Zaheer",
+        "email": "headofschool.pm@icbwayland.org"
       },
       {
         "group": "ICB Sunday School – Afternoon Program",
-        "role": "Assistant Principal",
-        "name": "Rihab Babikar",
-        "email": "assistantprincipal1.pm@icbwayland.org"
+        "role": "Head of Teachers",
+        "name": "Rifat Zaman",
+        "email": "headofteachers.pm@icbwayland.org"
       },
       {
         "group": "ICB Sunday School – Afternoon Program",
-        "role": "Assistant Principal",
-        "name": "Eram Kashif",
-        "email": "eram.naaeem@gmail.com"
+        "role": "Head of Events",
+        "name": "Rubaina Zaman",
+        "email": "headofevents.pm@icbwayland.org"
       },
       {
         "group": "ICB Sunday School – Afternoon Program",
-        "role": "Assistant Principal",
+        "role": "Head of Volunteers",
         "name": "Nasser Ahmed",
-        "email": "syednaseericb@gmail.com"
+        "email": "headofvolunteers.pm@icbwayland.org"
       },
       {
         "group": "ICB Sunday School – Afternoon Program",
-        "role": "Assistant Principal",
-        "name": "Moulay Ahmed Ridaoui",
-        "email": "mmridaoui@gmail.com"
+        "role": "Head of Students",
+        "name": "Mominah Hameed",
+        "email": " \theadofstudents.pm@icbwayland.org"
       },
       {
         "group": "ICB Sunday School – Leadership & Support Team",
         "role": "Director of Education",
-        "name": "Rabih Shanshiry",
+        "name": "Sami Durrani",
         "email": "directoreducation@icbwayland.org"
       },
       {
@@ -245,21 +239,9 @@
       },
       {
         "group": "ICB Sunday School – Leadership & Support Team",
-        "role": "Curriculum Committee Contact (Religion grade 7–10)",
-        "name": "Rabih Shanshiry",
-        "email": "directoreducation@icbwayland.org"
-      },
-      {
-        "group": "ICB Sunday School – Leadership & Support Team",
         "role": "PTO Leads",
         "name": "Mona Ahmad",
         "email": "mona.ahmadmian@gmail.com"
-      },
-      {
-        "group": "ICB Sunday School – Leadership & Support Team",
-        "role": "PTO Leads",
-        "name": "Sami Durrani",
-        "email": "sami.durrani@gmail.com"
       },
       {
         "group": "ICB Sunday School – Leadership & Support Team",
