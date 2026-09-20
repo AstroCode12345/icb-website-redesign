@@ -286,6 +286,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelectorAll("[data-school-curriculum]").forEach(el => {
       el.style.display = school.showCurriculum ? "" : "none";
     });
+
+    renderSchoolCalendar(school);
+  }
+
+  /** The school year's key Sundays: first and last day, breaks, assessments.
+   *  Off until the school turns it on, so it never shows as an empty promise. */
+  function renderSchoolCalendar(school) {
+    const section = document.querySelector("[data-school-calendar]");
+    if (!section) return;
+
+    const rows = Array.isArray(school.calendarDates) ? school.calendarDates : [];
+    const on = Boolean(school.showCalendar);
+    section.style.display = on ? "" : "none";
+    // The jump link only makes sense while the section is there to jump to.
+    document.querySelectorAll("[data-jump-calendar]").forEach(el => {
+      el.style.display = on ? "" : "none";
+    });
+    if (!on) return;
+
+    const body = section.querySelector("[data-school-calendar-rows]");
+    const empty = section.querySelector("[data-school-calendar-empty]");
+    if (body) {
+      body.innerHTML = rows.map(r => `
+        <tr>
+          <td style="white-space:nowrap;">${_esc(r.when)}</td>
+          <td>${_esc(r.what)}</td>
+        </tr>`).join("");
+      const table = body.closest("table");
+      if (table) table.style.display = rows.length ? "" : "none";
+    }
+    if (empty) empty.style.display = rows.length ? "none" : "";
   }
 
   function renderSchoolDates(selector, rows) {

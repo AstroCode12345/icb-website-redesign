@@ -16,54 +16,54 @@
   <meta property="og:url" content="https://icbwayland.org/school/" />
   <meta property="og:type" content="website" />
   <style>
-    /* Jump rail. The page is long and parents come for one section at a time,
-       so the sections stay reachable without scrolling back up. Same treatment
-       as the month jumper on the Boston prayer schedule. */
-    .section-rail {
+    /* Section jumps. Floating, parked in the bottom-left corner: the page is
+       long, and down there it stays out of the reading column and away from the
+       content on the right. */
+    .jump-dock {
       position: fixed;
-      right: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
+      left: 1.5rem;
+      bottom: 1.5rem;
       z-index: 20;
       display: flex;
       flex-direction: column;
       gap: .1rem;
-      padding: .8rem .55rem;
+      padding: .8rem .6rem;
       background: rgba(253, 251, 247, .92);
       backdrop-filter: blur(8px);
       border: 1px solid var(--gray-100);
       border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-md);
     }
-    .section-rail__label {
+    .jump-dock__label {
       font-family: var(--font-mono);
       font-size: .6rem; font-weight: 500; letter-spacing: .14em;
       text-transform: uppercase; color: var(--gray-500);
-      text-align: center; margin-bottom: .35rem;
+      margin-bottom: .4rem; padding-inline: .6rem;
     }
-    .section-rail a {
+    .jump-dock a {
       display: block;
       padding: .32rem .6rem;
       border-radius: var(--radius-sm);
-      font-size: .78rem;
+      font-size: .82rem;
       font-weight: 600;
-      color: var(--gray-500);
+      color: var(--gray-700);
       transition: background var(--transition), color var(--transition);
     }
-    .section-rail a:hover { background: var(--green-50); color: var(--green-700); }
-    .section-rail a.is-active { background: var(--green-700); color: var(--white); }
+    .jump-dock a:hover { background: var(--green-50); color: var(--green-700); }
+    .jump-dock a.is-active { background: var(--green-700); color: var(--white); }
     /* Below this it would sit on top of the content. */
-    @media (max-width: 1279px) { .section-rail { display: none; } }
+    @media (max-width: 1279px) { .jump-dock { display: none; } }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <nav class="section-rail" aria-label="Jump to section">
-    <div class="section-rail__label">On this page</div>
+  <nav class="jump-dock" aria-label="Jump to section">
+    <div class="jump-dock__label">On this page</div>
     <a href="#portals">Portals</a>
     <a href="#mission">Mission</a>
     <a href="#details">Details</a>
+    <a href="#school-calendar" data-jump-calendar style="display:none;">Calendar</a>
     <a href="#admission">Admissions</a>
     <a href="#quick-links">Quick Links</a>
     <a href="#school-contacts">Contacts</a>
@@ -231,6 +231,30 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- School calendar. The old site kept this as its own page under the School
+       menu; it sits here for now, and is self-contained so it can move back out
+       to /school/calendar/ without rework. Off until the school turns it on in
+       the portal, and hidden by default so it stays down if the script never
+       runs. -->
+  <section class="section" id="school-calendar" data-school-calendar style="display:none;">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">School Year</span>
+        <h2 class="section__title">School Calendar</h2>
+        <p class="section__subtitle">Key Sundays for the <span data-school="year">2026&ndash;27</span> year: first and last day, breaks, assessments, and conferences.</p>
+      </div>
+      <div style="max-width:720px;margin-inline:auto;overflow-x:auto;">
+        <table class="prayer-table">
+          <thead><tr><th>Date (Sunday)</th><th>School Calendar Event</th></tr></thead>
+          <tbody data-school-calendar-rows></tbody>
+        </table>
+        <p data-school-calendar-empty style="display:none;font-size:.9rem;color:var(--gray-500);text-align:center;margin-top:1rem;">
+          Dates for this school year have not been posted yet.
+        </p>
       </div>
     </div>
   </section>
@@ -418,31 +442,37 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260918a"></script>
+  <script src="/content.js?v=20260919a"></script>
   <script src="/app.js?v=20260912m"></script>
   <script>
     // Highlight whichever section the reader is in. Same scroll-position test
     // as the month jumper on the Boston prayer schedule: the last heading above
     // the trigger line always gives an answer, including at the top of the page.
     (function () {
-      var rail = document.querySelector(".section-rail");
-      if (!rail) return;
+      var dock = document.querySelector(".jump-dock");
+      if (!dock) return;
 
-      var targets = [].slice.call(rail.querySelectorAll("a")).map(function (a) {
-        return { link: a, el: document.getElementById(a.getAttribute("href").slice(1)) };
-      }).filter(function (t) { return t.el; });
-      if (!targets.length) return;
+      function targets() {
+        return [].slice.call(dock.querySelectorAll("a")).map(function (a) {
+          return { link: a, el: document.getElementById(a.getAttribute("href").slice(1)) };
+        }).filter(function (t) {
+          // Skip links whose section is switched off, such as the calendar.
+          return t.el && t.link.style.display !== "none";
+        });
+      }
 
       var ticking = false;
 
       function update() {
         ticking = false;
+        var list = targets();
+        if (!list.length) return;
         var line = 140;                 // just below the sticky nav
-        var current = targets[0];
-        for (var i = 0; i < targets.length; i++) {
-          if (targets[i].el.getBoundingClientRect().top <= line) current = targets[i];
+        var current = list[0];
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].el.getBoundingClientRect().top <= line) current = list[i];
         }
-        targets.forEach(function (t) {
+        list.forEach(function (t) {
           t.link.classList.toggle("is-active", t === current);
         });
       }
@@ -455,6 +485,8 @@
 
       addEventListener("scroll", onScroll, { passive: true });
       addEventListener("resize", onScroll);
+      // content.js fills in and reveals sections after fetching, so re-check once it has.
+      setTimeout(update, 400);
       update();
     })();
   </script>
