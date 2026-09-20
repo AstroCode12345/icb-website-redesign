@@ -73,8 +73,73 @@
     "newNote": "As-salaamu 'alaykum, and welcome! We offer two program options: Morning Program (10:30 AM–1:30 PM) and Afternoon Program (2:00 PM–5:00 PM). Our school operates on a cooperative model, so each family is required to volunteer at least three days per academic year.",
     "showCurriculum": false,
     "calendarUrl": "/calendar/",
-    "showCalendar": false,
-    "calendarDates": []
+    "showCalendar": true,
+    "calendarDates": [
+      {
+        "when": "9/13/2026",
+        "what": "First day of school"
+      },
+      {
+        "when": "10/11/2026",
+        "what": "Indigenous People Day - No School"
+      },
+      {
+        "when": "11/29/2026",
+        "what": "Thanksgiving Break - No School"
+      },
+      {
+        "when": "12/27/2026",
+        "what": "Winter Break - No School"
+      },
+      {
+        "when": "1/03/2027",
+        "what": "Winter Break - No School"
+      },
+      {
+        "when": "1/17/2027",
+        "what": "Classes will be held during MLK Day weekend"
+      },
+      {
+        "when": "2/14/2027",
+        "what": "February Vacation / Ramadan - No School"
+      },
+      {
+        "when": "2/21/2027",
+        "what": "February Vacation / Ramadan - No School"
+      },
+      {
+        "when": "2/28/2027",
+        "what": "Ramadan schedule"
+      },
+      {
+        "when": "3/7/2027",
+        "what": "Ramadan schedule"
+      },
+      {
+        "when": "4/18/2027",
+        "what": "April vacation - No School"
+      },
+      {
+        "when": "4/25/2027",
+        "what": "April vacation - No School"
+      },
+      {
+        "when": "5/16/2027",
+        "what": "Eid-ul-Adha - No School"
+      },
+      {
+        "when": "5/30/2027",
+        "what": "Memorial Day Break - No School"
+      },
+      {
+        "when": "6/20/2027",
+        "what": "Last day of School / School Fair"
+      },
+      {
+        "when": "6/27/2027",
+        "what": "Graduation dinner: Grade 10 families only"
+      }
+    ]
   },
   "contact": {
     "email": "webmaster@icbwayland.org",
