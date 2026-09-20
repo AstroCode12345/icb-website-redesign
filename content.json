@@ -139,6 +139,146 @@
         "when": "6/27/2027",
         "what": "Graduation dinner: Grade 10 families only"
       }
+    ],
+    "contacts": [
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Principal",
+        "name": "Rehna Khan",
+        "email": "principal.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Vice Principal",
+        "name": "Sunniya Saleem",
+        "email": "viceprincipal.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "AM and PM Liaison Principal",
+        "name": "Rihab Babikar",
+        "email": "assistantprincipal1.pm@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Assistant Principals",
+        "name": "Raheel Imtiaz",
+        "email": "assistantprincipal2.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Assistant Principals",
+        "name": "Shahnaz Islam",
+        "email": "assistantprincipal3.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Morning Program",
+        "role": "Assistant Principals",
+        "name": "Nimra Taqi",
+        "email": "assistantprincipal4.am@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Afternoon Program",
+        "role": "Principal",
+        "name": "Hina Jolin",
+        "email": "principal.pm@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Afternoon Program",
+        "role": "Assistant Principal",
+        "name": "Rihab Babikar",
+        "email": "assistantprincipal1.pm@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Afternoon Program",
+        "role": "Assistant Principal",
+        "name": "Eram Kashif",
+        "email": "eram.naaeem@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Afternoon Program",
+        "role": "Assistant Principal",
+        "name": "Nasser Ahmed",
+        "email": "syednaseericb@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Afternoon Program",
+        "role": "Assistant Principal",
+        "name": "Moulay Ahmed Ridaoui",
+        "email": "mmridaoui@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Director of Education",
+        "name": "Rabih Shanshiry",
+        "email": "directoreducation@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "School Administrator",
+        "name": "Shannon Jackson",
+        "email": "school.admin@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Help Desk / Tech Help",
+        "name": "Murtuza Khan",
+        "email": "helpdesk@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Snack Leads",
+        "name": "Atif Qamar",
+        "email": "atif.qamar1219@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Snack Leads",
+        "name": "Abdul Karim",
+        "email": "akmemon612@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Snack Leads",
+        "name": "Abid Mattoo (PM)",
+        "email": "abidmattoo@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Curriculum Committee Contact (Religion grade 7–10)",
+        "name": "Rabih Shanshiry",
+        "email": "directoreducation@icbwayland.org"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "PTO Leads",
+        "name": "Mona Ahmad",
+        "email": "mona.ahmadmian@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "PTO Leads",
+        "name": "Sami Durrani",
+        "email": "sami.durrani@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Library Leads",
+        "name": "Saffiyat Hamiss",
+        "email": "hajiaamerica@yahoo.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Library Leads",
+        "name": "Zaheer Kalvert",
+        "email": "zaheer.kalvert@gmail.com"
+      },
+      {
+        "group": "ICB Sunday School – Leadership & Support Team",
+        "role": "Green Team Lead",
+        "name": "Janna Said",
+        "email": "jannasaid@gmail.com"
+      }
     ]
   },
   "contact": {

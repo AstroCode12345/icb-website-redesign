@@ -288,6 +288,41 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     renderSchoolCalendar(school);
+    renderSchoolContacts(school.contacts);
+  }
+
+  /** The school's staff tables, one per group. Entries sharing a group and a
+   *  role share a row, which is how several assistant principals sit together
+   *  under one heading rather than repeating the role down the table. */
+  function renderSchoolContacts(entries) {
+    const host = document.querySelector("[data-school-contacts]");
+    if (!host || !Array.isArray(entries) || !entries.length) return;
+
+    const groups = [];
+    entries.forEach(e => {
+      let g = groups.find(x => x.name === e.group);
+      if (!g) groups.push(g = { name: e.group, rows: [] });
+      const last = g.rows[g.rows.length - 1];
+      if (last && last.role === e.role) last.people.push(e);
+      else g.rows.push({ role: e.role, people: [e] });
+    });
+
+    host.innerHTML = groups.map((g, i) => `
+      <div style="max-width:900px;margin-inline:auto;overflow-x:auto;${i ? "margin-top:2rem;" : ""}">
+        <table class="prayer-table">
+          <thead><tr><th colspan="3">${_esc(g.name)}</th></tr></thead>
+          <tbody>
+            ${g.rows.map(r => `
+              <tr>
+                <td>${_esc(r.role)}</td>
+                <td>${r.people.map(p => _esc(p.name)).join("<br>")}</td>
+                <td>${r.people.map(p => p.email
+                  ? `<a href="mailto:${_escAttr(p.email)}" style="color:var(--green-700);">${_esc(p.email)}</a>`
+                  : "").join("<br>")}</td>
+              </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>`).join("");
   }
 
   /** The school year's key Sundays: first and last day, breaks, assessments.
