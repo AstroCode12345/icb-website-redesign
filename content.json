@@ -72,7 +72,7 @@
     "existingNote": "Admissions are now complete and school has started. If you have not paid tuition yet, your child(ren) will be marked as “pending” until the tuition is paid.",
     "newNote": "As-salaamu 'alaykum, and welcome! We offer two program options: Morning Program (10:30 AM–1:30 PM) and Afternoon Program (2:00 PM–5:00 PM). Our school operates on a cooperative model, so each family is required to volunteer at least three days per academic year.",
     "showCurriculum": false,
-    "calendarUrl": "/calendar/",
+    "calendarUrl": "#school-calendar",
     "showCalendar": true,
     "calendarDates": [
       {
