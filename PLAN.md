@@ -375,3 +375,91 @@ secret but carrying all three scopes still gets a 401.
 credentials to says nothing about credentials it already issued. Anything
 this happens to again should rotate the signing secret as part of the same
 fix, not as an afterthought once a symptom is reported.
+
+## New look, and portal coverage for the things that change — 20-22 September 2026
+
+### The design language changed
+Taymour called the site "too bland and boring" and pointed at the
+`icb-wayland-prototype` folder. Tried on local servers first with nothing
+committed, deliberately: colours, fonts, and card treatment were kept in
+separate worktrees so any one of them could ship alone if he only liked one.
+
+All three shipped. The palette moved to warm paper plus a forest green that is
+lighter and more on brand than the prototype's near black (`--green-800:
+#1A4530`), with brass accents. Newsreader for headings, Instrument Sans for
+body, JetBrains Mono for the small uppercase labels. Cards took three attempts:
+two were rejected outright before one built to feel like the original live site
+landed. The background cream was then nudged closer to white on his note that
+it read too off-white.
+
+Font loading lived in `styles.css` during the trials, on purpose, so the daily
+churn of the `?v=` line in 23 page heads could not cause merge conflicts
+against the trial branches. It moved into the page heads at ship time, which is
+where it belongs for production delivery.
+
+The two trial worktrees were deleted afterwards at his request.
+
+### Position holders are now editable, which was the real goal
+He asked directly: "in all cases, admins should be able to update names of
+positions and things from the portal because that changes somewhat frequently."
+That closed the largest remaining gap.
+
+| Now editable in the portal | Where it shows |
+|---|---|
+| Board, elected and appointed | About → Management |
+| Committees and their leads | About → Management |
+| School staff, all 20-odd across their tables | School page, bottom |
+| School calendar dates, plus a show/hide toggle | School page, between timetable and admissions |
+| Admissions status wording, both cards | School page |
+| Curriculum section show/hide | School page |
+
+`management` was added to the `main` scope in `lib/scopes.ts`. Committee leads
+are typed as one comma-separated field and split into a `leads` array on the
+way in, because that is how a person actually types two names. Adding a school
+contact inherits the previous row's table heading, which is nearly always the
+intent when entering several people into one group.
+
+The contacts refactor was checked cell by cell against the original hardcoded
+markup: all 45 rendered cells identical. Worth doing before handing a 20 person
+roster to a renderer.
+
+### School calendar: built empty and switched off
+The old icbwayland.org had one, found by pulling `school/calendar.html` out of
+the old nav scripts and reading the December 2022 Wayback snapshot: a plain two
+column table, Date (Sunday) against School Calendar Event, about 21 rows.
+
+Built to match, hidden by default, with the toggle and the row editor in the
+portal so the school can switch it on when they have the year's dates. Admins
+have since filled in 16 rows themselves, which is the whole point. Taymour
+flagged he may want the other format later.
+
+### Smaller fixes in the same stretch
+- Social Committee leads are Seeme Moreira and Huma Najam.
+- Every email address on the site is lowercase everywhere.
+- The School page quick link "Event Calendar" is now "School Calendar", and its
+  destination is a portal field (`sundaySchool.calendarUrl`).
+- The Fidyah note came off the Donations page. It needs re-adding during
+  Ramadan with a link of its own.
+- The on-page jump dock was tried inline, rejected, and put back to floating,
+  bottom left, with a link to every section.
+- A phone icon on the Services page was silently using the Facebook glyph.
+- Saved copies of the old site are now gitignored rather than sitting untracked.
+
+### Two mistakes worth not repeating
+**A rebase dropped a commit without saying so.** After `git pull --rebase`, the
+`.gitignore` commit was simply gone; the reflog showed the rebase checking out
+the new head and finishing without replaying it. Recovered by cherry-picking.
+**Check `git log` and the file contents after a rebase, do not trust its output.**
+
+**`npm run build` while the dev server is running breaks the dev server**, since
+the production build overwrites `.next` underneath it. That is what produced the
+"Cannot find module './948.js'" error Taymour reported. Use `npx tsc --noEmit`
+to typecheck while the server is up.
+
+### Open
+- **`HOW-TO-UPDATE-THE-WEBSITE.md` is two sessions stale.** It still describes
+  one dashboard with six sections. There are three portals now, and none of the
+  sections added since 7 September are in it. Anyone handed that guide today
+  would be reading about a portal that no longer exists.
+- Body copy font sizes sprawl a little on the Contact and School pages.
+- The rental pricing table is still outstanding from before this stretch.
