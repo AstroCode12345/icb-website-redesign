@@ -51,6 +51,15 @@
       "meta": "Come to our first event  of of the year! We'll have food and games!",
       "signupUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfF51zmre8bbRxF0uD7xXTyRWuaUdz0mq4mVG5JFixdhsRkHA/viewform",
       "image": "/images/events/2026-09-11-yg-kickoff-flyer.png"
+    },
+    {
+      "date": "2026-10-10",
+      "title": "Apple Picking!",
+      "tag": "",
+      "meta": "@ Honey Pot Hills, Stow, MA",
+      "signupUrl": "https://docs.google.com/forms/d/e/1FAIpQLSegPTjxSKCq8Ql5hjlR0ikKR_eEwc549iAEBV0leOyDIUdjAA/viewform",
+      "image": "/images/events/2026-10-01-10b90714-2224-4194-957f-1c458bd62a37.jpg",
+      "imageAlt": ""
     }
   ],
   "announcement": {
@@ -265,7 +274,7 @@
     "youtube": "https://youtube.com/c/ICBWayland"
   },
   "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE",
-  "siteUpdated": "2026-09-28",
+  "siteUpdated": "2026-10-01",
   "youth": {
     "registrationTitle": "2026–2027 Registration",
     "registrationBody": "Sign up for the ICB Wayland Youth Group for this school year.",
