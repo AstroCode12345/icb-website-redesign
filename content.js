@@ -73,6 +73,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     return d.toLocaleDateString("en-US",
       { month: "long", day: "numeric", year: "numeric" });
   }
+  // "Oct 23": for tight spots on phones, where the year is obvious from context.
+  function shortDate(iso) {
+    const d = parseDate(iso);
+    return d ? `${MONTHS[d.getMonth()]} ${d.getDate()}` : (iso ?? "");
+  }
 
   function emptyState(message, extraHTML) {
     return `
@@ -126,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (laterKhateebs.length) {
       khateebBody.innerHTML = laterKhateebs.map((k, i) => `
         <tr${i < laterKhateebs.length - 1 ? ' style="border-bottom:1px solid rgba(255,255,255,.2);"' : ""}>
-          <td style="padding:.4rem 0;color:rgba(255,255,255,.7);">${_esc(longDate(k.date))}</td>
+          <td style="padding:.4rem 1rem .4rem 0;color:rgba(255,255,255,.7);white-space:nowrap;"><span class="only-wide">${_esc(longDate(k.date))}</span><span class="only-narrow">${_esc(shortDate(k.date))}</span></td>
           <td style="padding:.4rem 0;">${_esc(k.name)}</td>
         </tr>`).join("");
     } else if (khateebs.length) {
@@ -167,7 +172,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <td>${p.email
           ? `<a href="mailto:${_escAttr(p.email)}" style="color:var(--green-700);font-weight:600;">${_esc(p.email)}</a>`
           : ""}</td>
-        <td style="color:var(--gray-500);font-size:.9rem;white-space:nowrap;">${_esc(p.term)}</td>
+        <td data-label="Term" style="color:var(--gray-500);font-size:.9rem;white-space:nowrap;">${_esc(p.term)}</td>
       </tr>`).join("");
   }
 
@@ -177,7 +182,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     body.innerHTML = rows.map(c => `
       <tr>
         <td><strong>${_esc(c.name)}</strong></td>
-        <td style="white-space:nowrap;">${(Array.isArray(c.leads) ? c.leads : [c.leads])
+        <td data-label="Chair" style="white-space:nowrap;">${(Array.isArray(c.leads) ? c.leads : [c.leads])
           .filter(Boolean).map(_esc).join("<br>")}</td>
         <td style="color:var(--gray-500);font-size:.9rem;">${_esc(c.description)}</td>
       </tr>`).join("");
@@ -309,14 +314,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     host.innerHTML = groups.map((g, i) => `
       <div style="max-width:900px;margin-inline:auto;overflow-x:auto;${i ? "margin-top:2rem;" : ""}">
-        <table class="prayer-table">
+        <table class="prayer-table stack-table stack-table--titled contacts-table">
           <thead><tr><th colspan="3">${_esc(g.name)}</th></tr></thead>
           <tbody>
             ${g.rows.map(r => `
               <tr>
                 <td>${_esc(r.role)}</td>
-                <td>${r.people.map(p => _esc(p.name)).join("<br>")}</td>
-                <td>${r.people.map(p => p.email
+                <td>${r.people.map(p => `<span class="person"><span class="person__name">${_esc(p.name)}</span>${p.email
+                  ? `<a class="person__email" href="mailto:${_escAttr(p.email)}">${_esc(p.email)}</a>` : ""}</span>`).join("")}</td>
+                <td class="contacts-table__emails">${r.people.map(p => p.email
                   ? `<a href="mailto:${_escAttr(p.email)}" style="color:var(--green-700);">${_esc(p.email)}</a>`
                   : "").join("<br>")}</td>
               </tr>`).join("")}

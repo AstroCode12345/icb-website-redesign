@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260917c" />
+  <link rel="stylesheet" href="/styles.css?v=20261003a" />
   <meta name="description" content="Daily Iqamah times and Friday Jumu&#39;ah schedule at the Islamic Center of Boston, Wayland." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Prayer Times — ICB Wayland" />
@@ -98,7 +98,7 @@
             <strong>Note:</strong> These are Iqamah (congregational prayer start) times. Adhan is called approximately 10–15 minutes prior.
             <a href="/documents/Shahjadhan.mp3" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;margin-left:.25rem;">Adhan (call for prayers) by Shahjehan Khan ↗</a>
           </div>
-          <table class="prayer-table">
+          <table class="prayer-table iqamah-table">
             <thead>
               <tr>
                 <th>Prayer</th>
@@ -108,27 +108,27 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Fajr</strong></td>
+                <td><strong>Fajr</strong><span class="iqamah-note">Dawn prayer</span></td>
                 <td data-prayer="fajr">5:10 AM</td>
                 <td>Dawn prayer</td>
               </tr>
               <tr>
-                <td><strong>Zuhr</strong></td>
+                <td><strong>Zuhr</strong><span class="iqamah-note">Midday prayer</span></td>
                 <td data-prayer="zuhr">1:30 PM</td>
                 <td>Midday prayer</td>
               </tr>
               <tr>
-                <td><strong>Asr</strong></td>
+                <td><strong>Asr</strong><span class="iqamah-note">Afternoon prayer</span></td>
                 <td data-prayer="asr">6:00 PM</td>
                 <td>Afternoon prayer</td>
               </tr>
               <tr>
-                <td><strong>Maghrib</strong></td>
+                <td><strong>Maghrib</strong><span class="iqamah-note">Sunset prayer</span></td>
                 <td data-prayer="maghrib">8:10 PM</td>
                 <td>Sunset prayer</td>
               </tr>
               <tr>
-                <td><strong>Isha</strong></td>
+                <td><strong>Isha</strong><span class="iqamah-note">Night prayer</span></td>
                 <td data-prayer="isha">9:45 PM</td>
                 <td>Night prayer</td>
               </tr>
@@ -211,12 +211,12 @@
     <div class="container">
       <div style="max-width:760px;margin-inline:auto;">
         <span class="section__label">Islamic Calendar</span>
-        <h2 style="margin-bottom:1.25rem;">Ramadan, Eid al-Fitr and Eid al-Adha</h2>
+        <h2 style="margin-bottom:1.25rem;">Ramadan, Eid al&#8209;Fitr and Eid al&#8209;Adha</h2>
         <p style="color:var(--gray-700);line-height:1.9;margin-bottom:1rem;">
           ICB Wayland follows the recommendation of The Fiqh Council of North America (FCNA) regarding the adoption of an astronomically calculated Islamic Calendar. The detailed discussion of the decision is in the <a href="/documents/MoonsightingDecisionWeb.pdf" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;">ICB Moonsighting Decision</a>.
         </p>
         <p style="color:var(--gray-700);line-height:1.9;margin-bottom:1rem;">
-          Accordingly, for the start of Ramadan and Eid al-Fitr, ICB uses the Islamic calendar published by FCNA and of Islamic Society of North America (ISNA). For Eid al-Adha, the FCNA's current criteria is that the final determination of the date of Eid al-Adha will be contingent on the announcement by the Hajj authorities in Makkah of the day of Arafah, in which case Eid al-Adha will be the day following the day of Arafah.
+          Accordingly, for the start of Ramadan and Eid al&#8209;Fitr, ICB uses the Islamic calendar published by FCNA and of Islamic Society of North America (ISNA). For Eid al&#8209;Adha, the FCNA's current criteria is that the final determination of the date of Eid al&#8209;Adha will be contingent on the announcement by the Hajj authorities in Makkah of the day of Arafah, in which case Eid al&#8209;Adha will be the day following the day of Arafah.
         </p>
         <p style="color:var(--gray-700);line-height:1.9;">
           May Allah (swt) keep us on the right path, and accept our fasting and prayers. Ameen. For more detailed information, please visit: <a href="https://fiqhcouncil.org" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:600;">fiqhcouncil.org</a>
@@ -243,8 +243,7 @@
         <div>
           <div class="footer__col-title">Visit Us</div>
           <div class="footer__links">
-            <span class="footer__link">126 Boston Post Road</span>
-            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA+01778" target="_blank" rel="noopener" class="footer__link footer__address">126 Boston Post Road<br>Wayland, MA 01778</a>
             <a href="/prayers/" class="footer__link">Prayer Times</a>
             <a href="/services/" class="footer__link">Services</a>
           </div>
@@ -276,7 +275,7 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260920a"></script>
-  <script src="/app.js?v=20260912m"></script>
+  <script src="/content.js?v=20261003a"></script>
+  <script src="/app.js?v=20261003a"></script>
 </body>
 </html>

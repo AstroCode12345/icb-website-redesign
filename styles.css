@@ -22,9 +22,12 @@
 
   /* Warm paper neutrals, no blue tint */
   --gray-900: #1B241C;
+  --gray-800: #303229;
   --gray-700: #453F36;
+  --gray-600: #5C554B;
   --gray-500: #726B5F;
   --gray-300: #DAD4C7;
+  --gray-200: #E6E1D6;
   --gray-100: #F2EEE4;
   --gray-50:  #F9F7F2;
 
@@ -263,8 +266,12 @@ p  { color: var(--gray-700); }
 .nav__hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   padding: .6rem;
+  min-width: 44px;
+  min-height: 44px;
 }
 .nav__hamburger span {
   display: block;
@@ -279,24 +286,37 @@ p  { color: var(--gray-700); }
 .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile nav */
+/* The open menu fills the screen below the header. It used to stop after
+   "Support Us" with the page showing underneath, which read as a dropdown
+   that had not finished opening. */
 .nav__mobile {
   display: none;
   flex-direction: column;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--white);
   border-top: 1px solid var(--gray-100);
-  padding: 1rem 1.5rem 1.75rem;
+  padding: 1rem 1.5rem calc(2rem + env(safe-area-inset-bottom, 0px));
   gap: .25rem;
-  box-shadow: var(--shadow-md);
 }
 .nav__mobile.open { display: flex; }
+/* Set by app.js while the menu is open, so the page behind cannot scroll. */
+html.menu-open, html.menu-open body { overflow: hidden; }
 /* Larger tap targets in mobile nav for elderly users */
 .nav__mobile .nav__link { display: block; padding: .85rem .75rem; font-size: 1.05rem; font-weight: 500; }
-.nav__mobile .nav__cta { display: block; text-align: center; margin: .75rem 0 0; padding: 1rem; border-radius: var(--radius-md); font-size: 1.05rem; }
+.nav__mobile .nav__cta { display: block; text-align: center; margin: 1rem 0 0; padding: 1rem; border-radius: var(--radius-full); font-size: 1.05rem; }
 
 /* ---------- Buttons — generous padding for easy tapping ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: .5rem;
   font-weight: 600;
   font-size: 1rem;
@@ -316,11 +336,13 @@ p  { color: var(--gray-700); }
   color: var(--green-800);
 }
 .btn--outline:hover { background: var(--green-50); }
+/* Dark green on gold, not white: white on this gold is 2.8:1, below the
+   4.5:1 that button text needs. Hover lightens so the text stays readable. */
 .btn--gold {
   background: var(--gold-500);
-  color: var(--white);
+  color: var(--green-900);
 }
-.btn--gold:hover { background: var(--gold-600); }
+.btn--gold:hover { background: var(--gold-400); }
 
 /* ---------- Cards ---------- */
 .card {
@@ -656,9 +678,6 @@ p  { color: var(--gray-700); }
   min-height: 120px;
   flex: 0 0 240px;
 }
-@media (max-width: 560px) {
-  .quicklink { flex-basis: 100%; }
-}
 .quicklink:hover {
   border-color: var(--green-700);
   box-shadow: var(--shadow-md);
@@ -691,12 +710,39 @@ p  { color: var(--gray-700); }
   transition: all var(--transition);
 }
 .quicklink:hover .quicklink__go { color: var(--gold-600); transform: translate(2px, -2px); }
+@media (max-width: 560px) {
+  /* A column of full-width cards took 1.4 screens for seven links. On phones
+     they become one grouped list of rows, like a settings screen. */
+  .quicklinks {
+    display: block;
+    background: var(--white);
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .quicklink {
+    flex-direction: row;
+    gap: .9rem;
+    min-height: 60px;
+    padding: .75rem 1rem;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: left;
+  }
+  .quicklink + .quicklink { border-top: 1px solid var(--gray-100); }
+  .quicklink:hover { transform: none; box-shadow: none; background: var(--green-50); }
+  .quicklink__icon { width: 40px; height: 40px; flex-shrink: 0; }
+  .quicklink__label { font-size: 1rem; }
+  .quicklink__go { position: static; margin-left: auto; color: var(--gray-500); }
+}
 
 /* ---------- Verse banner — redesigned for readability ---------- */
 .verse-banner {
   background: var(--gold-100);
-  border-top: 3px solid var(--gold-300, #ddb96a);
-  border-bottom: 3px solid var(--gold-300, #ddb96a);
+  border-top: 3px solid var(--gold-400);
+  border-bottom: 3px solid var(--gold-400);
   padding: 4rem 0;
   text-align: center;
 }
@@ -715,7 +761,7 @@ p  { color: var(--gray-700); }
 .verse-banner__ref {
   font-family: var(--font-mono);
   font-size: .72rem;
-  color: var(--gold-600);
+  color: #7A5C30; /* gold-600 is 4.2:1 on this gold-100 ground; this is 5.2:1 */
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -773,6 +819,144 @@ p  { color: var(--gray-700); }
 .prayer-table tr:hover td { background: var(--green-50); }
 .prayer-table__highlight td { background: var(--gold-100) !important; font-weight: 600; }
 
+/* iPhone Safari zooms into any form field with text under 16px, and stays zoomed. */
+input, select, textarea { font-size: max(16px, 1em); max-width: 100%; }
+
+/* Set by app.js: a centred paragraph that runs four lines or more on a phone. */
+/* !important because some of these paragraphs set their centring inline. */
+@media (max-width: 640px) { p.is-long-centred { text-align: left !important; } }
+
+/* Things that must never split across lines: a school year ("2026-27"),
+   filled in from the portal, and anything marked .nowrap. */
+[data-school="year"], .nowrap { white-space: nowrap; }
+
+/* A phone number that splits across two lines is hard to read and to tap. */
+a[href^="tel:"], a[href^="sms:"] { white-space: nowrap; }
+
+/* ---------- Numbered steps (Rental) ----------
+   Four tall icon cards on a phone read as four separate features. There they
+   become one compact numbered list: number and text side by side. */
+@media (max-width: 640px) {
+  .info-grid.steps-grid { gap: 0; background: var(--white); border: 1.5px solid var(--gray-100); border-radius: var(--radius-md); overflow: hidden; }
+  .steps-grid .info-card {
+    display: grid; grid-template-columns: 2rem minmax(0, 1fr); column-gap: .6rem;
+    padding: 1rem 1.1rem; border: 0; border-radius: 0; box-shadow: none;
+  }
+  .steps-grid .info-card + .info-card { border-top: 1px solid var(--gray-100); }
+  .steps-grid .info-card:hover { transform: none; box-shadow: none; }
+  .steps-grid .info-card__icon { display: none; }
+  .steps-grid .info-card__title { margin: 0; font-size: 1.15rem; line-height: 1.5; color: var(--green-700); }
+  .steps-grid .info-card__body { margin: 0; font-size: .95rem; line-height: 1.65; }
+}
+
+/* Month shortcuts on the Boston schedule: about 23 x 26px each as plain
+   words, too small to hit reliably. On phones each becomes a 44 x 40 target. */
+@media (max-width: 640px) {
+  .month-jump { gap: .15rem !important; padding: .6rem .75rem !important; }
+  .month-jump > span { flex-basis: 100%; margin: .2rem 0 .1rem .5rem; }
+  .month-jump a {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 40px; border-radius: var(--radius-sm);
+  }
+  .month-jump a:active { background: var(--green-50); }
+}
+
+/* ---------- Iqamah table ----------
+   On phones the Notes column squeezed every time onto two lines ("6:00 / AM").
+   There the note moves under the prayer name and the time stays on one line. */
+.iqamah-note { display: none; }
+@media (max-width: 640px) {
+  .iqamah-table th:nth-child(3), .iqamah-table td:nth-child(3) { display: none; }
+  .iqamah-table th:nth-child(2) { border-radius: 0 var(--radius-sm) 0 0; }
+  .iqamah-note { display: block; margin-top: .15rem; font-size: .82rem; color: var(--gray-500); }
+  .iqamah-table td[data-prayer], .iqamah-table th:nth-child(2) { white-space: nowrap; text-align: right; }
+  .iqamah-table td[data-prayer] { font-size: 1.05rem; font-weight: 600; color: var(--gray-900); font-variant-numeric: tabular-nums; }
+}
+
+/* ---------- Date + event tables ----------
+   The date column only needs its dates; the event gets the rest of the row. */
+.date-table td:first-child, .date-table th:first-child { width: 1%; white-space: nowrap; }
+@media (max-width: 640px) {
+  .date-table th, .date-table td { padding: .8rem .9rem; }
+  .date-table td:first-child { font-variant-numeric: tabular-nums; color: var(--gray-500); }
+}
+
+/* ---------- Number tables that must fit on phones ----------
+   The monthly prayer schedule has seven columns of times. Stacking would bury
+   them, so on phones the columns tighten instead: second-line labels go,
+   padding shrinks, and fixed widths share the row evenly. Tested to fit with
+   nothing clipped at 360px and up. */
+@media (max-width: 640px) {
+  .prayer-table--compact { table-layout: fixed; }
+  .prayer-table--compact th,
+  .prayer-table--compact td { padding: .6rem .25rem; text-align: center; font-variant-numeric: tabular-nums; }
+  .prayer-table--compact td { font-size: .82rem; }
+  .prayer-table--compact th { font-size: .6rem; letter-spacing: .02em; }
+  .prayer-table--compact th br,
+  .prayer-table--compact th span { display: none; }
+  .prayer-table--compact th:first-child,
+  .prayer-table--compact td:first-child { text-align: left; padding-left: .6rem; }
+}
+@media (max-width: 389px) {
+  .prayer-table--compact th { font-size: .55rem; letter-spacing: 0; }
+  .prayer-table--compact td { font-size: .78rem; }
+}
+
+/* ---------- Tables that stack into cards on phones ----------
+   A wide table on a phone scrolls sideways with nothing to say it does, which
+   hid every board and school email off the right edge. Below 640px each row
+   becomes a small card: first cell as the heading, the rest underneath. A cell
+   with data-label gets its label inline ("TERM 2025-2027", "CHAIR ..."). */
+.person { display: block; }
+.person__email { display: none; }
+@media (max-width: 640px) {
+  .stack-table, .stack-table tbody, .stack-table tbody tr, .stack-table td { display: block; width: auto; }
+  .stack-table { border-top: 1px solid var(--gray-300); }
+  .stack-table thead { display: none; }
+  .stack-table--titled { border-top: 0; }
+  .stack-table--titled thead, .stack-table--titled thead tr, .stack-table--titled th { display: block; }
+  .stack-table tbody tr { padding: .9rem 1.1rem; border-bottom: 1px solid var(--gray-100); }
+  .stack-table tbody tr:last-child { border-bottom: 0; }
+  .stack-table td { padding: 0; border: 0; }
+  .stack-table td + td { margin-top: .2rem; }
+  .stack-table td:empty { display: none; }
+  .stack-table tr:hover td { background: none; }
+  .stack-table td[data-label] { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .6rem; align-items: baseline; }
+  .stack-table td[data-label]::before {
+    content: attr(data-label);
+    font-family: var(--font-mono); font-size: .68rem; font-weight: 500;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--gray-500);
+  }
+  .stack-table a[href^="mailto:"] { overflow-wrap: anywhere; }
+  /* Fee tables (Rental): each row is its label, then the prices on one line. */
+  .fee-table td.fee-table__group { margin: -.9rem -1.1rem 0; padding: .75rem 1.1rem; font-size: .95rem; color: var(--green-800); }
+  .fee-table tr:has(> .fee-table__group) { padding-bottom: 0; border-bottom: 0; }
+  .fee-table td:first-child:not([data-label]):not(.fee-table__group) { font-weight: 600; color: var(--gray-900); }
+  /* Flex so that when a label and its value do not fit side by side, the
+     value drops under the label in one piece instead of spilling out. */
+  .fee-table td[data-label] { display: inline-flex; flex-wrap: wrap; align-items: baseline; column-gap: .45rem; margin: .3rem .9rem 0 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .fee-table td[data-label]::before { letter-spacing: .05em; }
+  .fee-table td[data-label] span { display: block; flex-basis: 100%; font-size: .8rem; white-space: normal; }
+  /* Request tables (Outreach): the description, then its form as a real button. */
+  .action-table td:last-child { margin-top: .75rem; }
+  .action-table td:last-child a {
+    display: inline-flex; align-items: center; min-height: 44px;
+    padding: .55rem 1.2rem;
+    border: 1.5px solid var(--green-700); border-radius: var(--radius-full);
+  }
+  /* School contacts: the role reads as a label, each person gets their email
+     directly under their name, and the separate email column goes away. */
+  .contacts-table td:first-child {
+    font-family: var(--font-mono); font-size: .68rem; font-weight: 500;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--gray-500);
+  }
+  .contacts-table td + td { margin-top: .35rem; }
+  .contacts-table .contacts-table__emails { display: none; }
+  .person + .person { margin-top: .6rem; }
+  .person__name { display: block; font-weight: 600; color: var(--gray-900); }
+  .person__email { display: block; font-size: .95rem; color: var(--green-700); }
+}
+
 /* ---------- Page hero ---------- */
 .page-hero {
   background: linear-gradient(135deg, var(--green-900), var(--green-700));
@@ -816,6 +1000,25 @@ p  { color: var(--gray-700); }
   box-shadow: var(--shadow-md);
   transform: translateY(-3px);
 }
+@media (max-width: 560px) {
+  .info-grid--tags { display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem; }
+  .info-grid--tags .info-card {
+    padding: .55rem 1rem;
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--green-50);
+    box-shadow: none;
+  }
+  .info-grid--tags .info-card:hover { transform: none; box-shadow: none; }
+  .info-grid--tags .info-card__title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: .95rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--green-800);
+  }
+}
 /* Only cards with an actual action (a .btn) get the stronger "clickable" cue */
 .info-card:has(.btn):hover { border-color: var(--green-700); }
 .info-card__icon {
@@ -842,9 +1045,6 @@ p  { color: var(--gray-700); }
 }
 @media (max-width: 700px) {
   .portal-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 440px) {
-  .portal-grid { grid-template-columns: 1fr; }
 }
 .portal-btn {
   display: flex;
@@ -884,7 +1084,7 @@ p  { color: var(--gray-700); }
   box-shadow: var(--shadow-sm);
   transition: border-color var(--transition);
 }
-.faq-item[open] { border-color: var(--green-200, var(--green-100)); }
+.faq-item[open] { border-color: var(--green-100); }
 .faq-item summary {
   padding: 1.1rem 0;
   font-weight: 600;
@@ -957,7 +1157,7 @@ p  { color: var(--gray-700); }
   .nav-card-grid:has(> :nth-child(6)) { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px) {
-  .nav-card-grid { grid-template-columns: 1fr; }
+  .nav-card-grid { grid-template-columns: 1fr; gap: 1rem; }
   .nav-card-grid:has(> :nth-child(6)) { grid-template-columns: 1fr; }
 }
 .nav-card {
@@ -1017,6 +1217,21 @@ p  { color: var(--gray-700); }
 .nav-card__arrow svg { transition: transform var(--transition); }
 .nav-card:hover .nav-card__arrow svg,
 .nav-card:focus-visible .nav-card__arrow svg { transform: translateX(4px); }
+@media (max-width: 520px) {
+  /* Icon beside the text instead of above it: the same card, about half as tall. */
+  .nav-card {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 1rem;
+    align-items: start;
+    padding: 1.25rem 1.25rem 1.1rem;
+  }
+  .nav-card__icon { width: 44px; height: 44px; margin: 0; grid-row: 1 / span 3; }
+  .nav-card > :not(.nav-card__icon) { grid-column: 2; }
+  .nav-card__title { font-size: 1.15rem; margin-bottom: .25rem; }
+  .nav-card__body { line-height: 1.55; }
+  .nav-card__arrow { margin-top: .55rem; }
+}
 
 /* ---------- Tab bar (page-level section switcher) ---------- */
 .tab-bar {
@@ -1046,6 +1261,31 @@ p  { color: var(--gray-700); }
 .tab-btn:hover:not(.active) {
   border-color: var(--green-700);
   color: var(--green-800);
+}
+/* Phone labels: a long tab or button name can swap for a short one. */
+.only-narrow { display: none; }
+@media (max-width: 640px) {
+  .only-wide { display: none; }
+  .only-narrow { display: inline; }
+  /* Wrapped pills read as a heading plus a button. One track with
+     equal segments stays a single, obviously tappable control. */
+  .tab-bar {
+    flex-wrap: nowrap;
+    gap: .25rem;
+    padding: .3rem;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    background: var(--white);
+    margin-bottom: 2rem;
+  }
+  .tab-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    border: 0;
+    padding: .6rem .5rem;
+    font-size: .85rem;
+    white-space: nowrap;
+  }
 }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
@@ -1114,6 +1354,7 @@ p  { color: var(--gray-700); }
   margin-bottom: 1rem;
 }
 .footer__links { display: flex; flex-direction: column; gap: .6rem; }
+.footer__address { line-height: 1.55; }
 .footer__link {
   font-size: .92rem;
   color: rgba(255,255,255,.82);
@@ -1153,8 +1394,33 @@ p  { color: var(--gray-700); }
   .section { padding-block: 3.5rem; }
   .footer__grid { grid-template-columns: 1fr; }
 }
+/* Section breaks on phones: 3.5rem above and below plus a 3rem header margin
+   left about 170px of nothing at every break, adding whole screens to the
+   long pages. */
+@media (max-width: 560px) {
+  .section { padding-block: 2.5rem; }
+  .section__header { margin-bottom: 2rem; }
+}
+/* On phones the four columns stacked into 1.3 screens. */
+@media (max-width: 560px) {
+  .footer { padding-top: 3rem; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.25rem; padding-bottom: 2.25rem; }
+  /* Brand and Visit Us span the width; Community and Get Involved (five
+     links each) sit side by side. */
+  .footer__grid > :first-child,
+  .footer__grid > :nth-child(2) { grid-column: 1 / -1; }
+  .footer__links { gap: .15rem; }
+  .footer__link { display: block; padding-block: .35rem; }
+  .footer__col-title { margin-bottom: .5rem; }
+}
 @media (max-width: 480px) {
   .stats__grid { grid-template-columns: 1fr 1fr; }
+  /* 2 x 2: a divider down the middle and one across, not a desktop rule
+     dangling at the right edge. */
+  .stat { padding: 1.5rem .75rem; border-right: 0; }
+  .stat:nth-child(odd) { border-right: 1px solid var(--gray-100); }
+  .stat:nth-child(-n+2) { border-bottom: 1px solid var(--gray-100); }
+  .stat__value { font-size: 2rem; white-space: nowrap; }
   /* Stack rather than hide the label. On a phone the bar is the first thing
      on the page, and a bare row of times reads as "prayer times for Boston"
      when it is really the congregation schedule at ICB. */
@@ -1172,20 +1438,20 @@ p  { color: var(--gray-700); }
     font-size: .68rem;
   }
   .prayer-bar__link { display: none; }
-  /* The times row is the part that scrolls now, so the fade belongs here. */
+  /* Six times (Jumu'ah included) never fit one row on a phone, and a
+     sideways-scrolling strip hid Isha and Jumu'ah. Two rows of three show
+     every time at once. */
   .prayer-bar__times {
-    gap: .75rem;
-    justify-content: flex-start;
-    overflow-x: auto;
-    scrollbar-width: none;
-    mask-image: linear-gradient(to right, black 88%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, black 88%, transparent 100%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .7rem 0;
   }
-  .prayer-bar__times::-webkit-scrollbar { display: none; }
-  .prayer-time__name { font-size: .62rem; }
-  .prayer-time__value { font-size: .88rem; }
-  .hero__actions { flex-wrap: wrap; }
-  .hero__actions .btn { flex: 0 0 auto; }
+  .prayer-time__name { font-size: .7rem; }
+  .prayer-time__value { font-size: .95rem; }
+  /* Button pairs: two short ones share the row, and anything that has to
+     wrap goes full width, so a short pill never sits over a long one. */
+  .btn-group { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn-group > .btn { flex: 1 1 auto; }
 }
 
 /* ---------- Responsive 2-col helper ---------- */

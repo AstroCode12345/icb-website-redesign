@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260917c" />
+  <link rel="stylesheet" href="/styles.css?v=20261003a" />
   <meta name="description" content="Membership categories, fees, and how to join or renew your ICB Wayland membership." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Membership — ICB Wayland" />
@@ -67,8 +67,7 @@
   <section class="section">
     <div class="container">
       <div style="max-width:760px;margin-inline:auto;">
-        <span class="section__label">About ICB</span>
-        <h2 style="margin-bottom:1.5rem;">Membership</h2>
+        <h2 class="visually-hidden">About membership</h2>
         <p style="font-size:1.05rem;line-height:1.9;color:var(--gray-700);margin-bottom:2rem;">
           Membership of the Islamic Center of Boston is not required to use services provided by the center. However, in order to hold an office on the Board of Directors of the center or to vote in the general body meetings of the center one has to be a member of the center. Membership of the center is open to all people who are in agreement with its mission and who meet its membership requirements.
         </p>
@@ -105,13 +104,13 @@
         <h2 style="margin-bottom:1.5rem;">Join or Renew</h2>
         <p style="color:var(--gray-700);margin-bottom:1.5rem;">Download, complete and mail the Membership Form.</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
-          <a href="/documents/MembershipForm.pdf" target="_blank" rel="noopener" class="btn btn--primary">Download Membership Form (PDF)</a>
+          <a href="/documents/MembershipForm.pdf" target="_blank" rel="noopener" class="btn btn--primary"><span class="only-wide">Download Membership Form (PDF)</span><span class="only-narrow">Membership Form (PDF)</span></a>
         </div>
 
         <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:1.5rem;text-align:left;">
           <h3 style="margin-bottom:.75rem;">Online Membership Renewal</h3>
           <p style="font-size:.95rem;color:var(--gray-700);line-height:1.75;margin-bottom:.75rem;">
-            If there are no changes to your membership information, you may renew your membership online. If the information on your credit card or PayPal account is different than your membership, please add a note for treasurer prior to checkout. Please select the fee from drop menu and click <strong>Add to Cart</strong>. The fee charged by PayPal is members' responsibility and has been added to each membership category fee.
+            If there are no changes to your membership information, you may renew your membership online. If the information on your credit card or PayPal account is different than your membership, please add a note for treasurer prior to checkout. Please select the fee from drop menu and choose <strong>Add to Cart</strong>. The fee charged by PayPal is members' responsibility and has been added to each membership category fee.
           </p>
           <p style="font-size:.95rem;color:var(--gray-700);margin-bottom:1rem;">
             <strong>Membership Fees:</strong><br>
@@ -124,7 +123,7 @@
             <input type="hidden" name="on0" value="Membership Fees:">
             <input type="hidden" name="currency_code" value="USD">
             <label for="membership-fee" class="visually-hidden">Membership category and fee</label>
-            <select name="os0" id="membership-fee" style="padding:.7rem 1rem;border-radius:var(--radius-sm);border:1.5px solid var(--gray-200);font-family:inherit;font-size:.9rem;">
+            <select name="os0" id="membership-fee" style="width:100%;padding:.7rem .75rem;border-radius:var(--radius-sm);border:1.5px solid var(--gray-200);font-family:inherit;font-size:max(16px, .9rem);">
               <option value="Membership Family">Membership Family &mdash; $<span data-membership="familyFee">204.56</span> USD</option>
               <option value="Membership Single">Membership Single &mdash; $<span data-membership="singleFee">102.53</span> USD</option>
             </select>
@@ -155,8 +154,7 @@
         <div>
           <div class="footer__col-title">Visit Us</div>
           <div class="footer__links">
-            <span class="footer__link">126 Boston Post Road</span>
-            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA+01778" target="_blank" rel="noopener" class="footer__link footer__address">126 Boston Post Road<br>Wayland, MA 01778</a>
             <a href="/prayers/" class="footer__link">Prayer Times</a>
             <a href="/services/" class="footer__link">Services</a>
           </div>
@@ -188,7 +186,7 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260920a"></script>
-  <script src="/app.js?v=20260912m"></script>
+  <script src="/content.js?v=20261003a"></script>
+  <script src="/app.js?v=20261003a"></script>
 </body>
 </html>

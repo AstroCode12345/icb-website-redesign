@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260917c" />
+  <link rel="stylesheet" href="/styles.css?v=20261003a" />
   <meta name="description" content="Rental rates, rules, and the online booking form for the ICB Wayland Social Hall." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Facilities Rental — ICB Wayland" />
@@ -77,7 +77,7 @@
         <p style="color:var(--gray-700);line-height:1.85;margin-bottom:.75rem;">The procedure to reserve the facility is as follows:</p>
       </div>
 
-      <div class="info-grid" style="margin-bottom:3rem;">
+      <div class="info-grid steps-grid" style="margin-bottom:3rem;">
         <div class="info-card"><div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3 class="info-card__title">1.</h3><p class="info-card__body">First check the <a href="/calendar/" style="color:var(--green-700);">ICB Event Calendar</a> for availability. The calendar will open in a new tab.</p></div>
         <div class="info-card"><div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3 class="info-card__title">2.</h3><p class="info-card__body">Read details about types of events, associated fees, rules and regulations in the Rental Policy, Fees, Agreement and Online Booking Form for ICB Facilities. The last page of this document has the link to ICB's Online Facility Booking Form.</p></div>
         <div class="info-card"><div class="info-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 class="info-card__title">3.</h3><p class="info-card__body">Once you have filled the form, an automatic form submission email will be sent to the email address you have provided. Make sure to fill it correctly.</p></div>
@@ -91,42 +91,42 @@
       </div>
 
       <div style="max-width:900px;margin-inline:auto;overflow-x:auto;margin-bottom:2rem;">
-        <table class="prayer-table">
+        <table class="prayer-table stack-table fee-table">
           <thead><tr><th>Private Events by Individuals</th><th>Members</th><th>Non-Members</th></tr></thead>
           <tbody>
-            <tr><td colspan="3" style="background:var(--green-50);font-weight:600;">Religious Events (Quran reading, condolence, thanksgiving)</td></tr>
-            <tr><td>With meals served</td><td>$550</td><td>$900</td></tr>
-            <tr><td>Snacks &amp; cold drinks only</td><td>$200</td><td>$400</td></tr>
-            <tr><td>No food or drink</td><td>$100</td><td>$300</td></tr>
-            <tr><td colspan="3" style="background:var(--green-50);font-weight:600;">Social Events (iftar dinner, engagement, nikah)</td></tr>
-            <tr><td>With meals served</td><td>$650</td><td>$1,200</td></tr>
-            <tr><td>Snacks &amp; cold drinks only</td><td>$500</td><td>$1,000</td></tr>
-            <tr><td>No food or drink</td><td>$150</td><td>$450</td></tr>
-            <tr><td colspan="3" style="background:var(--green-50);font-weight:600;">Children's Events (birthday, Bismillah, Ameen, graduation)</td></tr>
-            <tr><td>With meals served</td><td>$400 <span style="color:var(--gray-500);font-size:.85rem;">(Jr. member / Sunday School student)</span></td><td>$800</td></tr>
-            <tr><td>Snacks &amp; cold drinks only</td><td>$200</td><td>$400</td></tr>
+            <tr><td colspan="3" class="fee-table__group" style="background:var(--green-50);font-weight:600;">Religious Events (Quran reading, condolence, thanksgiving)</td></tr>
+            <tr><td>With meals served</td><td data-label="Members">$550</td><td data-label="Non-members">$900</td></tr>
+            <tr><td>Snacks &amp; cold drinks only</td><td data-label="Members">$200</td><td data-label="Non-members">$400</td></tr>
+            <tr><td>No food or drink</td><td data-label="Members">$100</td><td data-label="Non-members">$300</td></tr>
+            <tr><td colspan="3" class="fee-table__group" style="background:var(--green-50);font-weight:600;">Social Events (iftar dinner, engagement, nikah)</td></tr>
+            <tr><td>With meals served</td><td data-label="Members">$650</td><td data-label="Non-members">$1,200</td></tr>
+            <tr><td>Snacks &amp; cold drinks only</td><td data-label="Members">$500</td><td data-label="Non-members">$1,000</td></tr>
+            <tr><td>No food or drink</td><td data-label="Members">$150</td><td data-label="Non-members">$450</td></tr>
+            <tr><td colspan="3" class="fee-table__group" style="background:var(--green-50);font-weight:600;">Children's Events (birthday, Bismillah, Ameen, graduation)</td></tr>
+            <tr><td>With meals served</td><td data-label="Members">$400 <span style="color:var(--gray-500);font-size:.85rem;">(Jr. member / Sunday School student)</span></td><td data-label="Non-members">$800</td></tr>
+            <tr><td>Snacks &amp; cold drinks only</td><td data-label="Members">$200</td><td data-label="Non-members">$400</td></tr>
           </tbody>
         </table>
         <p style="font-size:.85rem;color:var(--gray-500);margin-top:.5rem;">Maximum event duration is five hours. Longer events are charged an additional $100/hour.</p>
       </div>
 
       <div style="max-width:900px;margin-inline:auto;overflow-x:auto;margin-bottom:2rem;">
-        <table class="prayer-table">
+        <table class="prayer-table stack-table fee-table">
           <thead><tr><th>Private Events by Organizations</th><th>Fee</th></tr></thead>
           <tbody>
-            <tr><td>Organizational meetings (max 15 people, meeting room/classroom only, no food)</td><td>$150</td></tr>
-            <tr><td>Organizational social events (info sessions, fundraising dinners)</td><td>$750</td></tr>
+            <tr><td>Organizational meetings (max 15 people, meeting room/classroom only, no food)</td><td data-label="Fee">$150</td></tr>
+            <tr><td>Organizational social events (info sessions, fundraising dinners)</td><td data-label="Fee">$750</td></tr>
           </tbody>
         </table>
       </div>
 
       <div style="max-width:900px;margin-inline:auto;overflow-x:auto;margin-bottom:1rem;">
-        <table class="prayer-table">
+        <table class="prayer-table stack-table fee-table">
           <thead><tr><th># of People</th><th>Snacks (no kitchen)</th><th>Lunch/Dinner (kitchen for warming)</th></tr></thead>
           <tbody>
-            <tr><td>1&ndash;75</td><td>2 people &ndash; $450</td><td>2 people &ndash; $500</td></tr>
-            <tr><td>76&ndash;125</td><td>2 people &ndash; $450</td><td>3 people &ndash; $625</td></tr>
-            <tr><td>126&ndash;160</td><td>3 people &ndash; $600</td><td>4 people &ndash; $750</td></tr>
+            <tr><td data-label="Guests">1&ndash;75</td><td data-label="Snacks, no kitchen">2 people &ndash; $450</td><td data-label="Lunch or dinner">2 people &ndash; $500</td></tr>
+            <tr><td data-label="Guests">76&ndash;125</td><td data-label="Snacks, no kitchen">2 people &ndash; $450</td><td data-label="Lunch or dinner">3 people &ndash; $625</td></tr>
+            <tr><td data-label="Guests">126&ndash;160</td><td data-label="Snacks, no kitchen">3 people &ndash; $600</td><td data-label="Lunch or dinner">4 people &ndash; $750</td></tr>
           </tbody>
         </table>
         <p style="font-size:.85rem;color:var(--gray-500);margin-top:.5rem;">Setup, professional help, and cleaning charge, for 5 hours. Additional hours: $60&ndash;$120/hour depending on staff size. Paid one day before the event.</p>
@@ -156,8 +156,8 @@
       </div>
 
       <div style="text-align:center;">
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a href="/documents/ICBFacilitiesRentalPolicyAgreement.pdf" target="_blank" rel="noopener" class="btn btn--outline">Download Full Policy &amp; Rental Agreement (PDF)</a>
+        <div class="btn-group" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="/documents/ICBFacilitiesRentalPolicyAgreement.pdf" target="_blank" rel="noopener" class="btn btn--outline"><span class="only-wide">Download Full Policy &amp; Rental Agreement (PDF)</span><span class="only-narrow">Rental Agreement (PDF)</span></a>
           <a href="https://forms.gle/KWbdEzghSwjwVYZLA" target="_blank" rel="noopener" class="btn btn--gold">Open the Online Booking Form</a>
         </div>
         <p style="font-size:.85rem;color:var(--gray-500);margin-top:1rem;">Questions? Email <a href="mailto:facilities@icbwayland.org" style="color:var(--green-700);">facilities@icbwayland.org</a></p>
@@ -183,8 +183,7 @@
         <div>
           <div class="footer__col-title">Visit Us</div>
           <div class="footer__links">
-            <span class="footer__link">126 Boston Post Road</span>
-            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA+01778" target="_blank" rel="noopener" class="footer__link footer__address">126 Boston Post Road<br>Wayland, MA 01778</a>
             <a href="/prayers/" class="footer__link">Prayer Times</a>
             <a href="/services/" class="footer__link">Services</a>
           </div>
@@ -216,7 +215,7 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260920a"></script>
-  <script src="/app.js?v=20260912m"></script>
+  <script src="/content.js?v=20261003a"></script>
+  <script src="/app.js?v=20261003a"></script>
 </body>
 </html>

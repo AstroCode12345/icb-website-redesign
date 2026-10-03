@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260917c" />
+  <link rel="stylesheet" href="/styles.css?v=20261003a" />
   <meta name="description" content="Upcoming events, weekly prayers, and community programs at ICB Wayland." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Calendar — ICB Wayland" />
@@ -93,7 +93,7 @@
         <h2 class="section__title" style="margin-bottom:1rem;">ICB Event Calendar</h2>
         <p style="color:var(--gray-700);line-height:1.85;">
           The calendar below lists approved ICB, public and private special events. There may be
-          other requests in the approval pipeline. Click an event to see its details. If a date and
+          other requests in the approval pipeline. Select an event to see its details. If a date and
           time is free and you would like to reserve the facility, see
           <a href="/services/rental/" style="color:var(--green-700);font-weight:600;">rental fees and policies</a>.
         </p>
@@ -106,6 +106,15 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
+      <script>
+        // A month grid is unreadable on a phone (each day is about 45px wide),
+        // so narrow screens get Google's agenda view: the same events as a list.
+        (function () {
+          if (!window.matchMedia("(max-width: 768px)").matches) return;
+          var frame = document.querySelector(".gcal-frame iframe");
+          if (frame) frame.src = frame.src + "&mode=AGENDA";
+        })();
+      </script>
       <p style="max-width:820px;margin:1rem auto 0;font-size:.85rem;color:var(--gray-500);text-align:center;">
         Having trouble with the calendar above?
         <a href="https://calendar.google.com/calendar/embed?src=icbcalendar%40icbwayland.org&amp;ctz=America%2FNew_York"
@@ -190,8 +199,7 @@
         <div>
           <div class="footer__col-title">Visit Us</div>
           <div class="footer__links">
-            <span class="footer__link">126 Boston Post Road</span>
-            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA+01778" target="_blank" rel="noopener" class="footer__link footer__address">126 Boston Post Road<br>Wayland, MA 01778</a>
             <a href="/prayers/" class="footer__link">Prayer Times</a>
             <a href="/services/" class="footer__link">Services</a>
           </div>
@@ -223,8 +231,8 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260920a"></script>
-  <script src="/app.js?v=20260912m"></script>
+  <script src="/content.js?v=20261003a"></script>
+  <script src="/app.js?v=20261003a"></script>
 
 </body>
 </html>

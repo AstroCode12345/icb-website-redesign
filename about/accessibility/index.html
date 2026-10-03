@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260917c" />
+  <link rel="stylesheet" href="/styles.css?v=20261003a" />
   <meta name="description" content="The accessibility initiative at the Islamic Center of Boston, Wayland, and our partnership with MUHSEN." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="Accessibility — ICB Wayland" />
@@ -44,6 +44,8 @@
     .access-contact__text a { color: var(--green-700); font-weight: 600; }
     @media (max-width: 560px) {
       .access-contact { flex-direction: column; text-align: center; gap: 1.25rem; }
+      /* The 320px basis is a width in a row but becomes a height once stacked. */
+      .access-contact__text { flex-basis: auto; }
     }
 
     /* A standing policy statement, not a dated announcement (it was, until
@@ -148,13 +150,13 @@
           support those. ASL services can be made available upon request for
           Friday Khutbas, and we can review other needs.
         </p>
-        <div class="accessibility-announcement__actions">
+        <div class="accessibility-announcement__actions btn-group">
           <a href="https://muhsen.org" target="_blank" rel="noopener" class="btn btn--gold">
             More on MUHSEN
           </a>
           <a href="mailto:accessibility@icbwayland.org" class="btn btn--outline"
              style="border-color:rgba(255,255,255,.4);color:var(--white);">
-            Email About Accessibility
+            <span class="only-wide">Email About Accessibility</span><span class="only-narrow">Email Us</span>
           </a>
         </div>
       </div>
@@ -195,8 +197,7 @@
         <div>
           <div class="footer__col-title">Visit Us</div>
           <div class="footer__links">
-            <span class="footer__link">126 Boston Post Road</span>
-            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA+01778" target="_blank" rel="noopener" class="footer__link footer__address">126 Boston Post Road<br>Wayland, MA 01778</a>
             <a href="/prayers/" class="footer__link">Prayer Times</a>
             <a href="/services/" class="footer__link">Services</a>
           </div>
@@ -228,7 +229,7 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260920a"></script>
-  <script src="/app.js?v=20260912m"></script>
+  <script src="/content.js?v=20261003a"></script>
+  <script src="/app.js?v=20261003a"></script>
 </body>
 </html>

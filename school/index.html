@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20260917c" />
+  <link rel="stylesheet" href="/styles.css?v=20261003a" />
   <meta name="description" content="ICB Wayland Sunday Islamic School: Arabic and Religion classes for grades K through 10, September through June." />
   <link rel="icon" type="image/jpeg" href="/images/icb-logo.jpg" />
   <meta property="og:title" content="School — ICB Wayland" />
@@ -51,14 +51,61 @@
     }
     .jump-dock a:hover { background: var(--green-50); color: var(--green-700); }
     .jump-dock a.is-active { background: var(--green-700); color: var(--white); }
-    /* Below this it would sit on top of the content. */
-    @media (max-width: 1279px) { .jump-dock { display: none; } }
+    /* Below 1280px there is no room beside the content, so the same links
+       live behind a "Sections" button in the same corner, shown once the
+       reader is past the top of the page. */
+    /* Jumped-to sections land below the sticky header, not under it. */
+    main section[id] { scroll-margin-top: calc(var(--nav-height, 72px) + .5rem); }
+    .jump-fab { display: none; }
+    @media (max-width: 1279px) {
+      .jump-dock {
+        display: none;
+        left: 1rem;
+        bottom: calc(4.6rem + env(safe-area-inset-bottom, 0px));
+        min-width: 12rem;
+        max-height: calc(100vh - 9rem);
+        overflow-y: auto;
+        z-index: 21;
+      }
+      .jump-dock.is-open { display: flex; }
+      .jump-dock a { padding: .6rem .75rem; font-size: .95rem; }
+      .jump-fab {
+        position: fixed;
+        left: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+        z-index: 21;
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        min-height: 44px;
+        padding: .6rem 1.1rem .6rem .95rem;
+        border: 1px solid var(--gray-100);
+        border-radius: var(--radius-full);
+        background: rgba(253, 251, 247, .94);
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow-md);
+        font: 600 .9rem var(--font-sans);
+        color: var(--green-800);
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+        transition: opacity .2s ease, transform .2s ease;
+      }
+      .jump-fab.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+      .jump-fab svg { width: 18px; height: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .jump-fab { transition: none; } }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <nav class="jump-dock" aria-label="Jump to section">
+  <button class="jump-fab" type="button" aria-expanded="false" aria-controls="jump-dock">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sections
+  </button>
+  <nav class="jump-dock" id="jump-dock" aria-label="Jump to section">
     <div class="jump-dock__label">On this page</div>
     <a href="#portals">Portals</a>
     <a href="#mission">Mission</a>
@@ -211,24 +258,24 @@
             <h3 class="info-card__title">Morning Program</h3>
             <p style="font-size:.9rem;color:var(--gray-500);margin-bottom:1rem;">10:30 AM &ndash; 1:30 PM</p>
             <table style="width:100%;font-size:.9rem;border-collapse:collapse;">
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Assembly</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">10:30 &ndash; 10:40 am</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">First Period</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">10:40 &ndash; 11:40 am</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Snack</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">11:40 &ndash; 12:00 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Second Period</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">12:00 &ndash; 1:00 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Wudu Break</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">1:00 &ndash; 1:15 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;"><strong>Congregational Prayer (Zuhr)</strong></td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">1:15 &ndash; 1:30 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Assembly</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">10:30 &ndash; 10:40 am</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">First Period</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">10:40 &ndash; 11:40 am</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Snack</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">11:40 &ndash; 12:00 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Second Period</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">12:00 &ndash; 1:00 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Wudu Break</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">1:00 &ndash; 1:15 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;"><strong>Congregational Prayer (Zuhr)</strong></td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">1:15 &ndash; 1:30 pm</td></tr>
             </table>
           </div>
           <div class="info-card">
             <h3 class="info-card__title">Afternoon Program</h3>
             <p style="font-size:.9rem;color:var(--gray-500);margin-bottom:1rem;">2:00 PM &ndash; 5:00 PM</p>
             <table style="width:100%;font-size:.9rem;border-collapse:collapse;">
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Assembly</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">2:00 &ndash; 2:10 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">First Period</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">2:10 &ndash; 3:10 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Snack</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">3:10 &ndash; 3:30 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Second Period</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">3:30 &ndash; 4:30 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Wudu Break</td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">4:30 &ndash; 4:45 pm</td></tr>
-              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;"><strong>Congregational Prayer (Asr)</strong></td><td style="padding:.5rem 0;color:var(--gray-500);text-align:right;">4:45 &ndash; 5:00 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Assembly</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">2:00 &ndash; 2:10 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">First Period</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">2:10 &ndash; 3:10 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Snack</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">3:10 &ndash; 3:30 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Second Period</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">3:30 &ndash; 4:30 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;">Wudu Break</td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">4:30 &ndash; 4:45 pm</td></tr>
+              <tr style="border-top:1px solid var(--gray-100);"><td style="padding:.5rem 0;"><strong>Congregational Prayer (Asr)</strong></td><td style="padding:.5rem 0 .5rem .75rem;color:var(--gray-500);text-align:right;white-space:nowrap;">4:45 &ndash; 5:00 pm</td></tr>
             </table>
           </div>
         </div>
@@ -249,8 +296,8 @@
         <p class="section__subtitle">Key Sundays for the <span data-school="year">2026&ndash;27</span> year: first and last day, breaks, assessments, and conferences.</p>
       </div>
       <div style="max-width:720px;margin-inline:auto;overflow-x:auto;">
-        <table class="prayer-table">
-          <thead><tr><th>Date (Sunday)</th><th>School Calendar Event</th></tr></thead>
+        <table class="prayer-table date-table">
+          <thead><tr><th><span class="only-wide">Date (Sunday)</span><span class="only-narrow">Date</span></th><th><span class="only-wide">School Calendar Event</span><span class="only-narrow">Event</span></th></tr></thead>
           <tbody data-school-calendar-rows></tbody>
         </table>
         <p data-school-calendar-empty style="display:none;font-size:.9rem;color:var(--gray-500);text-align:center;margin-top:1rem;">
@@ -286,7 +333,7 @@
           <p style="font-size:.85rem;color:var(--gray-500);margin-top:.75rem;"><strong>To register:</strong> create a new family account in SunWebApp, complete each child's information, and upload proof of birth. Payment is not required at registration, only after admission is offered.</p>
           <p style="font-size:.85rem;color:var(--gray-500);margin-top:.5rem;">Questions: <a href="mailto:admissions@icbwayland.org" style="color:var(--green-700);font-weight:600;">admissions@icbwayland.org</a> (please allow 5&ndash;10 business days during summer).</p>
           <table data-school-dates="new" style="width:100%;margin-top:1.25rem;font-size:.85rem;border-collapse:collapse;"></table>
-          <a data-school-link="parentPortalUrl" href="https://sunweb.us/?s=icbwaylandss" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1.25rem;font-size:.85rem;">Register in SunWebApp &rarr;</a>
+          <a data-school-link="parentPortalUrl" href="https://sunweb.us/?s=icbwaylandss" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top:1.25rem;font-size:.85rem;white-space:nowrap;">Register in SunWebApp &rarr;</a>
         </div>
       </div>
 
@@ -412,8 +459,7 @@
         <div>
           <div class="footer__col-title">Visit Us</div>
           <div class="footer__links">
-            <span class="footer__link">126 Boston Post Road</span>
-            <span class="footer__link">Wayland, MA 01778</span>
+            <a href="https://maps.google.com/?q=126+Boston+Post+Road+Wayland+MA+01778" target="_blank" rel="noopener" class="footer__link footer__address">126 Boston Post Road<br>Wayland, MA 01778</a>
             <a href="/prayers/" class="footer__link">Prayer Times</a>
             <a href="/services/" class="footer__link">Services</a>
           </div>
@@ -445,8 +491,8 @@
       </div>
     </div>
   </footer>
-  <script src="/content.js?v=20260920a"></script>
-  <script src="/app.js?v=20260912m"></script>
+  <script src="/content.js?v=20261003a"></script>
+  <script src="/app.js?v=20261003a"></script>
   <script>
     // Highlight whichever section the reader is in. Same scroll-position test
     // as the month jumper on the Boston prayer schedule: the last heading above
@@ -491,6 +537,34 @@
       // content.js fills in and reveals sections after fetching, so re-check once it has.
       setTimeout(update, 400);
       update();
+
+      // Phones and tablets: the dock opens from the "Sections" button instead.
+      var fab = document.querySelector(".jump-fab");
+      if (!fab) return;
+      function setOpen(open) {
+        dock.classList.toggle("is-open", open);
+        fab.setAttribute("aria-expanded", String(open));
+      }
+      fab.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setOpen(!dock.classList.contains("is-open"));
+      });
+      dock.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("click", function (e) {
+        if (dock.classList.contains("is-open") && !dock.contains(e.target)) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && dock.classList.contains("is-open")) { setOpen(false); fab.focus(); }
+      });
+      function toggleFab() {
+        var past = scrollY > 500;
+        fab.classList.toggle("is-visible", past);
+        if (!past) setOpen(false);
+      }
+      addEventListener("scroll", toggleFab, { passive: true });
+      toggleFab();
     })();
   </script>
 </body>
