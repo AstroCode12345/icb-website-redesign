@@ -1,15 +1,15 @@
 {
   "prayers": {
-    "fajr": "6:00 AM",
+    "fajr": "6:10 AM",
     "zuhr": "1:30 PM",
     "asr": "4:45 PM",
-    "maghrib": "6:35 PM",
-    "isha": "8:15 PM",
+    "maghrib": "6:25 PM",
+    "isha": "8:00 PM",
     "jumuah": {
       "khutbah": "1:00 PM",
       "iqamah": "1:30 PM"
     },
-    "lastUpdated": "19 September 2026"
+    "lastUpdated": "03 October 2026"
   },
   "khateebs": [
     {
@@ -274,7 +274,7 @@
     "youtube": "https://youtube.com/c/ICBWayland"
   },
   "donateUrl": "https://www.paypal.com/donate?hosted_button_id=Z25J5QYZZSYSE",
-  "siteUpdated": "2026-10-01",
+  "siteUpdated": "2026-10-03",
   "youth": {
     "registrationTitle": "2026–2027 Registration",
     "registrationBody": "Sign up for the ICB Wayland Youth Group for this school year.",
