@@ -463,3 +463,79 @@ to typecheck while the server is up.
   would be reading about a portal that no longer exists.
 - Body copy font sizes sprawl a little on the Contact and School pages.
 - The rental pricing table is still outstanding from before this stretch.
+
+## Phone pass, and a new homepage photo — 3 October 2026
+
+### Why
+Taymour noticed the two tabs on the Youth page stacking on his iPhone and asked
+for a full pass. Every page, every tab and the open menu were loaded in a
+headless browser at 360, 375, 393 and 430px, with a screenshot of each screen
+and automatic checks for anything wider than the screen. That found 36 weak
+points. 35 are fixed in the phone pass, and the last, a blurry homepage photo,
+by replacing the photo.
+
+Five of them hid information outright: board and school emails cut off at the
+screen edge, a Committees tab ten screens long, three of seven prayer columns
+missing from the Boston schedule, and a prayer bar that cut Isha in half and
+never showed Jumu'ah.
+
+### The pieces worth reusing
+All of these live in `styles.css`. Reach for them before writing a new one.
+
+| Class | What it does on a phone |
+|---|---|
+| `stack-table` | Each table row becomes a small card. A cell with `data-label` shows its label inline. Variants: `stack-table--titled` keeps the heading row, `contacts-table`, `action-table` (link becomes a button), `fee-table` |
+| `prayer-table--compact` | Keeps a table of numbers as a table: less padding, short headings, fixed widths. Used for the seven-column monthly schedule |
+| `iqamah-table`, `date-table` | Notes move under the prayer name; the date column sizes to its dates |
+| `btn-group` | Buttons share a row, or all go full width. Never a short pill over a long one |
+| `only-wide` / `only-narrow` | Swap a long label for a short one below 640px |
+| `nowrap` | Keeps a time, year or verse number in one piece |
+| `steps-grid`, `info-grid--tags`, `month-jump` | Numbered steps, title-only cards as tags, month shortcuts with real tap areas |
+| `jump-fab` | The School page's Sections button, for screens too narrow for the side dock |
+
+Two things are done in script because CSS cannot do them. `app.js` left-aligns
+a centred paragraph once it wraps to four lines on a phone, skipping italic
+verse quotes. The Calendar page adds `&mode=AGENDA` to the Google Calendar
+address on narrow screens, before the frame loads.
+
+### Checked before pushing
+All 23 pages at 360, 393 and 1280px, every tab included: nothing wider than the
+screen, no script errors, no missing files. The phone pages came out about 14
+percent shorter overall. Taymour reviewed it on his own iPhone over Wi-Fi first.
+
+### The photo
+The homepage photo beside "Established 1979" is now a daytime, straight-on view
+of the building (`images/icb-building-front.jpg`, 940px wide), cropped so the
+tower stays centred in the 4:3 desktop frame and the 16:9 phone frame. It is
+its own commit, so it can be reverted without touching the phone pass. The old
+`icb-building-night.jpg` is no longer used but is still in `images/`.
+
+### Mistakes worth not repeating
+**A phone rule placed above the rule it overrides does nothing.** It happened
+three times here: the footer columns, the About cards, and the gap between the
+rental steps. Each looked right in the stylesheet and wrong in the browser. Put
+a phone rule after what it overrides, or make its selector more specific, and
+look at the result.
+
+**Moving a block of CSS by script left a stray brace** that silently cancelled
+the footer's copyright styles. Count the braces after any scripted edit to
+`styles.css`.
+
+**The sitemap generator lists folders that only exist on this computer.** It
+globs every `index.html`, so with the saved old-site folder present it added
+`/OG-website pages/` to the sitemap. Caught by reading the diff, and left out of
+this push. Always read what a generator changed before committing it.
+
+### Open
+- **`tools/build-sitemap.py` should only list pages git tracks.** Until then,
+  do not run it with the old-site copies in the folder. The sitemap is also
+  missing College Scholarship, and Ramadan, which is switched off and unlinked,
+  so leaving that one out may be right.
+- **Confirm where the new homepage photo came from** with ICB.
+- `HOW-TO-UPDATE-THE-WEBSITE.md` is still stale (see the entry above).
+- Body text sizes still sprawl on Membership, School and Contact.
+- Seen while reviewing, not fixed: two typos on the Funeral page ("emeregncy",
+  "accomodate"); the School guidelines sentence points at curriculum documents
+  "above" while that section is hidden; the Services page reuses the Rental
+  page's intro; the homepage's empty events message mentions Facebook without
+  linking it.
