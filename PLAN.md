@@ -539,3 +539,39 @@ this push. Always read what a generator changed before committing it.
   "above" while that section is hidden; the Services page reuses the Rental
   page's intro; the homepage's empty events message mentions Facebook without
   linking it.
+
+## Sitemap generator fixed — 7 October 2026
+
+`tools/build-sitemap.py` built its list by reading the folder on disk, so it
+listed anything with an `index.html`, including the saved copy of the old site
+that only exists on Taymour's Mac. That was caught on 3 October and left out of
+that push. Now:
+
+- **It asks git which pages exist.** Only tracked pages are listed, so a
+  reference folder or a prototype can never leak in. A new page has to be
+  added with `git add` first, and the script names any page it skipped for
+  that reason.
+- **Pages with an on/off switch are left out while off.** `SWITCHED_PAGES`
+  maps a page to its switch in `content.json`. Ramadan is the only one. While
+  `ramadan.visible` is false the page is a placeholder that nothing links to,
+  so it stays out. Once an admin switches it on, the menu links to it on every
+  page and the next run of the script lists it. Taymour's call, 7 October.
+- **Without git it refuses** rather than guess from the folder.
+
+Tested in a throwaway clone against eight cases before running it for real:
+the old-site copy present, a new page added and not added, Ramadan on,
+`content.json` missing, a deleted page, and no git at all.
+
+The regenerated sitemap has 21 addresses, up from 20. College Scholarship had
+been missing since 13 September, and every date moved from 11 September to
+3 October, when the phone pass touched every page. All 21 were opened on the
+live site. This closes the first item under Open in the 3 October entry.
+
+### Open
+- **The site calls itself `icbwayland.org`, but the live site forwards that to
+  `www.icbwayland.org`** with a temporary (307) redirect. Every page's
+  canonical link, the sitemap and `robots.txt` use the first form. Search
+  engines cope, but the two should agree. Either make `icbwayland.org` the
+  primary domain in Vercel, or change `BASE` in the script and the canonical
+  links to the `www` form. The Vercel setting is the smaller change.
+- When Ramadan is switched on, run the script again so the page is listed.
